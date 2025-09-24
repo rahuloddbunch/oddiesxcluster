@@ -1,0 +1,260 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_width_text_new_sec_UWTDBp": {
+      "type": "image-width-text-new-sec",
+      "blocks": {
+        "image_GVkCk8": {
+          "type": "image",
+          "settings": {
+            "image2": "shopify://shop_images/Group_24_1.png"
+          }
+        },
+        "heading_fHd4fA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hi! we’re Kapil and Rahul.",
+            "heading_size": "h1"
+          }
+        },
+        "text_WaKCdD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Oddies didn’t start as a business plan. It started in tiny kitchen moments: turning instant noodles into a “gourmet” dinner because tomatoes were too pricey for gravy. Slapping peanut butter on toast for breakfast, lunch, and dinner because avocados felt like a luxury. Snacking on grape-and-mandarin lollies because the real fruit was out of reach that week.</p>",
+            "text2": "<p>Those choices felt normal until we realised how “good” we actually had it compared to millions of Aussies doing it tougher.</p>",
+            "text3": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "image_GVkCk8",
+        "heading_fHd4fA",
+        "text_WaKCdD"
+      ],
+      "name": "Image with new sec",
+      "settings": {
+        "image": "shopify://shop_images/Group_24_1.png",
+        "heading2": "Who Are We?",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "padding_top": 12,
+        "padding_bottom": 24
+      }
+    },
+    "image_width_text_new_sec_gpVmzy": {
+      "type": "image-width-text-new-sec",
+      "blocks": {
+        "caption_RtgHDr": {
+          "type": "caption",
+          "settings": {
+            "caption": "Australia doesn’t have a scarcity problem.",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "heading_L4ge3X": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>We produce enough food to feed everyone three times over and yet, about one in three households, struggled to put food on the table last year</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_XW9zFq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Around 2 million households experienced severe food insecurity. That’s skipping meals, cutting portions, or going whole days without eating.</p>",
+            "text2": "<p>Meanwhile, we waste over 7.6 million tonnes of food a year (much of it perfectly edible) costing the economy $36.6 billion and pumping out avoidable emissions. A meaningful slice of that waste starts before food reaches a trolley i.e. produce rejected or left behind because it’s the “wrong” shape or size.</p>",
+            "text3": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "caption_RtgHDr",
+        "heading_L4ge3X",
+        "text_XW9zFq"
+      ],
+      "name": "Image with new sec",
+      "settings": {
+        "heading2": "The Realisation",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 24
+      }
+    },
+    "image_width_text_new_sec_3wBFXn": {
+      "type": "image-width-text-new-sec",
+      "blocks": {
+        "image_L4HEU3": {
+          "type": "image",
+          "settings": {
+            "image2": "shopify://shop_images/Vector_366fa6e3-4518-439a-a10a-79928e74d276.svg"
+          }
+        },
+        "caption_hyF8EN": {
+          "type": "caption",
+          "settings": {
+            "caption": "Oddies exists to fix the imbalance between abundance and access. Our mission is simple:",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        },
+        "heading_y7tApn": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Odd fruit & veg for the everyday Aussie.</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_PFqFLF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We rescue the good stuff that supermarkets skip for being \"too big\", \"too small\", \"too curvy\", or just \"too many\". Using these, we deliver weekly boxes at prices that make sense. Farmers get paid fairly. Families get fresh, nutritious produce without the markup. Less food goes to landfill. More ends up on plates.</p>",
+            "text2": "",
+            "text3": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "image_L4HEU3",
+        "caption_hyF8EN",
+        "heading_y7tApn",
+        "text_PFqFLF"
+      ],
+      "name": "Image with new sec",
+      "settings": {
+        "heading2": "This is Why We Created",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "padding_top": 20,
+        "padding_bottom": 24
+      }
+    },
+    "image_with_text_PN8GgC": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_yBzq3d": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’re building a future where the food we grow actually feeds the people who need it; without cosmetic gatekeeping or sticker-shock. If you believe food should be eaten, not wasted; fair, not fickle; honest, not over-processed - pull up a chair. There’s room at the table.<br/><br/>- Kapil & Rahul<br/>Co-founders, Oddies</p>",
+            "text2": "",
+            "text3": "",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_yBzq3d"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "heading2": "Where We’re Headed",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 16,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_eDixtp": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_kMjM3A": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Questions about boxes, delivery, or the mission? Ask away!</p>",
+            "text2": "",
+            "text3": "",
+            "text_style": "body"
+          }
+        },
+        "button_xYGGa9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "text_kMjM3A",
+        "button_xYGGa9"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "heading2": "We’re here if you need us",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_width_text_new_sec_UWTDBp",
+    "image_width_text_new_sec_gpVmzy",
+    "image_width_text_new_sec_3wBFXn",
+    "image_with_text_PN8GgC",
+    "image_with_text_eDixtp"
+  ]
+}

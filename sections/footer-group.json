@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_anKjCb": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image_width": 140,
+            "alignment": "center"
+          }
+        },
+        "klaviyo_email_marketing_sms_form_embed_block_7gmJLf": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "<div class=\"klaviyo-form-R2YZv9\"></div>"
+          }
+        },
+        "link_list_Gcy9NA": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "image_anKjCb",
+        "klaviyo_email_marketing_sms_form_embed_block_7gmJLf",
+        "link_list_Gcy9NA"
+      ],
+      "settings": {
+        "color_scheme": "scheme-4e1ad062-c774-4d76-b80b-7e17e87f9ef6",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe for exclusive discounts, recipes and tips!",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

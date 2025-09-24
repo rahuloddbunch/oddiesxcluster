@@ -1,0 +1,9 @@
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+  <a href="{{ routes.root_url }}">Home</a>
+  <span class="arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
+  <span>{% if collection.handle == 'all' %}
+            Our Produce Boxes
+          {% else %}
+            {{- collection.title | escape -}}
+          {% endif %}</span>
+</nav>
