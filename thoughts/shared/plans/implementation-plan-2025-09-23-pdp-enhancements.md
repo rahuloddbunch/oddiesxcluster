@@ -99,7 +99,7 @@ Set up the foundation for the enhanced PDP by creating a new template and its as
 #### Automated Verification:
 - [x] Template file exists: `ls templates/product.enhanced.json`
 - [x] Section file exists: `ls sections/main-product-enhanced.liquid`
-- [x] No Liquid syntax errors: `theme check`
+- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] New template appears in Shopify admin product template selector
@@ -158,7 +158,7 @@ The existing gallery already supports multiple images with thumbnail slider. Jus
 
 #### Automated Verification:
 - [x] Gallery is properly configured in template
-- [x] No Liquid syntax errors: `theme check`
+- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Gallery displays all product images (not just one)
@@ -173,6 +173,18 @@ The existing gallery already supports multiple images with thumbnail slider. Jus
 
 ### Overview
 Implement trust badges below the Add to Cart button showing shipping info, money-back guarantee, and payment security.
+
+### Assets Required:
+
+Use the following assets (with img tags) when implementing the changes:
+
+Payment icons:
+- Paypal svg: https://raw.githubusercontent.com/activemerchant/payment_icons/master/app/assets/images/payment_icons/paypal.svg
+- Klarna svg: https://raw.githubusercontent.com/activemerchant/payment_icons/master/app/assets/images/payment_icons/klarna.svg
+- Mastercard svg: https://raw.githubusercontent.com/activemerchant/payment_icons/master/app/assets/images/payment_icons/master.svg
+- Visa svg: https://raw.githubusercontent.com/activemerchant/payment_icons/master/app/assets/images/payment_icons/visa.svg
+- American Express svg: https://raw.githubusercontent.com/activemerchant/payment_icons/master/app/assets/images/payment_icons/american_express.svg
+- Apple Pay svg: https://raw.githubusercontent.com/activemerchant/payment_icons/master/app/assets/images/payment_icons/apple_pay.svg
 
 ### Changes Required:
 
@@ -319,7 +331,7 @@ Implement trust badges below the Add to Cart button showing shipping info, money
 - [x] Trust badges snippet exists: `ls snippets/trust-badges.liquid`
 - [x] CSS file exists: `ls assets/component-trust-badges.css`
 - [x] SVG icon files exist in assets
-- [x] No Liquid syntax errors: `theme check`
+- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Trust badges appear below Add to Cart button
@@ -333,113 +345,13 @@ Implement trust badges below the Add to Cart button showing shipping info, money
 ## Phase 4: Integrate Above-the-Fold Social Proof
 
 ### Overview
-Add star ratings and "Trusted by X Aussies" messaging near the product title for immediate social validation.
 
-### Changes Required:
-
-#### 1. Create Social Proof Block
-**File**: `snippets/social-proof-above-fold.liquid`
-**Changes**: New snippet for above-fold social proof
-
-```liquid
-<div class="social-proof-above-fold" {{ block.shopify_attributes }}>
-  <div class="social-proof__rating">
-    <div class="rating" role="img" aria-label="{{ block.settings.rating }} out of 5 stars">
-      {% assign rating_integer = block.settings.rating | floor %}
-      {% assign rating_decimal = block.settings.rating | minus: rating_integer %}
-
-      {% for i in (1..5) %}
-        {% if i <= rating_integer %}
-          <svg class="rating__star rating__star--full" width="20" height="20">
-            <!-- Full star SVG -->
-          </svg>
-        {% elsif rating_decimal > 0 and i == rating_integer | plus: 1 %}
-          <svg class="rating__star rating__star--half" width="20" height="20">
-            <!-- Half star SVG -->
-          </svg>
-        {% else %}
-          <svg class="rating__star rating__star--empty" width="20" height="20">
-            <!-- Empty star SVG -->
-          </svg>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    <span class="social-proof__rating-text">
-      {{ block.settings.rating }} ({{ block.settings.reviews_count }} reviews)
-    </span>
-  </div>
-
-  <div class="social-proof__trust">
-    <svg class="trust-icon" width="16" height="16">
-      <!-- Shield/checkmark icon -->
-    </svg>
-    <span>Trusted by {{ block.settings.trusted_count }} Aussies</span>
-  </div>
-</div>
-```
-
-#### 2. Add Social Proof Styles
-**File**: `assets/component-social-proof.css`
-**Changes**: Styling for social proof elements
-
-```css
-.social-proof-above-fold {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.social-proof__rating {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.rating {
-  display: flex;
-  gap: 2px;
-}
-
-.rating__star--full {
-  fill: #FFC107;
-}
-
-.rating__star--half {
-  fill: url(#star-gradient);
-}
-
-.rating__star--empty {
-  fill: #E0E0E0;
-}
-
-.social-proof__rating-text {
-  font-size: 0.875rem;
-  color: #666;
-}
-
-.social-proof__trust {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  color: #4CAF50;
-  font-weight: 500;
-}
-
-.trust-icon {
-  fill: currentColor;
-}
-```
+Move the "Trusted by X Aussies" from underneath the reviews to right underneath the product title.
 
 ### Success Criteria:
 
 #### Automated Verification:
-- [x] Social proof snippet exists: `ls snippets/social-proof-above-fold.liquid`
-- [x] CSS file exists: `ls assets/component-social-proof.css`
-- [x] No Liquid syntax errors: `theme check`
+- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Star rating displays correctly with proper fill
@@ -588,7 +500,7 @@ Calculate and display percentage discount with time-limited sale messaging to cr
 - [x] Enhanced price snippet exists: `ls snippets/price-enhanced.liquid`
 - [x] CSS file exists: `ls assets/component-price-enhanced.css`
 - [x] Percentage calculation is accurate
-- [x] No Liquid syntax errors: `theme check`
+- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Discount percentage displays correctly
@@ -608,10 +520,7 @@ Calculate and display percentage discount with time-limited sale messaging to cr
 - Check image gallery with varying numbers of images
 
 ### Integration Tests:
-- Full page load performance with enhanced elements
-- Cart functionality with new template
-- Variant selection updates all enhanced elements
-- Mobile responsiveness across all breakpoints
+- Run `timeout 10 shopify theme dev 2>&1 | tee theme-dev-logs.txt` to run the theme dev server and check for errors in the logs.
 
 ### Manual Testing Steps:
 1. Assign enhanced template to test product
