@@ -97,9 +97,9 @@ Set up the foundation for the enhanced PDP by creating a new template and its as
 ### Success Criteria:
 
 #### Automated Verification:
-- [x] Template file exists: `ls templates/product.enhanced.json`
-- [x] Section file exists: `ls sections/main-product-enhanced.liquid`
-- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
+- [] Template file exists: `ls templates/product.enhanced.json`
+- [] Section file exists: `ls sections/main-product-enhanced.liquid`
+- [] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] New template appears in Shopify admin product template selector
@@ -157,8 +157,8 @@ The existing gallery already supports multiple images with thumbnail slider. Jus
 ### Success Criteria:
 
 #### Automated Verification:
-- [x] Gallery is properly configured in template
-- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
+- [] Gallery is properly configured in template
+- [] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Gallery displays all product images (not just one)
@@ -328,10 +328,10 @@ Payment icons:
 ### Success Criteria:
 
 #### Automated Verification:
-- [x] Trust badges snippet exists: `ls snippets/trust-badges.liquid`
-- [x] CSS file exists: `ls assets/component-trust-badges.css`
-- [x] SVG icon files exist in assets
-- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
+- [] Trust badges snippet exists: `ls snippets/trust-badges.liquid`
+- [] CSS file exists: `ls assets/component-trust-badges.css`
+- [] SVG icon files exist in assets
+- [] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Trust badges appear below Add to Cart button
@@ -351,7 +351,7 @@ Move the "Trusted by X Aussies" from underneath the reviews to right underneath 
 ### Success Criteria:
 
 #### Automated Verification:
-- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
+- [] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Star rating displays correctly with proper fill
@@ -497,10 +497,10 @@ Calculate and display percentage discount with time-limited sale messaging to cr
 ### Success Criteria:
 
 #### Automated Verification:
-- [x] Enhanced price snippet exists: `ls snippets/price-enhanced.liquid`
-- [x] CSS file exists: `ls assets/component-price-enhanced.css`
-- [x] Percentage calculation is accurate
-- [x] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
+- [] Enhanced price snippet exists: `ls snippets/price-enhanced.liquid`
+- [] CSS file exists: `ls assets/component-price-enhanced.css`
+- [] Percentage calculation is accurate
+- [] No Liquid syntax errors: run `shopify theme check --output json > output.json || true` . This will output linter errors to output.json. Follow this command up with `jq 'map(select(.path == <absolute_path1> or .path == <absolute_path2>))' output.json` to filter the errors to relevant files you've edited.
 
 #### Manual Verification:
 - [ ] Discount percentage displays correctly

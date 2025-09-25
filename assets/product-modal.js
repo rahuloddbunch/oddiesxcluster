@@ -37,6 +37,34 @@ if (!customElements.get('product-modal')) {
         )
           activeMedia.loadContent();
       }
+
+      // Add navigation event listeners
+      const prevButton = this.querySelector('.product-media-modal__nav--prev');
+      const nextButton = this.querySelector('.product-media-modal__nav--next');
+
+      if (prevButton && nextButton) {
+        prevButton.addEventListener('click', () => this.navigateMedia('prev'));
+        nextButton.addEventListener('click', () => this.navigateMedia('next'));
+      }
+    }
+
+    // Navigation method
+    navigateMedia(direction) {
+      const activeMedia = this.querySelector('[data-media-id].active');
+      const allMedia = Array.from(this.querySelectorAll('[data-media-id]'));
+      const currentIndex = allMedia.indexOf(activeMedia);
+
+      let newIndex;
+      if (direction === 'prev') {
+        newIndex = currentIndex - 1 < 0 ? allMedia.length - 1 : currentIndex - 1;
+      } else {
+        newIndex = currentIndex + 1 >= allMedia.length ? 0 : currentIndex + 1;
+      }
+
+      // Hide current, show new
+      activeMedia.classList.remove('active');
+      allMedia[newIndex].classList.add('active');
+      allMedia[newIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   );
 }

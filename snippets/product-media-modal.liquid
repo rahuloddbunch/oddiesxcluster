@@ -26,6 +26,25 @@
       {{ 'icon-close.svg' | inline_asset_content }}
     </button>
 
+    {%- if product.media.size > 1 -%}
+      <button
+        class="product-media-modal__nav product-media-modal__nav--prev"
+        type="button"
+        aria-label="{{ 'products.modal.previous' | t }}"
+        data-direction="prev"
+      >
+        {{ 'icon-caret.svg' | inline_asset_content }}
+      </button>
+      <button
+        class="product-media-modal__nav product-media-modal__nav--next"
+        type="button"
+        aria-label="{{ 'products.modal.next' | t }}"
+        data-direction="next"
+      >
+        {{ 'icon-caret.svg' | inline_asset_content }}
+      </button>
+    {%- endif -%}
+
     <div
       class="product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
       role="document"

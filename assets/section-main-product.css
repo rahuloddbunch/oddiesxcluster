@@ -618,7 +618,59 @@ a.product__text {
 .product-media-modal[open] {
   visibility: visible;
   opacity: 1;
-  z-index: 101;
+  z-index: 1000; /* Changed from 101 to be above header (999) */
+}
+
+/* Modal Navigation Arrows */
+.product-media-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background-color 0.2s;
+}
+
+.product-media-modal__nav:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.product-media-modal__nav--prev {
+  left: 20px;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.product-media-modal__nav--next {
+  right: 20px;
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.product-media-modal__nav svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 749px) {
+  .product-media-modal__nav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .product-media-modal__nav--prev {
+    left: 10px;
+  }
+
+  .product-media-modal__nav--next {
+    right: 10px;
+  }
 }
 
 .product-media-modal__dialog {
