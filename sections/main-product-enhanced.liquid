@@ -24,12 +24,20 @@
   }
 
   /* Social proof styling */
+  .main-product-enhanced .product__title ~ .product-social-proof,
+  .main-product-enhanced .product-social-proof.mobile {
+    margin: 15px 0 0 0;
+    padding: 0 0;
+    text-align: left;
+  }
+
   .main-product-enhanced .product-social-proof {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
   }
+
 
   .main-product-enhanced .product-social-proof.desktop {
     margin-bottom: 10px;
@@ -53,6 +61,16 @@
     object-fit: cover;
   }
 
+  .main-product-enhanced .product-social-proof .people-img {
+    width: 120px; /* Slightly smaller on product page */
+  }
+
+  .main-product-enhanced .product-social-proof p {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+  }
+
   .main-product-enhanced .product-social-proof .text-sec-image-with-text-part {
     font-size: 14px;
     color: #333;
@@ -61,6 +79,26 @@
   /* Hide duplicate social proof in enhanced template */
   .main-product-enhanced .multicolumn-review-enhanced .text-sec-image-with-text-part {
     display: none !important;
+  }
+
+  /* Enhanced Product Title Alignment */
+  .main-product-enhanced .product__title:has(~ .product-social-proof),
+  .main-product-enhanced .product-social-proof ~ .product__title,
+  .main-product-enhanced .product-social-proof + .product__title {
+    text-align: left !important;
+  }
+
+  .main-product-enhanced .product-social-proof ~ .product__title h1,
+  .main-product-enhanced .product-social-proof ~ .product__title h2,
+  .main-product-enhanced .product-social-proof + .product__title h1,
+  .main-product-enhanced .product-social-proof + .product__title h2 {
+    text-align: left !important;
+  }
+
+  @media (max-width: 749px) {
+    .main-product-enhanced .product-social-proof {
+      margin: 10px 0 15px 0;
+    }
   }
 
   @media screen and (max-width: 749px) {
@@ -161,7 +199,7 @@
           <div class="round-sec-image-part">
             <img class="people-img" src="https://cdn.shopify.com/s/files/1/0664/2404/5729/files/People.png?v=1757251520" alt="Oddies People">
           </div>
-          <p>Trusted by 1000's of aussies</p>
+          <p style="text-align: left;">Trusted by 1000's of aussies</p>
         </div>
         <div class="product__title mobile" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
