@@ -1,0 +1,34 @@
+{% comment %}
+  Simple hardcoded image slide for testing
+
+  Accepts:
+  - image_url: URL of the image
+  - media_width: Width percentage
+  - media_fit: Fit method
+{% endcomment %}
+
+{%- liquid
+  assign desktop_columns = 1
+  assign mobile_columns = 1
+-%}
+
+{%- capture sizes -%}
+  (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | divided_by: desktop_columns | round }}px, (min-width: 990px) calc({{ media_width | times: 100 | divided_by: desktop_columns }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw / {{ mobile_columns }} - 4rem)
+{%- endcapture -%}
+
+<div
+  class="product-media-container media-type-image media-fit-{{ media_fit }} global-media-settings gradient"
+  style="--ratio: 1.0; --preview-ratio: 1.0;"
+>
+  <div class="product__media media media--transparent">
+    <img
+      src="{{ image_url }}"
+      alt="Test Image"
+      class="product-image-main"
+      loading="lazy"
+      sizes="{{ sizes }}"
+      width="1000"
+      height="1000"
+    >
+  </div>
+</div>

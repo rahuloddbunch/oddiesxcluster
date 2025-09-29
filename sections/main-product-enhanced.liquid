@@ -176,12 +176,13 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+
   <div class="bread-crumbs-main-sec">
     <div class="page-width">
     <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
     <a href="{{ routes.root_url }}">Home</a>
     <span class="arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
-    
+
     {% if collection %}
       <a href="{{ collection.url }}">{{ collection.title }}</a>
       <span class="arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></span>
@@ -194,7 +195,11 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+        {%- comment -%}
+          TEMPORARY TEST: Using enhanced gallery with hardcoded images
+          TO REVERT: Change to {% render 'product-media-gallery', variant_images: variant_images %}
+        {%- endcomment -%}
+        {% render 'product-media-gallery-enhanced' %}
         <div class="text-sec-image-with-text-part product-social-proof mobile">
           <div class="round-sec-image-part">
             <img class="people-img" src="https://cdn.shopify.com/s/files/1/0664/2404/5729/files/People.png?v=1757251520" alt="Oddies People">
