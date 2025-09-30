@@ -188,15 +188,15 @@
   </div>
   </div>
   <div class="page-width">
-    <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="product main-product-enhanced product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper" style="margin-top: -5px !important;">
         {%- comment -%}
           TEMPORARY TEST: Using enhanced gallery with hardcoded images
           TO REVERT: Change to {% render 'product-media-gallery', variant_images: variant_images %}
         {%- endcomment -%}
         {% render 'product-media-gallery-enhanced' %}
-        <div class="text-sec-image-with-text-part product-social-proof mobile product-rating" style="display: flex; align-items: center; gap: 8px;">
-          <div class="star-rating" style="margin-top: -5px !important;">
+        <div class="text-sec-image-with-text-part product-social-proof mobile product-rating" style="margin-top: -5px !important;">
+          <div class="star-rating">
             <svg width="100" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <clipPath id="star-clip-60">
@@ -220,7 +220,7 @@
           </div>
           <span><strong>4.65/5</strong> (118)</span>
         </div>
-        <div class="product__title mobile" style="text-align: left !important;" {{ block.shopify_attributes }}>
+        <div class="product__title mobile" style="text-align: left !important; margin-top: -10px !important;" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
@@ -247,7 +247,32 @@
                   {{- block.settings.text -}}
                 </p>
               {%- when 'title' -%}
-                <div class="product__title desktop" {{ block.shopify_attributes }}>
+                <div class="text-sec-image-with-text-part product-social-proof desktop product-rating">
+                  <div class="star-rating" style="margin-top: -5px !important;">
+                    <svg width="100" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <clipPath id="star-clip-60-desktop">
+                          <rect x="0" y="0" width="60%" height="100%"/>
+                        </clipPath>
+                      </defs>
+                      <!-- Star 1 -->
+                      <path d="M10 0L12.245 6.91L19.511 6.91L13.633 11.18L15.878 18.09L10 13.82L4.122 18.09L6.367 11.18L0.489 6.91L7.755 6.91L10 0Z" fill="#f37920"/>
+                      <!-- Star 2 -->
+                      <path d="M30 0L32.245 6.91L39.511 6.91L33.633 11.18L35.878 18.09L30 13.82L24.122 18.09L26.367 11.18L20.489 6.91L27.755 6.91L30 0Z" fill="#f37920"/>
+                      <!-- Star 3 -->
+                      <path d="M50 0L52.245 6.91L59.511 6.91L53.633 11.18L55.878 18.09L50 13.82L44.122 18.09L46.367 11.18L40.489 6.91L47.755 6.91L50 0Z" fill="#f37920"/>
+                      <!-- Star 4 -->
+                      <path d="M70 0L72.245 6.91L79.511 6.91L73.633 11.18L75.878 18.09L70 13.82L64.122 18.09L66.367 11.18L60.489 6.91L67.755 6.91L70 0Z" fill="#f37920"/>
+                      <!-- Star 5 (60% filled) -->
+                      <g>
+                        <path d="M90 0L92.245 6.91L99.511 6.91L93.633 11.18L95.878 18.09L90 13.82L84.122 18.09L86.367 11.18L80.489 6.91L87.755 6.91L90 0Z" fill="#E0E0E0"/>
+                        <path d="M90 0L92.245 6.91L99.511 6.91L93.633 11.18L95.878 18.09L90 13.82L84.122 18.09L86.367 11.18L80.489 6.91L87.755 6.91L90 0Z" fill="#f37920" clip-path="url(#star-clip-60-desktop)"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <span><strong>4.65/5</strong> (118)</span>
+                </div>
+                <div class="product__title desktop" {{ block.shopify_attributes }} style="text-align: left !important;">
                   <h1>{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
