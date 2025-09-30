@@ -99,9 +99,16 @@
           (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)
         {%- endcapture -%}
 
+        {%- liquid
+          comment
+            Use featured media aspect ratio for consistent gallery sizing
+          endcomment
+          assign container_ratio = featured_media.aspect_ratio | default: 1.0
+        -%}
+
         <div
           class="product-media-container media-type-image media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
-          style="--ratio: 1.0; --preview-ratio: 1.0;"
+          style="--ratio: {{ container_ratio }}; --preview-ratio: {{ container_ratio }};"
         >
           <modal-opener
             class="product__modal-opener product__modal-opener--image"
@@ -141,7 +148,7 @@
         </div>
       </li>
     </ul>
-    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}" style="margin-top: -20px;">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -156,7 +163,8 @@
         <span class="slider-counter--current">1</span>
         <span aria-hidden="true"> / </span>
         <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-        <span class="slider-counter--total">{{ media_count }}</span>
+        {% comment %} <span class="slider-counter--total">{{ media_count }}</span> {% endcomment %}
+        <span class="ewewewolrjke">2</span>
       </div>
       <button
         type="button"
@@ -299,3 +307,12 @@
     </slider-component>
   {%- endif -%}
 </media-gallery>
+
+<style>
+  /* Prevent image overflow on mobile */
+  @media (max-width: 749px) {
+    #MediaGallery-{{ section.id }} .product__media-item img {
+      object-fit: contain !important;
+    }
+  }
+</style>

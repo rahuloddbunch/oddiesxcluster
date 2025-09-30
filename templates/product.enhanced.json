@@ -226,7 +226,7 @@
       }
     },
     "multicolumn_review_dgVFGN": {
-      "type": "multicolumn-review-enhanced",
+      "type": "multicolumn-review",
       "blocks": {
         "column_zMnxUX": {
           "type": "column",
