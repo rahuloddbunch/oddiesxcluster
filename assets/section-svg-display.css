@@ -1,0 +1,73 @@
+.svg-display {
+  overflow: hidden;
+}
+
+.svg-display__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-display__container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.svg-display__container svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.svg-display__link {
+  display: block;
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.svg-display__link:hover {
+  opacity: 0.85;
+}
+
+.svg-display__link:focus-visible {
+  outline: 2px solid rgba(var(--color-foreground), 0.5);
+  outline-offset: 4px;
+}
+
+.svg-display__placeholder {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.3;
+}
+
+.svg-display__placeholder svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 749px) {
+  .svg-display__container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .svg-display__container {
+    max-width: 600px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 990px) {
+  .svg-display__container {
+    max-width: 800px;
+  }
+}

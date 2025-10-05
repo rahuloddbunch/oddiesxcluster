@@ -1,0 +1,105 @@
+{{ 'section-svg-display.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="svg-display isolate{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding">
+    <div class="svg-display__wrapper">
+      {%- if section.settings.svg_code != blank -%}
+        {%- if section.settings.link != blank -%}
+          <a href="{{ section.settings.link }}" class="svg-display__link">
+            <div class="svg-display__container">
+              {{ section.settings.svg_code }}
+            </div>
+          </a>
+        {%- else -%}
+          <div class="svg-display__container">
+            {{ section.settings.svg_code }}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="svg-display__placeholder">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SVG Display",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "html",
+      "id": "svg_code",
+      "label": "SVG Code",
+      "info": "Paste your SVG markup here (e.g., <svg>...</svg>)"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link (optional)",
+      "info": "Make the SVG clickable by adding a product, collection, or custom URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "SVG Display"
+    }
+  ]
+}
+{% endschema %}

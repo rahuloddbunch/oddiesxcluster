@@ -85,6 +85,17 @@
         "padding_bottom": 36
       }
     },
+    "svg_display_pink_elephant": {
+      "type": "svg-display",
+      "settings": {
+        "svg_code": "<svg width=\"400\" height=\"400\" viewBox=\"0 0 400 400\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"200\" cy=\"200\" r=\"150\" fill=\"#FF69B4\"/><text x=\"200\" y=\"220\" text-anchor=\"middle\" font-size=\"48\" fill=\"white\">🐘</text></svg>",
+        "link": "",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_product_CG36dx": {
       "type": "featured-product",
       "blocks": {
@@ -765,6 +776,7 @@
   "order": [
     "image_banner2_9PjBqF",
     "image_width_textslider_BhHDxR",
+    "svg_display_pink_elephant",
     "featured_product_CG36dx",
     "featured_collection_G3wg7y",
     "featured_collection_yzn4Pi",
