@@ -1,0 +1,72 @@
+.pink-elephant-svg-section {
+  width: 100%;
+}
+
+.pink-elephant-svg__wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.pink-elephant-svg__wrapper--left {
+  justify-content: flex-start;
+}
+
+.pink-elephant-svg__wrapper--center {
+  justify-content: center;
+}
+
+.pink-elephant-svg__wrapper--right {
+  justify-content: flex-end;
+}
+
+.pink-elephant-svg__container {
+  display: inline-block;
+}
+
+.pink-elephant-svg__container svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Size variants - Mobile first */
+.pink-elephant-svg__container--small svg {
+  width: 150px;
+}
+
+.pink-elephant-svg__container--medium svg {
+  width: 250px;
+}
+
+.pink-elephant-svg__container--large svg {
+  width: 350px;
+}
+
+/* Desktop sizes */
+@media screen and (min-width: 750px) {
+  .pink-elephant-svg__container--small svg {
+    width: 200px;
+  }
+
+  .pink-elephant-svg__container--medium svg {
+    width: 350px;
+  }
+
+  .pink-elephant-svg__container--large svg {
+    width: 500px;
+  }
+}
+
+.pink-elephant-svg__placeholder {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.pink-elephant-svg__placeholder p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.875rem;
+}

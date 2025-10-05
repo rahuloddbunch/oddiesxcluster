@@ -639,6 +639,17 @@
         "padding_bottom": 36
       }
     },
+    "pink_elephant_svg_Pe7kM2": {
+      "type": "pink-elephant-svg",
+      "settings": {
+        "svg_url": "",
+        "svg_size": "medium",
+        "alignment": "center",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collapsible_content_AmXq3i": {
       "type": "collapsible-content",
       "blocks": {
@@ -765,6 +776,7 @@
   "order": [
     "image_banner2_9PjBqF",
     "image_width_textslider_BhHDxR",
+    "pink_elephant_svg_Pe7kM2",
     "featured_product_CG36dx",
     "featured_collection_G3wg7y",
     "featured_collection_yzn4Pi",
