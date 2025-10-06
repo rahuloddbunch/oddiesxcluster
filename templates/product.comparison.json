@@ -1,0 +1,681 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_c39iBL": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% render 'week-produce' %}"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "recharge_subscriptions_subscription_widget_v2_yMYCDb": {
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget-v2/371eed76-0b44-4869-9813-730372ea378e",
+          "settings": {}
+        },
+        "custom_liquid_W8AcEz": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"display: block;\" data-app=\"oddbunch-postcodes\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "custom_liquid_c39iBL",
+        "description",
+        "share",
+        "recharge_subscriptions_subscription_widget_v2_yMYCDb",
+        "custom_liquid_W8AcEz"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 12
+      }
+    },
+    "comparison_chart": {
+      "type": "ss-comparison-table-12",
+      "blocks": {
+        "row_save_money": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Save money",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        },
+        "row_convenience": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Convenience",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        },
+        "row_freshness": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Freshness",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "check"
+          }
+        },
+        "row_food_waste": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Fighting Food Waste",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_save_money",
+        "row_convenience",
+        "row_freshness",
+        "row_food_waste"
+      ],
+      "settings": {
+        "heading": "<p>Why Choose Oddies?</p>",
+        "heading_color": "#000000",
+        "text": "",
+        "content_align": "center",
+        "content_align_mobile": "center",
+        "table_columns": 3,
+        "first_heading": "Oddies",
+        "second_heading": "Grocery Store Delivery",
+        "third_heading": "Going to the Store",
+        "column_heading_color": "#000000",
+        "column_heading_active_color": "#007431",
+        "value_color": "#000000",
+        "value_active_color": "#007431",
+        "value_icon_color": "#000000",
+        "value_icon_active_color": "#007431",
+        "table_column_bg_color": "#f5f5f5",
+        "table_column_active_bg_color": "#e6f5ec",
+        "row_heading_color": "#000000",
+        "row_border_color": "#d9d9d9",
+        "background_color": "#ffffff",
+        "border_color": "#000000",
+        "border_thickness": 0,
+        "table_radius": 20,
+        "section_radius": 0,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "full_width": false,
+        "content_width": 1200
+      }
+    },
+    "multicolumn_XrJzit": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VGhtX6": {
+          "type": "column",
+          "settings": {
+            "video": "shopify://files/videos/ugc 1_96e180ab-35ab-42f5-a1b0-9765402b5771.mp4",
+            "custom_video": "",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "aspect_ratio": 30,
+            "title": "",
+            "title2": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Ewfb7y": {
+          "type": "column",
+          "settings": {
+            "video": "shopify://files/videos/ugc 2.mp4",
+            "custom_video": "",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "aspect_ratio": 30,
+            "title": "",
+            "title2": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XYDMxw": {
+          "type": "column",
+          "settings": {
+            "video": "shopify://files/videos/ugc 3.mp4",
+            "custom_video": "",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "aspect_ratio": 30,
+            "title": "",
+            "title2": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gDxkUe": {
+          "type": "column",
+          "settings": {
+            "video": "shopify://files/videos/ugc 4.mp4",
+            "custom_video": "",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "aspect_ratio": 30,
+            "title": "",
+            "title2": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_YFC8Fg": {
+          "type": "column",
+          "settings": {
+            "video": "shopify://files/videos/ugc 5.mp4",
+            "custom_video": "",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "aspect_ratio": 30,
+            "title": "",
+            "title2": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_VGhtX6",
+        "column_Ewfb7y",
+        "column_XYDMxw",
+        "column_gDxkUe",
+        "column_YFC8Fg"
+      ],
+      "name": "UGC Videos",
+      "settings": {
+        "title": "Our Customers say it Best",
+        "title2": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "multicolumn_review_comparison": {
+      "type": "multicolumn-review-comparison",
+      "blocks": {
+        "column_zMnxUX": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "text": "<p>&ldquo;Ok so i thought this was gonna be small, but nah the box is actually massive lol. saved me a whole trip to the shops.&rdquo;</p><p><strong>&mdash;  Jas, Blacktown</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dQ3Hkf": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "text": "<p>&ldquo;Wasn&rsquo;t sure about the whole &lsquo;wonky veg&rsquo; thing but the carrots taste the same as any other carrot and cheaper. My kids already smashed the apples&rdquo;<br/><br/><strong>&mdash; Lach, Leppington</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NtaNYN": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "text": "<p>&ldquo;Tried the first box and honestly impressed. mix of fruit and veg, nothing fancy just good food. feels nice knowing it&rsquo;s food that would have gone to waste otherwise.&rdquo;</p><p><strong>&mdash; Priya, Hornsby</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_yMMEPz": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "text": "<p>&ldquo;Box arrived today 🙌 honestly fresher than half the stuff I&rsquo;ve been getting at the supermarket. the pears are sooo good&rdquo;</p><p><strong>&mdash; Liam, Bankstown</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BTjqFb": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "title2": "",
+            "text": "<p>&ldquo;Just got my oddies box, heaps more stuff than i expected. def cheaper than coles.&rdquo;</p><p><strong>&mdash; Sarah, Parramatta</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_zMnxUX",
+        "column_dQ3Hkf",
+        "column_NtaNYN",
+        "column_yMMEPz",
+        "column_BTjqFb"
+      ],
+      "name": "Reviews - Comparison Template",
+      "settings": {
+        "title": "",
+        "title2": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_not_slider_comparison": {
+      "type": "multicolumn-not-slider-comparison",
+      "blocks": {
+        "column_GXDgJf": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_69_3.png",
+            "title": "WE RESCUE",
+            "title4": "STEP 1",
+            "text": "<p>Bent bananas? Curvy carrots? We collect them straight from Aussie farms fresh and ready to eat. </p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_dPw3XE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_69_4.png",
+            "title": "YOU CHECK",
+            "title4": "STEP 2",
+            "text": "<p>Check our Weekly Harvest every Monday on our website and socials. If you like the haul, you're all set. If you want to skip, it's just one button click.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BRcHgV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Frame_69_5.png",
+            "title": "<strong>WE DELIVER</strong>",
+            "title4": "STEP 3",
+            "text": "<p>Set it once and get your Oddies box every week, . Freshness on repeat - no fuss, no lock-ins.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_GXDgJf",
+        "column_dPw3XE",
+        "column_BRcHgV"
+      ],
+      "name": "How It Works - Comparison Template",
+      "settings": {
+        "title": "How Oddies Works",
+        "title2": "",
+        "heading_size": "h1",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 72
+      }
+    },
+    "image_width_text_new_sec_XkfgpK": {
+      "type": "image-width-text-new-sec",
+      "blocks": {
+        "heading_RPVMJb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Two mates on a simple mission:",
+            "heading_size": "h2"
+          }
+        },
+        "image_PyCBQm": {
+          "type": "image",
+          "settings": {
+            "image2": "shopify://shop_images/About_us_2_1.png"
+          }
+        },
+        "text_fXHwKQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To fix a broken system and make fresh food fairer for Aussies families and farmers.</p>",
+            "text2": "",
+            "text3": "",
+            "text_style": "body"
+          }
+        },
+        "button_j3NdtP": {
+          "type": "button",
+          "settings": {
+            "button_label": "Why we started Oddies",
+            "button_link": "shopify://pages/about-us",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_RPVMJb",
+        "image_PyCBQm",
+        "text_fXHwKQ",
+        "button_j3NdtP"
+      ],
+      "name": "Who Are We",
+      "settings": {
+        "image": "shopify://shop_images/About_us_2_1.png",
+        "heading2": "Who Are We?",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "padding_top": 36,
+        "padding_bottom": 60
+      }
+    },
+    "image_width_text_new_sec_AV8Hh7": {
+      "type": "image-width-text-new-sec",
+      "blocks": {
+        "image_g9KJqX": {
+          "type": "image",
+          "settings": {
+            "image2": "shopify://shop_images/Card.png"
+          }
+        },
+        "text_BCYEed": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Not happy with your first box? Get a full refund within 24 hours. No questions asked.</p>",
+            "text2": "",
+            "text3": "",
+            "text_style": "body"
+          }
+        },
+        "heading_xtfPMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "That's the Oddies promise!",
+            "heading_size": "h2"
+          }
+        },
+        "button_ARgKP7": {
+          "type": "button",
+          "settings": {
+            "button_label": "Try Risk-Free",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "image_g9KJqX",
+        "text_BCYEed",
+        "heading_xtfPMR",
+        "button_ARgKP7"
+      ],
+      "name": "Guarantee",
+      "settings": {
+        "image": "shopify://shop_images/Card.png",
+        "heading2": "Still Not-Sure?",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
+        "padding_top": 20,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_df4iEf": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_fp3tW3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I cancel at anytime?",
+            "icon": "none",
+            "row_content": "<p>Yep, you're in control. Just cancel before Tuesday 11:55 pm AEST and you won't be charged for that week's box. If something wasn't right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au</a></p><p>—we'd love the chance to make it right before you leave us.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zapCAb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How will I know what's coming?",
+            "icon": "none",
+            "row_content": "<p>Every Monday around 2 pm we post the Weekly Harvest on our website and socials. That list covers what's going out Wednesday to Saturday. Sign up after the cut-off? You'll get the following week's harvest.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_draDhp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where does Oddies source its produce from?",
+            "icon": "none",
+            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking &ldquo;imperfect&rdquo; or for being surplus. Whenever we can, we go local so you&rsquo;re getting the freshest stuff with the smallest footprint.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_YLNg4V": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I have to be home for delivery?",
+            "icon": "none",
+            "row_content": "<p>Nope. We'll leave it in a safe spot. If you're in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler—but no stress if you don't.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zc6EyM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is the produce safe to eat if it looks weird?",
+            "icon": "none",
+            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn't been through the supermarket beauty pageant.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_pfWiFb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do the boxes change each week?",
+            "icon": "none",
+            "row_content": "<p>Yes. Think of it like a surprise farmers' market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_VxHz4w": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I pick what's in my box?",
+            "icon": "none",
+            "row_content": "<p>Menus are fixed to cut waste and keep things simple. Allergic or really hate something? Use our substitution form to swap it out for more of something you love.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_rrYah3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if something's missing or damaged?",
+            "icon": "none",
+            "row_content": "<p>It happens, and we've got your back. Just let us know and we'll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_BbjWEc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How fresh will my box be if I'm not home?",
+            "icon": "none",
+            "row_content": "<p>Very. We pack in a cold-storage warehouse and deliver in refrigerated vans. Even if your box hangs out at the front door for a bit, your cucumbers will stay cool and crisp.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_KUfXfc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your billing process like?",
+            "icon": "none",
+            "row_content": "<p>All payments go through our secure online platform. We accept major debit and credit cards, plus Apple Pay, Google Pay, and Shop Pay. Everything is encrypted and private.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_fp3tW3",
+        "collapsible_row_zapCAb",
+        "collapsible_row_draDhp",
+        "collapsible_row_YLNg4V",
+        "collapsible_row_zc6EyM",
+        "collapsible_row_pfWiFb",
+        "collapsible_row_VxHz4w",
+        "collapsible_row_rrYah3",
+        "collapsible_row_BbjWEc",
+        "collapsible_row_KUfXfc"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "caption": "",
+        "heading": "FAQ's",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "comparison_chart",
+    "multicolumn_XrJzit",
+    "multicolumn_review_comparison",
+    "multicolumn_not_slider_comparison",
+    "image_width_text_new_sec_XkfgpK",
+    "image_width_text_new_sec_AV8Hh7",
+    "collapsible_content_df4iEf"
+  ]
+}
