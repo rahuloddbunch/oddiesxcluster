@@ -14,6 +14,17 @@
   }
 {%- endstyle -%}
 
+<style>
+  /* Pink hero text for homepage hero section */
+  .section-{{ section.id }}-padding .image-with-text__heading {
+    color: #ff69b4;
+  }
+
+  .section-{{ section.id }}-padding .image-with-text__text--caption {
+    color: #ff69b4;
+  }
+</style>
+
 {%- liquid
   assign fetch_priority = 'auto'
   if section.index == 1
@@ -194,8 +205,6 @@
 }
 .mobile-sec-image-part{position:relative;}
 } {% endcomment %}
-</style>
-
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
