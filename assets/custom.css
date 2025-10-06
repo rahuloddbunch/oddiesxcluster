@@ -1707,3 +1707,12 @@ body.product-page .mobile-sticky-btn {
 .cart-drawer .cart-item cart-remove-button {
     padding: 0 10px;
 }
+
+/* Pink text for homepage A/B test */
+body.home-page h1,
+body.home-page h2,
+body.home-page h3,
+body.home-page p,
+body.home-page .rte {
+  color: #ff66b2 !important;
+}
