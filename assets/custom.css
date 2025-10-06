@@ -1707,3 +1707,20 @@ body.product-page .mobile-sticky-btn {
 .cart-drawer .cart-item cart-remove-button {
     padding: 0 10px;
 }
+
+/******** Homepage Hero Pink Text A/B Test *********/
+
+/* Main hero heading text - pink color */
+.section-template--17829882527905__image_width_textslider_BhHDxR-padding .image-with-text__heading {
+  color: #FFC0CB !important;
+}
+
+/* Override green color on strong tags within hero heading */
+.section-template--17829882527905__image_width_textslider_BhHDxR-padding .image-with-text__heading strong {
+  color: #FFC0CB !important;
+}
+
+/* Optional: Make caption pink as well */
+.section-template--17829882527905__image_width_textslider_BhHDxR-padding .image-with-text__text--caption {
+  color: #FFC0CB !important;
+}
