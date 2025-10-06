@@ -237,3 +237,77 @@
     display: list-item;
   }
 }
+
+/* Reviews Section Enhancements */
+.multicolumn-review .multicolumn-card__info {
+  text-align: left;
+}
+
+.multicolumn-review .multicolumn-card__info .rte,
+.multicolumn-review .multicolumn-card__info .rte p {
+  text-align: left;
+}
+
+.multicolumn-review .multicolumn-card {
+  padding: 2rem 1.5rem; /* Reduced from default ~3rem */
+  min-height: 200px; /* Shorter cards */
+}
+
+.multicolumn-review .multicolumn-card__rating {
+  margin-bottom: 1rem;
+}
+
+.multicolumn-review .star-rating {
+  color: #FFD700; /* Gold color for stars */
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  display: inline-block;
+}
+
+/* Progress Dots */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 0 1rem;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: #d9d9d9;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-dot:hover {
+  background-color: #a0a0a0;
+  transform: scale(1.2);
+}
+
+.slider-dot--active {
+  background-color: #007431; /* Oddies brand green */
+  transform: scale(1.3);
+}
+
+/* Desktop adjustments */
+@media screen and (min-width: 750px) {
+  .multicolumn-review .multicolumn-card {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .multicolumn-review .multicolumn-list__item {
+    flex: 0 0 calc(33.33% - 1rem); /* Slightly wider cards */
+    max-width: calc(33.33% - 1rem);
+  }
+
+  .slider-dots {
+    display: none; /* Hide dots on desktop */
+  }
+}

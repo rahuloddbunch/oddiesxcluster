@@ -480,9 +480,9 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Frame_69_4.png",
-            "title": "<strong>YOU PICK</strong>",
+            "title": "<strong>YOU CHECK</strong>",
             "title4": "STEP 2",
-            "text": "<p>Place your orders and we’ll box up your produce the same day. No long-haul, no storage and, no wastage, Just freshness packed.</p>",
+            "text": "<p>Check our Weekly Harvest every Monday on our website and socials. If you like the haul, you're all set. If you want to skip, it's just one button click.</p>",
             "link_label": "",
             "link": ""
           }

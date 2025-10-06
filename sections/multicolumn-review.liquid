@@ -118,6 +118,11 @@
                 </div>
               {%- endif -%}
               <div class="multicolumn-card__info">
+                {%- if block.settings.title2 != blank or block.settings.title != blank or block.settings.text != blank -%}
+                  <div class="multicolumn-card__rating">
+                    <span class="star-rating" aria-label="5 out of 5 stars">★★★★★</span>
+                  </div>
+                {%- endif -%}
                 {%- if block.settings.title2 != blank -%}
                   <h4 class="inline-richtext2">{{ block.settings.title2 }}</h4>
                 {%- endif -%}
@@ -178,6 +183,18 @@
           </button>
         </div>
       {%- endif -%}
+      {%- if show_mobile_slider -%}
+        <div class="slider-dots">
+          {%- for i in (1..section.blocks.size) -%}
+            <button
+              type="button"
+              class="slider-dot{% if forloop.first %} slider-dot--active{% endif %}"
+              aria-label="Go to slide {{ i }}"
+              data-slide-index="{{ forloop.index0 }}"
+            ></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
     </slider-component>
     <div class="center{% if show_mobile_slider %} small-hide medium-hide{% endif %}">
       {%- if section.settings.button_label != blank -%}
@@ -204,6 +221,41 @@
 
 {% comment %} <div class="left-slide-image" data-aos="slide-right"><img src="https://cdn.shopify.com/s/files/1/0640/3175/2290/files/Feb20250435_1.png?v=1754475322" alt="left-image"></div>
 <div class="right-slide-image" data-aos="slide-left"><img src="https://cdn.shopify.com/s/files/1/0640/3175/2290/files/Feb20250445_1.png?v=1754475322" alt="right-image"></div> {% endcomment %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sliders = document.querySelectorAll('.multicolumn-review slider-component');
+
+  sliders.forEach(slider => {
+    const slideContainer = slider.querySelector('.slider');
+    const dots = slider.querySelectorAll('.slider-dot');
+
+    if (!slideContainer || dots.length === 0) return;
+
+    // Update dots on scroll
+    slideContainer.addEventListener('scroll', function() {
+      const scrollLeft = slideContainer.scrollLeft;
+      const slideWidth = slideContainer.querySelector('.slider__slide')?.offsetWidth || 0;
+      const currentIndex = Math.round(scrollLeft / slideWidth);
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('slider-dot--active', index === currentIndex);
+      });
+    });
+
+    // Dot click handler
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function() {
+        const slideWidth = slideContainer.querySelector('.slider__slide')?.offsetWidth || 0;
+        slideContainer.scrollTo({
+          left: slideWidth * index,
+          behavior: 'smooth'
+        });
+      });
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
