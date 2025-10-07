@@ -296,7 +296,7 @@
         "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
-        "column_alignment": "center",
+        "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
         "columns_mobile": "2",
@@ -323,9 +323,9 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Frame_69_4.png",
-            "title": "YOU PICK",
+            "title": "YOU CHECK",
             "title4": "STEP 2",
-            "text": "<p>Place your orders and we’ll box up your produce the same day. No long-haul, no storage and, no wastage, Just freshness packed.</p>",
+            "text": "<p>Check our Weekly Harvest every Monday on our website and socials. If you like the haul, you're all set. If you want to skip, it's just one button click.</p>",
             "link_label": "",
             "link": ""
           }
@@ -482,6 +482,97 @@
         "padding_bottom": 36
       }
     },
+    "comparison_chart_oddies": {
+      "type": "ss-comparison-table-12",
+      "blocks": {
+        "row_save_money": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Save money",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        },
+        "row_convenience": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Convenience",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        },
+        "row_freshness": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Freshness",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "check"
+          }
+        },
+        "row_food_waste": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Fighting Food Waste",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_save_money",
+        "row_convenience",
+        "row_freshness",
+        "row_food_waste"
+      ],
+      "settings": {
+        "content_align": "center",
+        "content_align_mobile": "center",
+        "heading": "",
+        "text": "",
+        "table_columns": 3,
+        "table_radius": 20,
+        "table_mt": 24,
+        "table_mt_mobile": 12,
+        "first_heading": "Oddies",
+        "second_heading": "Grocery Store Delivery",
+        "third_heading": "Going to the Store",
+        "column_heading_size": 18,
+        "column_heading_size_mobile": 14,
+        "column_heading_color": "#272727",
+        "column_heading_active_color": "#F47B20",
+        "table_column_bg_color": "#f9f9ff",
+        "table_column_active_bg_color": "#FFF4E0",
+        "value_icon_color": "#272727",
+        "value_icon_active_color": "#F47B20",
+        "row_heading_color": "#272727",
+        "row_border_color": "#d9d9d9",
+        "background_color": "#ffffff",
+        "border_thickness": 0,
+        "section_radius": 0,
+        "padding_top": 44,
+        "padding_bottom": 44,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 1.5,
+        "full_width": false,
+        "content_width": 1200
+      }
+    },
     "collapsible_content_df4iEf": {
       "type": "collapsible-content",
       "blocks": {
@@ -490,16 +581,16 @@
           "settings": {
             "heading": "Can I cancel at anytime?",
             "icon": "none",
-            "row_content": "<p>Yep, you’re in control. Just cancel before<br/>Tuesday 11:55 pm AEST and you won’t be charged for that week’s box. If something wasn’t right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au</a></p><p>—we’d love the chance to make it right before you leave us.</p>",
+            "row_content": "<p>Yep, you're in control. Just cancel before<br/>Tuesday 11:55 pm AEST and you won't be charged for that week's box. If something wasn't right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au</a></p><p>—we'd love the chance to make it right before you leave us.</p>",
             "page": ""
           }
         },
         "collapsible_row_zapCAb": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How will I know what’s coming?",
+            "heading": "How will I know what's coming?",
             "icon": "none",
-            "row_content": "<p>Every Monday around 2 pm we post the Weekly Harvest on our website and socials. That list covers what’s going out Wednesday to Saturday. Sign up after the cut-off? You’ll get the following week’s harvest.</p>",
+            "row_content": "<p>Every Monday around 2 pm we post the Weekly Harvest on our website and socials. That list covers what's going out Wednesday to Saturday. Sign up after the cut-off? You'll get the following week's harvest.</p>",
             "page": ""
           }
         },
@@ -508,7 +599,7 @@
           "settings": {
             "heading": "Where does Oddies source its produce from?",
             "icon": "none",
-            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking “imperfect” or for being surplus. Whenever we can, we go local so you’re getting the freshest stuff with the smallest footprint.</p>",
+            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking "imperfect" or for being surplus. Whenever we can, we go local so you're getting the freshest stuff with the smallest footprint.</p>",
             "page": ""
           }
         },
@@ -517,7 +608,7 @@
           "settings": {
             "heading": "Do I have to be home for delivery?",
             "icon": "none",
-            "row_content": "<p>Nope. We’ll leave it in a safe spot. If you’re in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler—but no stress if you don’t.</p>",
+            "row_content": "<p>Nope. We'll leave it in a safe spot. If you're in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler—but no stress if you don't.</p>",
             "page": ""
           }
         },
@@ -526,7 +617,7 @@
           "settings": {
             "heading": "Is the produce safe to eat if it looks weird?",
             "icon": "none",
-            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn’t been through the supermarket beauty pageant.</p>",
+            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn't been through the supermarket beauty pageant.</p>",
             "page": ""
           }
         },
@@ -535,14 +626,14 @@
           "settings": {
             "heading": "Do the boxes change each week?",
             "icon": "none",
-            "row_content": "<p>Yes. Think of it like a surprise farmers’ market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.</p>",
+            "row_content": "<p>Yes. Think of it like a surprise farmers' market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.</p>",
             "page": ""
           }
         },
         "collapsible_row_VxHz4w": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Can I pick what’s in my box?",
+            "heading": "Can I pick what's in my box?",
             "icon": "none",
             "row_content": "<p>Menus are fixed to cut waste and keep things simple. Allergic or really hate something? Use our substitution form to swap it out for more of something you love.</p>",
             "page": ""
@@ -551,16 +642,16 @@
         "collapsible_row_rrYah3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What if something’s missing or damaged?",
+            "heading": "What if something's missing or damaged?",
             "icon": "none",
-            "row_content": "<p>It happens, and we’ve got your back. Just let us know and we’ll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.</p>",
+            "row_content": "<p>It happens, and we've got your back. Just let us know and we'll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.</p>",
             "page": ""
           }
         },
         "collapsible_row_BbjWEc": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How fresh will my box be if I’m not home?",
+            "heading": "How fresh will my box be if I'm not home?",
             "icon": "none",
             "row_content": "<p>Very. We pack in a cold-storage warehouse and deliver in refrigerated vans. Even if your box hangs out at the front door for a bit, your cucumbers will stay cool and crisp.</p>",
             "page": ""
@@ -591,7 +682,7 @@
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
         "caption": "",
-        "heading": "FAQ’s",
+        "heading": "FAQ's",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
@@ -611,6 +702,7 @@
     "multicolumn_XrJzit",
     "multicolumn_review_dgVFGN",
     "multicolumn_not_slider_MFVBcP",
+    "comparison_chart_oddies",
     "image_width_text_new_sec_XkfgpK",
     "image_width_text_new_sec_AV8Hh7",
     "collapsible_content_df4iEf"
