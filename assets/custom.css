@@ -995,12 +995,14 @@ body .multicolumn-review.multicolumn .multicolumn-card {
     border-radius: 20px 20px 20px 0;
 }
 .multicolumn-review .multicolumn-card__info {
-    min-height: 250px;
+    min-height: 180px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     margin: 0;
-    padding: 0 7px;
+    padding: 20px 15px;
+    text-align: left;
 }
 .multicolumn-review .multicolumn-card__info p {
     font-size: 12px;
@@ -1010,6 +1012,36 @@ body .multicolumn-review.multicolumn .multicolumn-card {
 .multicolumn-review .multicolumn-card__info .rte {
     margin-top: 15px;
 }
+
+/* Review star ratings */
+.multicolumn-review .review-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    align-self: flex-start;
+}
+
+.multicolumn-review .review-stars .star {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.multicolumn-review .review-stars .star svg {
+    width: 100%;
+    height: 100%;
+    fill: #F47B20;
+    stroke: #F47B20;
+}
+
+/* Desktop larger stars */
+@media screen and (min-width: 990px) {
+    .multicolumn-review .review-stars .star {
+        width: 18px;
+        height: 18px;
+    }
+}
+
 .multicolumn-review .text-sec-image-with-text-part {
     width: 100%;
     text-align: center;
