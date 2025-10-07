@@ -100,6 +100,37 @@
         </div>
       {%- endform -%}
     </product-form>
+
+    {%- if block.settings.show_trust_badges -%}
+      <div class="trust-badges">
+        {%- if block.settings.trust_badge_1_text != blank -%}
+          <div class="trust-badge">
+            {%- if block.settings.trust_badge_1_icon != 'none' -%}
+              {% render 'icon-accordion', icon: block.settings.trust_badge_1_icon %}
+            {%- endif -%}
+            <span class="trust-badge__text">{{ block.settings.trust_badge_1_text | escape }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.trust_badge_2_text != blank -%}
+          <div class="trust-badge">
+            {%- if block.settings.trust_badge_2_icon != 'none' -%}
+              {% render 'icon-accordion', icon: block.settings.trust_badge_2_icon %}
+            {%- endif -%}
+            <span class="trust-badge__text">{{ block.settings.trust_badge_2_text | escape }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.trust_badge_3_text != blank -%}
+          <div class="trust-badge">
+            {%- if block.settings.trust_badge_3_icon != 'none' -%}
+              {% render 'icon-accordion', icon: block.settings.trust_badge_3_icon %}
+            {%- endif -%}
+            <span class="trust-badge__text">{{ block.settings.trust_badge_3_text | escape }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   {%- else -%}
     <div class="product-form">
       <div class="product-form__buttons form">

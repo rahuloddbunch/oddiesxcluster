@@ -1,0 +1,45 @@
+/* Trust Badges Component */
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.trust-badge .svg-wrapper {
+  flex-shrink: 0;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.trust-badge__text {
+  white-space: nowrap;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 749px) {
+  .trust-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .trust-badge {
+    justify-content: center;
+  }
+}
+
+/* Quick-add modal overrides */
+quick-add-modal .trust-badges {
+  margin-top: 2rem;
+  padding: 0;
+}

@@ -36,7 +36,14 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "show_trust_badges": true,
+            "trust_badge_1_icon": "check_mark",
+            "trust_badge_1_text": "No lock in",
+            "trust_badge_2_icon": "return",
+            "trust_badge_2_text": "Money-back guarantee",
+            "trust_badge_3_icon": "truck",
+            "trust_badge_3_text": "Ships in 2-3 business days"
           }
         },
         "custom_liquid_c39iBL": {

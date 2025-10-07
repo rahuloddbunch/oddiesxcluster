@@ -10,6 +10,7 @@
   {% endif %}
 >
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
+  {{ 'component-trust-badges.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
@@ -983,6 +984,80 @@
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        },
+        {
+          "type": "header",
+          "content": "Trust Badges"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_trust_badges",
+          "label": "Show trust badges",
+          "default": true,
+          "info": "Display trust icons below the add to cart button"
+        },
+        {
+          "type": "select",
+          "id": "trust_badge_1_icon",
+          "label": "Badge 1 icon",
+          "options": [
+            {"value": "none", "label": "None"},
+            {"value": "check_mark", "label": "Check mark"},
+            {"value": "heart", "label": "Heart"},
+            {"value": "truck", "label": "Truck"},
+            {"value": "return", "label": "Return"},
+            {"value": "lock", "label": "Lock"},
+            {"value": "stopwatch", "label": "Stopwatch"}
+          ],
+          "default": "check_mark"
+        },
+        {
+          "type": "text",
+          "id": "trust_badge_1_text",
+          "label": "Badge 1 text",
+          "default": "No lock in"
+        },
+        {
+          "type": "select",
+          "id": "trust_badge_2_icon",
+          "label": "Badge 2 icon",
+          "options": [
+            {"value": "none", "label": "None"},
+            {"value": "check_mark", "label": "Check mark"},
+            {"value": "heart", "label": "Heart"},
+            {"value": "truck", "label": "Truck"},
+            {"value": "return", "label": "Return"},
+            {"value": "lock", "label": "Lock"},
+            {"value": "stopwatch", "label": "Stopwatch"}
+          ],
+          "default": "return"
+        },
+        {
+          "type": "text",
+          "id": "trust_badge_2_text",
+          "label": "Badge 2 text",
+          "default": "Money-back guarantee"
+        },
+        {
+          "type": "select",
+          "id": "trust_badge_3_icon",
+          "label": "Badge 3 icon",
+          "options": [
+            {"value": "none", "label": "None"},
+            {"value": "check_mark", "label": "Check mark"},
+            {"value": "heart", "label": "Heart"},
+            {"value": "truck", "label": "Truck"},
+            {"value": "return", "label": "Return"},
+            {"value": "lock", "label": "Lock"},
+            {"value": "stopwatch", "label": "Stopwatch"}
+          ],
+          "default": "truck"
+        },
+        {
+          "type": "text",
+          "id": "trust_badge_3_text",
+          "label": "Badge 3 text",
+          "default": "Ships in 2-3 business days"
         }
       ]
     },
