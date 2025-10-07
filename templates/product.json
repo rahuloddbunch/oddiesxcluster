@@ -296,7 +296,7 @@
         "button_label": "",
         "button_link": "",
         "columns_desktop": 3,
-        "column_alignment": "center",
+        "column_alignment": "left",
         "background_style": "primary",
         "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
         "columns_mobile": "2",
@@ -323,9 +323,9 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Frame_69_4.png",
-            "title": "YOU PICK",
+            "title": "YOU CHECK",
             "title4": "STEP 2",
-            "text": "<p>Place your orders and we’ll box up your produce the same day. No long-haul, no storage and, no wastage, Just freshness packed.</p>",
+            "text": "<p>Check our Weekly Harvest every Monday on our website and socials. If you like the haul, you're all set. If you want to skip, it's just one button click.</p>",
             "link_label": "",
             "link": ""
           }
@@ -364,6 +364,86 @@
         "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 72
+      }
+    },
+    "comparison_chart_oddies": {
+      "type": "ss-comparison-table-12",
+      "blocks": {
+        "row_save_money": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Save money",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        },
+        "row_convenience": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Convenience",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        },
+        "row_freshness": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Freshness",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "check",
+            "third_column": "",
+            "third_column_icon": "check"
+          }
+        },
+        "row_food_waste": {
+          "type": "table_row",
+          "settings": {
+            "row_heading": "Fighting Food Waste",
+            "first_column": "",
+            "first_column_icon": "check",
+            "second_column": "",
+            "second_column_icon": "cross",
+            "third_column": "",
+            "third_column_icon": "cross"
+          }
+        }
+      },
+      "block_order": [
+        "row_save_money",
+        "row_convenience",
+        "row_freshness",
+        "row_food_waste"
+      ],
+      "settings": {
+        "heading": "",
+        "text": "",
+        "table_columns": 3,
+        "first_heading": "Oddies",
+        "second_heading": "Grocery Store Delivery",
+        "third_heading": "Going to the Store",
+        "column_heading_color": "#000000",
+        "column_heading_active_color": "#ffffff",
+        "value_color": "#000000",
+        "value_active_color": "#ffffff",
+        "value_icon_color": "#000000",
+        "value_icon_active_color": "#007431",
+        "table_column_bg_color": "#f5f5f5",
+        "table_column_active_bg_color": "#007431",
+        "background_color": "#fffcf7",
+        "row_border_color": "#e0e0e0",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "table_radius": 12
       }
     },
     "image_width_text_new_sec_XkfgpK": {
@@ -611,6 +691,7 @@
     "multicolumn_XrJzit",
     "multicolumn_review_dgVFGN",
     "multicolumn_not_slider_MFVBcP",
+    "comparison_chart_oddies",
     "image_width_text_new_sec_XkfgpK",
     "image_width_text_new_sec_AV8Hh7",
     "collapsible_content_df4iEf"

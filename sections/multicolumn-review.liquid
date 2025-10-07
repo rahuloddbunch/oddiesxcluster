@@ -15,6 +15,66 @@
   }
 {%- endstyle -%}
 
+{%- comment -%} Custom styling for review cards {%- endcomment -%}
+<style>
+  /* Review-specific card sizing for desktop */
+  @media screen and (min-width: 990px) {
+    .multicolumn-review .multicolumn-card {
+      min-height: 200px;
+      max-height: 280px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .multicolumn-review .multicolumn-card__info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 2.5rem;
+    }
+
+    .multicolumn-review .grid__item {
+      flex: 1 0 calc(33.333% - 1rem);
+      max-width: calc(33.333% - 1rem);
+    }
+  }
+
+  /* Star rating display */
+  .multicolumn-review .review-stars {
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .multicolumn-review .review-stars svg {
+    width: 100px;
+    height: auto;
+  }
+
+  /* Ensure review text remains flexible */
+  .multicolumn-review .multicolumn-card__info .rte {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* Left align text */
+  .multicolumn-review .multicolumn-card__info .rte,
+  .multicolumn-review .multicolumn-card__info .rte p {
+    text-align: left;
+  }
+
+  /* Mobile optimizations */
+  @media screen and (max-width: 989px) {
+    .multicolumn-review .review-stars svg {
+      width: 80px;
+    }
+
+    .multicolumn-review .multicolumn-card {
+      min-height: auto;
+    }
+  }
+</style>
+
 {%- liquid
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
   assign show_mobile_slider = false
@@ -118,6 +178,19 @@
                 </div>
               {%- endif -%}
               <div class="multicolumn-card__info">
+                {%- comment -%} Add 5-star rating display {%- endcomment -%}
+                <div class="review-stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="20" viewBox="0 0 100 20" fill="none">
+                    {%- comment -%} 5 stars at x positions: 0, 20, 40, 60, 80 {%- endcomment -%}
+                    <g fill="#FFD700">
+                      <path d="M10 0L12.245 6.91L19.511 6.91L13.633 11.18L15.878 18.09L10 13.82L4.122 18.09L6.367 11.18L0.489 6.91L7.755 6.91L10 0Z" />
+                      <path d="M30 0L32.245 6.91L39.511 6.91L33.633 11.18L35.878 18.09L30 13.82L24.122 18.09L26.367 11.18L20.489 6.91L27.755 6.91L30 0Z" />
+                      <path d="M50 0L52.245 6.91L59.511 6.91L53.633 11.18L55.878 18.09L50 13.82L44.122 18.09L46.367 11.18L40.489 6.91L47.755 6.91L50 0Z" />
+                      <path d="M70 0L72.245 6.91L79.511 6.91L73.633 11.18L75.878 18.09L70 13.82L64.122 18.09L66.367 11.18L60.489 6.91L67.755 6.91L70 0Z" />
+                      <path d="M90 0L92.245 6.91L99.511 6.91L93.633 11.18L95.878 18.09L90 13.82L84.122 18.09L86.367 11.18L80.489 6.91L87.755 6.91L90 0Z" />
+                    </g>
+                  </svg>
+                </div>
                 {%- if block.settings.title2 != blank -%}
                   <h4 class="inline-richtext2">{{ block.settings.title2 }}</h4>
                 {%- endif -%}
