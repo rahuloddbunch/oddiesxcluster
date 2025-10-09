@@ -146,6 +146,13 @@
               >
                 {{- 'products.product.on_sale' | t -}}
               </span>
+            {%- elsif card_product.tags contains 'bestseller' -%}
+              <span
+                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                class="badge badge--bottom-left badge--bestseller color-accent-1"
+              >
+                {{- 'products.product.bestseller' | t -}}
+              </span>
             {%- endif -%}
           </div>
         </div>
@@ -181,6 +188,16 @@
                       {{ card_product.metafields.custom.kg }}
                     </p>
                   {% endif %}
+                 </div>
+                 <div class="people-sec">
+                   {% if card_product.metafields.custom.people %}
+                     <p class="product-people">
+                       <svg class="icon-people" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                         <path d="M8 8C10.21 8 12 6.21 12 4C12 1.79 10.21 0 8 0C5.79 0 4 1.79 4 4C4 6.21 5.79 8 8 8ZM8 10C5.33 10 0 11.34 0 14V16H16V14C16 11.34 10.67 10 8 10Z" fill="currentColor"/>
+                       </svg>
+                       <span class="serves-label">Serves {{ card_product.metafields.custom.people }}</span>
+                     </p>
+                   {% endif %}
                  </div>
                 </div>
           <div class="card-information">
@@ -588,6 +605,13 @@
               class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
             >
               {{- 'products.product.on_sale' | t -}}
+            </span>
+          {%- elsif card_product.tags contains 'bestseller' -%}
+            <span
+              id="Badge-{{ section_id }}-{{ card_product.id }}"
+              class="badge badge--bottom-left badge--bestseller color-accent-1"
+            >
+              {{- 'products.product.bestseller' | t -}}
             </span>
           {%- endif -%}
         </div>

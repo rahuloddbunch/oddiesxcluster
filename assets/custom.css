@@ -1707,3 +1707,166 @@ body.product-page .mobile-sticky-btn {
 .cart-drawer .cart-item cart-remove-button {
     padding: 0 10px;
 }
+
+/* ===================================
+   Enhanced Product Cards - Variant 1
+   =================================== */
+
+/* Product card container enhancements */
+.product-card-wrapper .card__content {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(249,249,249,0.95) 100%);
+  border-radius: 12px;
+  padding: 1.6rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.product-card-wrapper:hover .card__content {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* Product title styling */
+.product-card-wrapper .card__heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
+}
+
+/* Varieties and kg section */
+.product-variant-sec {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.product-variant-sec .varities,
+.product-variant-sec .kg-sec,
+.product-variant-sec .people-sec {
+  flex: 0 0 auto;
+}
+
+.product-variant-sec p {
+  font-size: 1.3rem;
+  color: #666;
+  background: rgba(0, 116, 49, 0.08);  /* Oddies green tint */
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* People/Serves indicator */
+.product-people {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-people {
+  width: 14px;
+  height: 14px;
+  color: #007431;  /* Oddies primary green */
+}
+
+.serves-label {
+  font-size: 1.3rem;
+  color: #007431;
+}
+
+/* Price section enhancement */
+.price-sec-main {
+  margin: 1.2rem 0;
+}
+
+.price-sec-main .price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007431;  /* Oddies green */
+}
+
+.price-sec-main .price__regular {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.price-sec-main .price__sale {
+  color: #d32f2f;  /* Sale red */
+}
+
+/* View Box button enhancement */
+.view-box {
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 1.2rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.2rem;
+  text-align: center;
+  display: block;
+}
+
+.view-box:hover {
+  background-color: #007431;  /* Oddies green on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 116, 49, 0.3);
+}
+
+/* Bestseller badge styling */
+.badge--bestseller {
+  background-color: #FFD700;  /* Gold background */
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--badge-corner-radius);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+.badge--bestseller::before {
+  content: "🔥 ";
+  margin-right: 0.3rem;
+}
+
+/* Ensure badges don't overlap with enhanced cards */
+.card__badge {
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .product-card-wrapper .card__heading {
+    font-size: 1.6rem;
+  }
+
+  .price-sec-main .price {
+    font-size: 1.8rem;
+  }
+
+  .view-box {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* Remove quick-add buttons (ensuring they don't show) */
+.quick-add {
+  display: none !important;
+}
+
+.quick-add__submit {
+  display: none !important;
+}
