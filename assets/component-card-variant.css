@@ -1,0 +1,181 @@
+/* ============================================
+   VARIANT PRODUCT CARD ENHANCEMENTS
+   Used exclusively by homepage variants
+   ============================================ */
+
+/* Scope all styles to variant templates using data attributes */
+[data-template="index.variant-1"] .card-wrapper,
+[data-template="index.variant-2"] .card-wrapper {
+  /* Enhanced card spacing */
+  padding: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-template="index.variant-1"] .card-wrapper:hover,
+[data-template="index.variant-2"] .card-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Product title enhancement */
+[data-template="index.variant-1"] .card__heading--variant,
+[data-template="index.variant-2"] .card__heading--variant {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Enhanced metafield section */
+[data-template="index.variant-1"] .product-variant-sec,
+[data-template="index.variant-2"] .product-variant-sec {
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  color: #5D5D5D;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+[data-template="index.variant-1"] .product-variant-sec > div,
+[data-template="index.variant-2"] .product-variant-sec > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-template="index.variant-1"] .product-variant-sec p,
+[data-template="index.variant-2"] .product-variant-sec p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* People metafield styling (NEW) */
+[data-template="index.variant-1"] .product-people,
+[data-template="index.variant-2"] .product-people {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #007431;
+  background: #F0F9F4;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+[data-template="index.variant-1"] .icon-people,
+[data-template="index.variant-2"] .icon-people {
+  width: 16px;
+  height: 16px;
+  color: #007431;
+}
+
+/* Bestseller badge styling */
+[data-template="index.variant-1"] .badge-bestseller,
+[data-template="index.variant-2"] .badge-bestseller {
+  background: linear-gradient(135deg, #007431 0%, #00a345 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0, 116, 49, 0.3);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+}
+
+/* Enhanced price section */
+[data-template="index.variant-1"] .price-sec-main,
+[data-template="index.variant-2"] .price-sec-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 16px 0 12px 0;
+}
+
+[data-template="index.variant-1"] .price,
+[data-template="index.variant-2"] .price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+
+[data-template="index.variant-1"] .price__sale,
+[data-template="index.variant-2"] .price__sale {
+  color: #007431;
+}
+
+[data-template="index.variant-1"] .price__regular,
+[data-template="index.variant-2"] .price__regular {
+  font-size: 16px;
+  color: #939393;
+  text-decoration: line-through;
+}
+
+/* View Box button enhancement */
+[data-template="index.variant-1"] .view-box,
+[data-template="index.variant-2"] .view-box {
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  padding: 14px 20px;
+  font-size: 15px;
+  background: #007431;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  margin-top: 12px;
+}
+
+[data-template="index.variant-1"] .view-box:hover,
+[data-template="index.variant-2"] .view-box:hover {
+  background: #005a26;
+  transform: none;
+}
+
+/* Ensure quick-add is hidden (belt and suspenders) */
+[data-template="index.variant-1"] .quick-add,
+[data-template="index.variant-2"] .quick-add {
+  display: none !important;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 749px) {
+  [data-template="index.variant-1"] .product-variant-sec,
+  [data-template="index.variant-2"] .product-variant-sec {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  [data-template="index.variant-1"] .product-people,
+  [data-template="index.variant-2"] .product-people {
+    font-size: 12px;
+    padding: 4px 10px;
+  }
+
+  [data-template="index.variant-1"] .card__heading--variant,
+  [data-template="index.variant-2"] .card__heading--variant {
+    font-size: 14px;
+  }
+
+  [data-template="index.variant-1"] .badge-bestseller,
+  [data-template="index.variant-2"] .badge-bestseller {
+    font-size: 10px;
+    padding: 4px 8px;
+    top: 8px;
+    left: 8px;
+  }
+}
