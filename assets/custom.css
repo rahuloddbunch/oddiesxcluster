@@ -1707,3 +1707,76 @@ body.product-page .mobile-sticky-btn {
 .cart-drawer .cart-item cart-remove-button {
     padding: 0 10px;
 }
+
+/* ========================================
+   A/B Test Variant Card Enhancements
+   ======================================== */
+
+/* People metafield styling */
+.card-product-variant .people-sec {
+    background: url(https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame.png?v=1757159606);
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: 22px 0 0 0;
+    background-size: 23px;
+}
+
+.card-product-variant .product-people {
+    font-size: 12px;
+    font-family: 'Roboto';
+    color: #000;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Bestseller badge styling */
+.badge--bestseller {
+    position: absolute !important;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+    z-index: 2;
+}
+
+.badge--bestseller .badge-icon {
+    font-size: 14px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Ensure badge container positioning */
+.card-product-variant .card__badge {
+    position: relative;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 749px) {
+    .badge--bestseller {
+        font-size: 10px;
+        padding: 4px 8px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .badge--bestseller .badge-icon {
+        font-size: 12px;
+    }
+}
