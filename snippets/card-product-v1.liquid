@@ -150,6 +150,7 @@
             {%- endif -%}
             {%- comment -%} CLUSTER-AGENT END {%- endcomment -%}
 
+            {%- comment -%} CLUSTER-AGENT START - Removed Sale badge {%- endcomment -%}
             {%- if card_product.available == false -%}
               <span
                 id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
@@ -157,14 +158,8 @@
               >
                 {{- 'products.product.sold_out' | t -}}
               </span>
-            {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-              <span
-                id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-              >
-                {{- 'products.product.on_sale' | t -}}
-              </span>
             {%- endif -%}
+            {%- comment -%} CLUSTER-AGENT END {%- endcomment -%}
           </div>
         </div>
       </div>
@@ -185,21 +180,25 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+          {%- comment -%} CLUSTER-AGENT START - Updated layout to put varieties and kg on same row {%- endcomment -%}
           <div class="product-variant-sec">
-                  <div class="varities">
-                    {% if card_product.metafields.custom.varieties %}
-                    <p class="product-varieties">
-                      {{ card_product.metafields.custom.varieties }}
-                    </p>
-                  {% endif %}
+                  <div class="varieties-kg-row">
+                    <div class="varities">
+                      {% if card_product.metafields.custom.varieties %}
+                      <p class="product-varieties">
+                        {{ card_product.metafields.custom.varieties }}
+                      </p>
+                    {% endif %}
+                    </div>
+                    <div class="kg-sec">
+                       {% if card_product.metafields.custom.kg %}
+                      <p class="product-varieties">
+                        {{ card_product.metafields.custom.kg }}
+                      </p>
+                    {% endif %}
+                   </div>
                   </div>
-                  <div class="kg-sec">
-                     {% if card_product.metafields.custom.kg %}
-                    <p class="product-varieties">
-                      {{ card_product.metafields.custom.kg }}
-                    </p>
-                  {% endif %}
-                 </div>
+          {%- comment -%} CLUSTER-AGENT END {%- endcomment -%}
                  {%- comment -%} CLUSTER-AGENT START - People served badge {%- endcomment -%}
                  <div class="people-sec">
                    {% if card_product.metafields.custom.people %}
@@ -604,6 +603,7 @@
             </div>
           {% endif %}
         {% endif %}
+        {%- comment -%} CLUSTER-AGENT START - Removed Sale badge from bottom badge area {%- endcomment -%}
         <div class="card__badge {{ settings.badge_position }}">
           {%- if card_product.available == false -%}
             <span
@@ -612,15 +612,9 @@
             >
               {{- 'products.product.sold_out' | t -}}
             </span>
-          {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-            <span
-              id="Badge-{{ section_id }}-{{ card_product.id }}"
-              class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-            >
-              {{- 'products.product.on_sale' | t -}}
-            </span>
           {%- endif -%}
         </div>
+        {%- comment -%} CLUSTER-AGENT END {%- endcomment -%}
         <a href="{{ card_product.url }}" class="button button--secondary view-box">View Box</a>
       </div>
     </div>
