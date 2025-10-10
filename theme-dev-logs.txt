@@ -1,0 +1,23 @@
+╭─ success ────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│  Preview your theme                                                          │
+│    • http://127.0.0.1:65234 [1]                                              │
+│                                                                              │
+│  Next steps                                                                  │
+│    • Preview your gift cards [2]                                             │
+│    • Customize your theme at the theme editor [3]                            │
+│    • Share your theme preview [4]                                            │
+│      (https://oddiesau.myshopify.com/?preview_theme_id=141649051809)         │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+[1] http://127.0.0.1:65234
+[2] http://127.0.0.1:65234/gift_cards/[store_id]/preview
+[3] https://oddiesau.myshopify.com/admin/themes/141649051809/editor
+[4] https://oddiesau.myshopify.com/?preview_theme_id=141649051809
+
+Failed to upload file templates/index.variant2.json:
+-Invalid JSON in templates/index.variant2.json
+
+Failed to upload file templates/index.variant1.json:
+-Invalid JSON in templates/index.variant1.json
+
