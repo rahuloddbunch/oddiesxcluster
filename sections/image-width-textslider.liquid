@@ -145,20 +145,8 @@
                     <img class="spin-img" src="https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Badge.png?v=1756885365" alt="Rotating Round Image">
                   </div>
                   </div>
-                  <div style="display: block; width: 100%;" data-app="oddbunch-postcodes"></div>
                 {%- when 'button' -%}
                   {%- if block.settings.button_label != blank -%}
-                    <div class="postcode-checker">
-                        <input 
-                          type="text" 
-                          id="postcodeInput" 
-                          placeholder="{{ block.settings.placeholder_text }}"
-                          class="postcode-input"
-                        >
-                        <button type="button" id="checkDeliveryBtn" class="check-delivery-btn">
-                          {{ block.settings.button_text }}
-                        </button>
-                      </div>
                       <div class="button-sec">
                     <a
                       {% if block.settings.button_link == blank %}
@@ -197,23 +185,10 @@
 </style>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("checkDeliveryBtn").addEventListener("click", function() {
-    var postcode = document.getElementById("postcodeInput").value.trim();
-    if(postcode) {
-      alert("Checking delivery availability for: " + postcode);
-      // Yaha tum API call ya logic laga sakte ho
-    } else {
-      alert("Please enter your postcode");
-    }
-  });
-});
-</script>
 
 {% schema %}
 {
-  "name": "image-width-text-slider",
+  "name": "Hero Slider V1",
   "class": "section",
   "disabled_on": {
     "groups": ["header", "footer"]
@@ -580,18 +555,6 @@ document.addEventListener("DOMContentLoaded", function() {
       "name": "t:sections.image-with-text.blocks.button.name",
       "limit": 1,
       "settings": [
-        {
-          "type": "text",
-          "id": "placeholder_text",
-          "label": "Input Placeholder",
-          "default": "Enter your postcode"
-        },
-        {
-          "type": "text",
-          "id": "button_text",
-          "label": "Button Text",
-          "default": "Check Delivery"
-        },
         {
           "type": "text",
           "id": "button_label",

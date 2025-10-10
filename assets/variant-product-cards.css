@@ -1,0 +1,146 @@
+/* Product Card Enhancements for Homepage Variants */
+
+/* {% # CLUSTER-AGENT START %} */
+
+/* Bestseller Badge */
+.badge--bestseller {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #fff4e0;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.bestseller-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Enhanced Product Meta Section */
+.product-variant-sec--variant1 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.product-meta-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.product-meta-item--people {
+  color: #007431;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: rgba(0, 116, 49, 0.08);
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.product-meta-label {
+  color: #5D5D5D;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.product-meta-value {
+  color: #121212;
+  font-weight: 500;
+}
+
+.product-meta-icon {
+  width: 16px;
+  height: 16px;
+  color: #007431;
+  flex-shrink: 0;
+}
+
+/* Card Spacing Improvements */
+.featured-collection-variant1 .card__content,
+.featured-collection-variant2 .card__content {
+  padding: 16px;
+}
+
+.featured-collection-variant1 .card__heading,
+.featured-collection-variant2 .card__heading {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.featured-collection-variant1 .price-sec-main,
+.featured-collection-variant2 .price-sec-main {
+  margin-top: 12px;
+}
+
+/* View Box Button Enhancement */
+.featured-collection-variant1 .view-box,
+.featured-collection-variant2 .view-box {
+  width: 100%;
+  margin-top: 16px;
+  background: #007431;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.featured-collection-variant1 .view-box:hover,
+.featured-collection-variant2 .view-box:hover {
+  background: #005a26;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 749px) {
+  .product-meta-grid {
+    gap: 6px;
+  }
+
+  .product-meta-item {
+    font-size: 12px;
+  }
+
+  .product-meta-item--people {
+    padding: 6px 10px;
+  }
+
+  .badge--bestseller {
+    font-size: 10px;
+    padding: 4px 8px;
+    top: 8px;
+    left: 8px;
+  }
+}
+
+/* Variant 2 Specific: First Section Spacing */
+.index-variant2 .featured-collection-variant2 {
+  padding-top: 52px;
+}
+
+@media screen and (max-width: 749px) {
+  .index-variant2 .featured-collection-variant2 {
+    padding-top: 36px;
+  }
+}
+
+/* {% # CLUSTER-AGENT END %} */
