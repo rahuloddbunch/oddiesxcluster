@@ -1,0 +1,194 @@
+/* Elevated Product Cards for A/B Test Variants */
+/* Only applies when template contains 'ab_test_variant' */
+
+/* Badge Styling - Inspired by HUEL but with Oddies branding */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #ffffff;
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+.product-badge--bestseller {
+  background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
+}
+
+.badge-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.badge-text {
+  line-height: 1;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+  }
+}
+
+/* Elevated Card Container */
+body[class*="template-index-ab-test-variant"] .card-wrapper {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[class*="template-index-ab-test-variant"] .card-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Enhanced Card Styling */
+body[class*="template-index-ab-test-variant"] .card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[class*="template-index-ab-test-variant"] .card:hover {
+  border-color: #E76F51;
+  box-shadow: 0 8px 32px rgba(231, 111, 81, 0.15);
+}
+
+/* Image Enhancements */
+body[class*="template-index-ab-test-variant"] .card__media {
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+  position: relative;
+  background: #fafafa;
+}
+
+body[class*="template-index-ab-test-variant"] .media.media--hover-effect > img:only-child {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[class*="template-index-ab-test-variant"] .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
+  transform: scale(1.08);
+}
+
+/* Product Title - More prominent */
+body[class*="template-index-ab-test-variant"] .card__heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2C3E50;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Product Metafields - Enhanced Layout */
+body[class*="template-index-ab-test-variant"] .product-variant-sec {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 12px;
+  background: #F8F9FA;
+  border-radius: 10px;
+}
+
+body[class*="template-index-ab-test-variant"] .product-variant-sec > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body[class*="template-index-ab-test-variant"] .product-varieties {
+  font-size: 13px;
+  color: #6C757D;
+  margin: 0;
+  font-weight: 500;
+}
+
+body[class*="template-index-ab-test-variant"] .product-people {
+  font-size: 14px;
+  color: #E76F51;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+body[class*="template-index-ab-test-variant"] .people-icon {
+  font-size: 16px;
+}
+
+/* Price Section - Bolder */
+body[class*="template-index-ab-test-variant"] .price-sec-main {
+  margin: 16px 0;
+}
+
+body[class*="template-index-ab-test-variant"] .price__regular .price-item--regular {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2C3E50;
+}
+
+/* View Box Button - More Prominent */
+body[class*="template-index-ab-test-variant"] a.button.button--secondary.view-box {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: none;
+  border-radius: 12px;
+  background: #2C3E50;
+  color: #ffffff;
+  border: 2px solid #2C3E50;
+  transition: all 0.3s ease;
+  margin-top: 16px;
+  text-align: center;
+}
+
+body[class*="template-index-ab-test-variant"] a.button.button--secondary.view-box:hover {
+  background: #E76F51;
+  border-color: #E76F51;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.3);
+}
+
+/* Card Content Padding */
+body[class*="template-index-ab-test-variant"] .card__content {
+  padding: 20px;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 749px) {
+  body[class*="template-index-ab-test-variant"] .card__heading {
+    font-size: 16px;
+  }
+
+  body[class*="template-index-ab-test-variant"] .price__regular .price-item--regular {
+    font-size: 20px;
+  }
+
+  body[class*="template-index-ab-test-variant"] .product-badge {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  body[class*="template-index-ab-test-variant"] a.button.button--secondary.view-box {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}

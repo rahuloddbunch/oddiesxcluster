@@ -40,6 +40,12 @@
       assign ratio = 1
     endif
   -%}
+  {%- liquid
+    assign is_variant_template = false
+    if template.name contains 'ab_test_variant'
+      assign is_variant_template = true
+    endif
+  -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
@@ -59,6 +65,36 @@
       >
         {%- if card_product.featured_media -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+            {%- comment -%} {% # CLUSTER-AGENT START %} {%- endcomment -%}
+            {%- if is_variant_template -%}
+              {%- liquid
+                assign show_bestseller = false
+                assign badge_text = 'BESTSELLER'
+
+                # Check metafield first
+                if card_product.metafields.custom.is_bestseller == true
+                  assign show_bestseller = true
+                endif
+
+                # Override badge text if custom text provided
+                if card_product.metafields.custom.badge_text != blank
+                  assign badge_text = card_product.metafields.custom.badge_text
+                endif
+
+                # Fallback: hard-coded check for Medium Mixed Box
+                if show_bestseller == false and card_product.handle == 'medium-mixed-box'
+                  assign show_bestseller = true
+                endif
+              -%}
+
+              {%- if show_bestseller -%}
+                <div class="product-badge product-badge--bestseller">
+                  <span class="badge-icon">🔥</span>
+                  <span class="badge-text">{{ badge_text }}</span>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+            {%- comment -%} {% # CLUSTER-AGENT END %} {%- endcomment -%}
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
                <a
@@ -182,6 +218,15 @@
                     </p>
                   {% endif %}
                  </div>
+                 {%- comment -%} {% # CLUSTER-AGENT START %} {%- endcomment -%}
+                 <div class="people-sec">
+                   {% if card_product.metafields.custom.people %}
+                     <p class="product-people">
+                       <span class="people-icon">👥</span> Serves {{ card_product.metafields.custom.people }}
+                     </p>
+                   {% endif %}
+                 </div>
+                 {%- comment -%} {% # CLUSTER-AGENT END %} {%- endcomment -%}
                 </div>
           <div class="card-information">
             {%- if show_vendor -%}

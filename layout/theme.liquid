@@ -260,6 +260,9 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'aos.css' | asset_url | stylesheet_tag }}
+    {%- if template.name contains 'ab_test_variant' -%}
+      {{ 'variant-product-cards.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -308,6 +311,7 @@
    {% if template contains 'page.about' %}about-us-page{% endif %}
     {% if template contains 'product' %}product-page {{ product.handle }}{% endif %}
      {% if template == 'index' %}home-page{% endif %}
+     {% if template.name contains 'ab_test_variant' %}template-{{ template.name }}{% endif %}
    ">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
