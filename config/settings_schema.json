@@ -1267,6 +1267,28 @@
     ]
   },
   {
+    "name": "AB Test Settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Bestseller Badge"
+      },
+      {
+        "type": "text",
+        "id": "bestseller_product_handle",
+        "label": "Bestseller product handle",
+        "info": "Enter the product handle (e.g., 'medium-mixed-box') to show the bestseller badge. Leave blank to disable.",
+        "default": "medium-mixed-box"
+      },
+      {
+        "type": "color_scheme",
+        "id": "bestseller_badge_color_scheme",
+        "label": "Bestseller badge colors",
+        "default": "scheme-5"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.brand_information.name",
     "settings": [
       {
