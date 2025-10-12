@@ -1,0 +1,91 @@
+{% comment %}
+  Enhanced version of product-media-modal for hardcoded 2-image galleries
+  Renders a product media modal with hardcoded second image
+
+  Accepts:
+  - product: {Object} Product liquid object
+  - variant_images: {Array} Product images associated with a variant
+
+  Usage:
+  {% render 'product-media-modal-enhanced' %}
+{% endcomment %}
+
+{%- liquid
+  comment
+    Define hardcoded image URL - same as in product-media-gallery-enhanced
+  endcomment
+  assign hardcoded_image_url = 'https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Yellow_and_Blue_Simple_Message_Conservation_Instagram_Post_2.png?v=1758833166'
+
+  comment
+    Set featured media with fallbacks
+  endcomment
+  assign featured_media = product.selected_or_first_available_variant.featured_media
+  if featured_media == null or featured_media == blank
+    assign featured_media = product.featured_media
+  endif
+  if featured_media == null or featured_media == blank
+    assign featured_media = product.media.first
+  endif
+-%}
+
+<product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
+  <div
+    class="product-media-modal__dialog color-{{ section.settings.color_scheme }} gradient"
+    role="dialog"
+    aria-label="{{ 'products.modal.label' | t }}"
+    aria-modal="true"
+    tabindex="-1"
+  >
+    <button
+      id="ModalClose-{{ section.id }}"
+      type="button"
+      class="product-media-modal__toggle"
+      aria-label="{{ 'accessibility.close' | t }}"
+    >
+      {{ 'icon-close.svg' | inline_asset_content }}
+    </button>
+
+    {%- comment -%} Always show navigation arrows since we always have 2 images {%- endcomment -%}
+    <button
+      class="product-media-modal__nav product-media-modal__nav--prev"
+      type="button"
+      aria-label="{{ 'products.modal.previous' | t }}"
+      data-direction="prev"
+    >
+      {{ 'icon-caret.svg' | inline_asset_content }}
+    </button>
+    <button
+      class="product-media-modal__nav product-media-modal__nav--next"
+      type="button"
+      aria-label="{{ 'products.modal.next' | t }}"
+      data-direction="next"
+    >
+      {{ 'icon-caret.svg' | inline_asset_content }}
+    </button>
+
+    <div
+      class="product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
+      role="document"
+      aria-label="{{ 'products.modal.label' | t }}"
+      tabindex="0"
+    >
+      {%- comment -%} MODAL IMAGE 1: Featured Media {%- endcomment -%}
+      {%- if featured_media != null and featured_media != blank -%}
+        {% render 'product-media', media: featured_media, loop: section.settings.enable_video_looping, variant_image: false %}
+      {%- endif -%}
+
+      {%- comment -%} MODAL IMAGE 2: Hardcoded Image {%- endcomment -%}
+      <img
+        class="global-media-settings global-media-settings--no-shadow"
+        srcset="{{ hardcoded_image_url }}"
+        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+        src="{{ hardcoded_image_url }}"
+        alt="{{ product.title | escape }}"
+        loading="lazy"
+        width="1080"
+        height="1080"
+        data-media-id="hardcoded-{{ section.id }}"
+      >
+    </div>
+  </div>
+</product-modal>
