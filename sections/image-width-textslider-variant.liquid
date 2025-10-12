@@ -184,7 +184,36 @@
 } {% endcomment %}
 </style>
 
+{% comment %} CLUSTER-AGENT START - Smooth scroll to product grid {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Find all anchor links in this section that point to #choose-your-box
+    const scrollLinks = document.querySelectorAll('a[href="#choose-your-box"]');
 
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = 'choose-your-box';
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          // Calculate position with offset to show "Our Boxes" heading at top with margin
+          const offset = 120; // Enough space to show heading + top margin
+          const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - offset;
+
+          // Smooth scroll to position
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+{% comment %} CLUSTER-AGENT END {% endcomment %}
 
 {% schema %}
 {

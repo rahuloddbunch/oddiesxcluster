@@ -46,7 +46,7 @@
           "type": "button",
           "settings": {
             "button_label": "Claim My Box",
-            "button_link": "shopify://collections/boxes",
+            "button_link": "#choose-your-box",
             "button_style_secondary": false
           }
         },
@@ -79,7 +79,7 @@
         "mobile_content_alignment": "left",
         "section_color_scheme": "",
         "color_scheme": "",
-        "padding_top": 12,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     },
@@ -140,7 +140,7 @@
       "name": "Choose Your Box",
       "settings": {
         "collection": "feature-collections-mobile",
-        "collection_show": 4,
+        "collection_show": 20,
         "slider_view": 2,
         "slider_view_mobile": 1,
         "slider_gap": 24,
@@ -165,8 +165,8 @@
         "title_size_mobile": 16,
         "title_height": 120,
         "title_border_thickness": 0,
-        "title_mt": 16,
-        "title_mt_mobile": 12,
+        "title_mt": 12,
+        "title_mt_mobile": 8,
         "price_color": "#007431",
         "price_original_color": "#666666",
         "price_size": 24,
@@ -187,11 +187,12 @@
         "section_radius": 0,
         "border_thickness": 0,
         "background_color": "#fff4e0",
-        "padding_top": 36,
+        "padding_top": 24,
         "padding_bottom": 36,
         "padding_horizontal": 2,
         "padding_horizontal_mobile": 1,
-        "lazy": true
+        "lazy": true,
+        "price_compare": true
       }
     },
     "featured_collection_yzn4Pi": {

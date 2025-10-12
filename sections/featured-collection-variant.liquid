@@ -164,6 +164,17 @@
       padding-left: {{ padding_horizontal_mobile }}rem;
       padding-right: {{ padding_horizontal_mobile }}rem;
     }
+
+    {% comment %} CLUSTER-AGENT START - Our Boxes heading styles {% endcomment %}
+    .featured-section-heading-{{ section.id }} {
+      margin: 0 0 16px 0;
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
+      color: #000000;
+      line-height: 1.2;
+    }
+    {% comment %} CLUSTER-AGENT END {% endcomment %}
   
     .featured-slider-body-{{ section.id }} {
       display: flex;
@@ -179,7 +190,33 @@
       padding-right: {{ padding_horizontal_mobile }}rem !important;
       flex: 1 1 auto !important;
     }
-  
+
+    {% comment %} CLUSTER-AGENT START - Mobile 2-column grid layout {% endcomment %}
+    @media (max-width: 767px) {
+      .featured-slider-{{ section.id }} .swiper-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: {{ slider_gap_mobile }}px;
+        transform: none !important;
+        width: 100% !important;
+      }
+
+      .featured-slider-{{ section.id }}.swiper {
+        overflow: visible;
+      }
+
+      .featured-slide-{{ section.id }} {
+        width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .featured-btn-prev-{{ section.id }},
+      .featured-btn-next-{{ section.id }} {
+        display: none !important;
+      }
+    }
+    {% comment %} CLUSTER-AGENT END {% endcomment %}
+
     .featured-slide-{{ section.id }} {
       position: relative;
       box-sizing: border-box !important;
@@ -194,13 +231,15 @@
       overflow: hidden;
     }
   
+    {% comment %} CLUSTER-AGENT START - Change to contain to prevent cropping {% endcomment %}
     .featured-image-{{ section.id }} img,
     .featured-image-{{ section.id }} svg {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
+    {% comment %} CLUSTER-AGENT END {% endcomment %}
   
     .featured-image-{{ section.id }} svg {
       background-color: #AFAFAF;
@@ -231,32 +270,37 @@
       text-decoration: none;
     }
   
+    {% comment %} CLUSTER-AGENT START - Vertical layout for title and price {% endcomment %}
     .featured-content-top-{{ section.id }} {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+      gap: 6px;
       width: 100%;
-      padding-bottom: 5px;
+      padding-bottom: 4px;
       margin-top: {{ title_mt_mobile }}px;
-      border-bottom: {{ title_border_thickness }}px solid {{ title_border_color }};    
-    }   
-  
+      border-bottom: {{ title_border_thickness }}px solid {{ title_border_color }};
+    }
+
     .featured-title-{{ section.id }} {
-      margin: 0;   
+      margin: 0;
       font-size: {{ title_size_mobile }}px;
       color: {{ title_color }};
       line-height: {{ title_height }}%;
       text-transform: unset;
       text-decoration: none;
       font-weight: 700;
-    }    
-  
+      text-align: center;
+      width: 100%;
+    }
+
     .featured-price-{{ section.id }} {
       display: flex;
       align-items: center;
       gap: 5px;
+      justify-content: center;
     }
+    {% comment %} CLUSTER-AGENT END {% endcomment %}
   
     .featured-price-{{ section.id }} * {
       margin: 0;
@@ -288,16 +332,9 @@
       text-decoration: none;
     }
 
-    {% comment %} CLUSTER-AGENT START - Clickable card wrapper and new metafield styles {% endcomment %}
-    .featured-slide-link-{{ section.id }} {
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
+    {% comment %} CLUSTER-AGENT START - Card content padding {% endcomment %}
     .featured-card-content-{{ section.id }} {
-      padding: 16px;
+      padding: 8px 12px 12px;
     }
 
     .featured-metafields-row-{{ section.id }} {
@@ -316,30 +353,57 @@
       font-weight: 500;
     }
 
-    .featured-people-count-{{ section.id }} {
+    {% comment %} CLUSTER-AGENT START - New info row and CTA styles {% endcomment %}
+    .featured-info-row-{{ section.id }} {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: {{ text_mt_mobile | times: 0.5 }}px;
-      padding: 8px 12px;
-      background-color: rgba(0, 116, 49, 0.08);
-      border-radius: 20px;
-      width: fit-content;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 6px;
+      font-size: {{ text_size_mobile }}px;
+      color: {{ text_color }};
     }
 
-    .featured-people-count-{{ section.id }} svg {
-      width: 16px;
-      height: 16px;
-      color: #007431;
+    .featured-info-item-{{ section.id }} {
+      margin: 0;
+      font-size: {{ text_size_mobile }}px;
+      color: {{ text_color }};
+      line-height: 1.4;
+    }
+
+    .featured-info-people-{{ section.id }} {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .featured-info-people-{{ section.id }} svg {
+      width: 14px;
+      height: 14px;
+      color: #000000;
       flex-shrink: 0;
     }
 
-    .featured-people-count-{{ section.id }} span {
-      margin: 0;
-      font-size: {{ text_size_mobile | times: 0.9 }}px;
+    .featured-cta-button-{{ section.id }} {
+      display: inline-block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 2px solid #007431;
+      border-radius: 50px;
       color: #007431;
+      font-size: {{ text_size_mobile }}px;
       font-weight: 600;
-      line-height: 1;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .featured-cta-button-{{ section.id }}:hover {
+      background-color: #007431;
+      color: white;
     }
     {% comment %} CLUSTER-AGENT END {% endcomment %}
 
@@ -592,6 +656,13 @@
         padding-left: {{ padding_horizontal }}rem;
         padding-right: {{ padding_horizontal }}rem;
       }
+
+      {% comment %} CLUSTER-AGENT START - Desktop heading styles {% endcomment %}
+      .featured-section-heading-{{ section.id }} {
+        margin-bottom: 24px;
+        font-size: 36px;
+      }
+      {% comment %} CLUSTER-AGENT END {% endcomment %}
   
       .featured-slider-{{ section.id }} {
         margin-left: 0px !important;
@@ -599,7 +670,31 @@
         padding-left: 0px !important;
         padding-right: 0px !important;
       }
-  
+
+      {% comment %} CLUSTER-AGENT START - Desktop grid layout (4 columns) {% endcomment %}
+      .featured-slider-{{ section.id }} .swiper-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr);
+        gap: {{ slider_gap }}px;
+        transform: none !important;
+        width: 100% !important;
+      }
+
+      .featured-slider-{{ section.id }}.swiper {
+        overflow: visible;
+      }
+
+      .featured-slide-{{ section.id }} {
+        width: 100% !important;
+        margin: 0 !important;
+      }
+
+      .featured-btn-prev-{{ section.id }},
+      .featured-btn-next-{{ section.id }} {
+        display: none !important;
+      }
+      {% comment %} CLUSTER-AGENT END {% endcomment %}
+
       .featured-content-top-{{ section.id }} {
         margin-top: {{ title_mt }}px;
       }  
@@ -627,9 +722,9 @@
         font-size: {{ text_size }}px;
       }
 
-      {% comment %} CLUSTER-AGENT START - Desktop styles for new elements {% endcomment %}
+      {% comment %} CLUSTER-AGENT START - Desktop card padding {% endcomment %}
       .featured-card-content-{{ section.id }} {
-        padding: 20px;
+        padding: 12px 16px 16px;
       }
 
       .featured-metafields-row-{{ section.id }} {
@@ -641,12 +736,24 @@
         padding: 6px 12px;
       }
 
-      .featured-people-count-{{ section.id }} {
-        margin-top: {{ text_mt | times: 0.5 }}px;
+      {% comment %} CLUSTER-AGENT START - Desktop styles for new info row and CTA {% endcomment %}
+      .featured-info-row-{{ section.id }} {
+        margin-top: 8px;
       }
 
-      .featured-people-count-{{ section.id }} span {
-        font-size: {{ text_size | times: 0.9 }}px;
+      .featured-info-item-{{ section.id }} {
+        font-size: {{ text_size }}px;
+      }
+
+      .featured-info-people-{{ section.id }} svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .featured-cta-button-{{ section.id }} {
+        margin-top: 12px;
+        font-size: {{ text_size }}px;
+        padding: 11px 24px;
       }
       {% comment %} CLUSTER-AGENT END {% endcomment %}
 
@@ -1071,8 +1178,11 @@
   </style>
   
   
-  <div class="section-{{ section.id }} featured-{{ section.id }}" style="background-color:{{ background_color }}; background-image: {{ background_gradient }};">
-      <div class="section-{{ section.id }}-settings">    
+  {% comment %} CLUSTER-AGENT START - Add anchor ID and heading {% endcomment %}
+  <div id="choose-your-box" class="section-{{ section.id }} featured-{{ section.id }}" style="background-color:{{ background_color }}; background-image: {{ background_gradient }};">
+      <div class="section-{{ section.id }}-settings">
+        <h2 class="featured-section-heading-{{ section.id }}">Our Boxes</h2>
+        {% comment %} CLUSTER-AGENT END {% endcomment %}    
         <div class="featured-slider-body-{{ section.id }}">
           <button class="featured-btn-prev-{{ section.id }}">
             <span class="animate-icon"></span>
@@ -1112,44 +1222,36 @@
                     {% if show_badge and product.metafields.custom.badge.value != blank %}
                       <p class="featured-badge-{{ section.id }}">{{ product.metafields.custom.badge.value }}</p>
                     {% endif %}
-                    <a href="{{ product.url }}" class="featured-slide-link-{{ section.id }}">
-                      <div class="featured-card-content-{{ section.id }}">
-                        <div class="featured-content-top-{{ section.id }}">
-                          <h3 class="featured-title-{{ section.id }}">{{ product.title }}</h3>
-                          <div class="featured-price-{{ section.id }}">
-                            <p class="featured-regular-price-{{ section.id }}">{% if product != blank %}{{ product.price | money }}{% else %}$19.99{% endif %}</p>
-                            {% if product.compare_at_price != blank and price_compare %}
-                              <s class="featured-compare-price-{{ section.id }}">{{ product.compare_at_price | money }}</s>
-                            {% endif %}
-                          </div>
-                        </div>
-
-                        {% comment %} CLUSTER-AGENT START {% endcomment %}
-                        <div class="featured-metafields-row-{{ section.id }}">
-                          {% if product.metafields.custom.varieties %}
-                            <div class="featured-meta-badge-{{ section.id }}">
-                              {{ product.metafields.custom.varieties }}
-                            </div>
-                          {% endif %}
-                          {% if product.metafields.custom.kg %}
-                            <div class="featured-meta-badge-{{ section.id }}">
-                              {{ product.metafields.custom.kg }}
-                            </div>
+                    {% comment %} CLUSTER-AGENT START - Restructured card layout {% endcomment %}
+                    <div class="featured-card-content-{{ section.id }}">
+                      <div class="featured-content-top-{{ section.id }}">
+                        <h3 class="featured-title-{{ section.id }}">{{ product.title }}</h3>
+                        <div class="featured-price-{{ section.id }}">
+                          <p class="featured-regular-price-{{ section.id }}">{% if product != blank %}{{ product.price | money }}{% else %}$19.99{% endif %}</p>
+                          {% if product.compare_at_price != blank and price_compare %}
+                            <s class="featured-compare-price-{{ section.id }}">{{ product.compare_at_price | money }}</s>
                           {% endif %}
                         </div>
+                      </div>
 
+                      <div class="featured-info-row-{{ section.id }}">
                         {% if product.metafields.custom.people %}
-                          <div class="featured-people-count-{{ section.id }}">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <span class="featured-info-item-{{ section.id }} featured-info-people-{{ section.id }}">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                               <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <span>Serves {{ product.metafields.custom.people }}</span>
-                          </div>
+                            {{ product.metafields.custom.people }}
+                          </span>
                         {% endif %}
-                        {% comment %} CLUSTER-AGENT END {% endcomment %}
+                        {% if product.metafields.custom.kg %}
+                          <span class="featured-info-item-{{ section.id }}">{{ product.metafields.custom.kg }}</span>
+                        {% endif %}
                       </div>
-                    </a>                               
+
+                      <a href="{{ product.url }}" class="featured-cta-button-{{ section.id }}">View Box</a>
+                    </div>
+                    {% comment %} CLUSTER-AGENT END {% endcomment %}                               
                   </div>
                 {% endfor %}
               {% else %}
