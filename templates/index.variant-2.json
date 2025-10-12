@@ -752,8 +752,8 @@
         "padding_bottom": 36
       }
     },
-    "image_width_textslider_variant_1": {
-      "type": "image-width-textslider-variant-1",
+    "image_width_textslider_variant_2": {
+      "type": "image-width-textslider-variant-2",
       "blocks": {
         "heading_7jjXVP": {
           "type": "heading",
@@ -792,7 +792,7 @@
         "image_QkwJni",
         "caption_RL6h34"
       ],
-      "name": "Hero (Variant 1)",
+      "name": "Hero (Variant 2)",
       "settings": {
         "image": "shopify://shop_images/Landing_Page_Hero.jpg",
         "heading2": "",
@@ -808,11 +808,12 @@
         "color_scheme": "",
         "padding_top": 12,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
-    "featured_collection_variant_1": {
-      "type": "featured-collection-variant-1",
-      "name": "Choose Your Box (V1)",
+    "featured_collection_variant_2": {
+      "type": "featured-collection-variant-2",
+      "name": "Choose Your Box (V2)",
       "settings": {
         "collection": "feature-collections-mobile",
         "products_to_show": 4,
@@ -844,9 +845,8 @@
   },
   "order": [
     "image_banner2_9PjBqF",
-    "image_width_textslider_variant_1",
     "featured_product_CG36dx",
-    "featured_collection_variant_1",
+    "featured_collection_variant_2",
     "featured_collection_yzn4Pi",
     "multicolumn_MUkKky",
     "multicolumn_review_dX3nXW",
