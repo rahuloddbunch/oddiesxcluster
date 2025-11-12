@@ -13,17 +13,17 @@
 
 {%- liquid
   comment
-    Hardcode media_count to always be 2: featured media + hardcoded image
+    Hardcode media_count to always be 5: featured media + 4 hardcoded images
   endcomment
-  assign media_count = 2
+  assign media_count = 5
   assign single_media_visible = false
   assign single_media_visible_mobile = false
   assign hide_mobile_slider = false
 
   comment
-    Define hardcoded image URL
+    Define hardcoded image URLs
   endcomment
-  assign hardcoded_image_url = 'https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Yellow_and_Blue_Simple_Message_Conservation_Instagram_Post_2.png?v=1758833166'
+  assign hardcoded_images = 'https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_27.jpg?v=1762963205,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_28.jpg?v=1762963208,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_29.jpg?v=1762963212,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_30.jpg?v=1762963229' | split: ','
 
   comment
     Set featured media with fallbacks
@@ -89,66 +89,69 @@
         </li>
       {%- endif -%}
 
-      {%- comment -%} SLIDE 2: Hardcoded Image {%- endcomment -%}
-      <li
-        id="Slide-{{ section.id }}-hardcoded"
-        class="product__media-item grid__item slider__slide product__media-item--full{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-        data-media-id="{{ section.id }}-hardcoded"
-      >
-        {%- capture sizes -%}
-          (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)
-        {%- endcapture -%}
-
-        {%- liquid
-          comment
-            Use featured media aspect ratio for consistent gallery sizing
-          endcomment
-          assign container_ratio = featured_media.aspect_ratio | default: 1.0
-        -%}
-
-        <div
-          class="product-media-container media-type-image media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
-          style="--ratio: {{ container_ratio }}; --preview-ratio: {{ container_ratio }};"
+      {%- comment -%} SLIDES 2-5: Hardcoded Images {%- endcomment -%}
+      {%- for hardcoded_image_url in hardcoded_images -%}
+        {%- assign slide_index = forloop.index | plus: 1 -%}
+        <li
+          id="Slide-{{ section.id }}-hardcoded-{{ forloop.index }}"
+          class="product__media-item grid__item slider__slide product__media-item--full{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+          data-media-id="{{ section.id }}-hardcoded-{{ forloop.index }}"
         >
-          <modal-opener
-            class="product__modal-opener product__modal-opener--image"
-            data-modal="#ProductModal-{{ section.id }}"
+          {%- capture sizes -%}
+            (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)
+          {%- endcapture -%}
+
+          {%- liquid
+            comment
+              Use featured media aspect ratio for consistent gallery sizing
+            endcomment
+            assign container_ratio = featured_media.aspect_ratio | default: 1.0
+          -%}
+
+          <div
+            class="product-media-container media-type-image media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
+            style="--ratio: {{ container_ratio }}; --preview-ratio: {{ container_ratio }};"
           >
-            <span
-              class="product__media-icon motion-reduce quick-add-hidden product__media-icon--{{ section.settings.image_zoom }}"
-              aria-hidden="true"
+            <modal-opener
+              class="product__modal-opener product__modal-opener--image"
+              data-modal="#ProductModal-{{ section.id }}"
             >
-              <span class="svg-wrapper">
-                {{- 'icon-zoom.svg' | inline_asset_content -}}
-              </span>
-            </span>
-            {%- render 'loading-spinner' -%}
-            <div class="product__media media media--transparent">
-              <img
-                src="{{ hardcoded_image_url }}"
-                alt="{{ product.title | escape }}"
-                loading="lazy"
-                sizes="{{ sizes }}"
-                width="1080"
-                height="1080"
-                class="image-magnify-{{ section.settings.image_zoom }}"
+              <span
+                class="product__media-icon motion-reduce quick-add-hidden product__media-icon--{{ section.settings.image_zoom }}"
+                aria-hidden="true"
               >
-            </div>
-            <button
-              class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
-              type="button"
-              aria-haspopup="dialog"
-              data-media-id="hardcoded-{{ section.id }}"
-            >
-              <span class="visually-hidden">
-                {{ 'products.product.media.open_media' | t: index: 2 }}
+                <span class="svg-wrapper">
+                  {{- 'icon-zoom.svg' | inline_asset_content -}}
+                </span>
               </span>
-            </button>
-          </modal-opener>
-        </div>
-      </li>
+              {%- render 'loading-spinner' -%}
+              <div class="product__media media media--transparent">
+                <img
+                  src="{{ hardcoded_image_url }}"
+                  alt="{{ product.title | escape }}"
+                  loading="lazy"
+                  sizes="{{ sizes }}"
+                  width="1080"
+                  height="1080"
+                  class="image-magnify-{{ section.settings.image_zoom }}"
+                >
+              </div>
+              <button
+                class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
+                type="button"
+                aria-haspopup="dialog"
+                data-media-id="{{ section.id }}-hardcoded-{{ forloop.index }}"
+              >
+                <span class="visually-hidden">
+                  {{ 'products.product.media.open_media' | t: index: slide_index }}
+                </span>
+              </button>
+            </modal-opener>
+          </div>
+        </li>
+      {%- endfor -%}
     </ul>
-    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}" style="margin-top: -20px;">
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}" style="margin-top: -20px; display: none;">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -163,8 +166,7 @@
         <span class="slider-counter--current">1</span>
         <span aria-hidden="true"> / </span>
         <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-        {% comment %} <span class="slider-counter--total">{{ media_count }}</span> {% endcomment %}
-        <span class="ewewewolrjke">2</span>
+        <span class="slider-counter--total">{{ media_count }}</span>
       </div>
       <button
         type="button"
@@ -216,6 +218,7 @@
         aria-label="{{ 'general.slider.previous_slide' | t }}"
         aria-controls="GalleryThumbnails-{{ section.id }}"
         data-step="3"
+        style="display: none;"
       >
         <span class="svg-wrapper">
           {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -265,32 +268,36 @@
           </li>
         {%- endif -%}
 
-        {%- comment -%} THUMBNAIL 2: Hardcoded Image {%- endcomment -%}
-        <li
-          id="Slide-Thumbnails-{{ section.id }}-1"
-          class="thumbnail-list__item slider__slide"
-          data-target="{{ section.id }}-hardcoded"
-          data-media-position="2"
-        >
-          {%- capture thumbnail_id -%}
-            Thumbnail-{{ section.id }}-1
-          {%- endcapture -%}
-          <button
-            class="thumbnail global-media-settings global-media-settings--no-shadow"
-            aria-label="{{ 'products.product.media.load_image' | t: index: 2 }}"
-            aria-controls="GalleryViewer-{{ section.id }}"
-            aria-describedby="{{ thumbnail_id }}"
+        {%- comment -%} THUMBNAILS 2-5: Hardcoded Images {%- endcomment -%}
+        {%- for hardcoded_image_url in hardcoded_images -%}
+          {%- assign thumb_position = forloop.index | plus: 1 -%}
+          {%- assign thumb_index = forloop.index -%}
+          <li
+            id="Slide-Thumbnails-{{ section.id }}-{{ thumb_index }}"
+            class="thumbnail-list__item slider__slide"
+            data-target="{{ section.id }}-hardcoded-{{ forloop.index }}"
+            data-media-position="{{ thumb_position }}"
           >
-            <img
-              src="{{ hardcoded_image_url }}"
-              alt="{{ product.title | escape }}"
-              loading="lazy"
-              width="416"
-              height="416"
-              id="{{ thumbnail_id }}"
+            {%- capture thumbnail_id -%}
+              Thumbnail-{{ section.id }}-{{ thumb_index }}
+            {%- endcapture -%}
+            <button
+              class="thumbnail global-media-settings global-media-settings--no-shadow"
+              aria-label="{{ 'products.product.media.load_image' | t: index: thumb_position }}"
+              aria-controls="GalleryViewer-{{ section.id }}"
+              aria-describedby="{{ thumbnail_id }}"
             >
-          </button>
-        </li>
+              <img
+                src="{{ hardcoded_image_url }}"
+                alt="{{ product.title | escape }}"
+                loading="lazy"
+                width="416"
+                height="416"
+                id="{{ thumbnail_id }}"
+              >
+            </button>
+          </li>
+        {%- endfor -%}
       </ul>
       <button
         type="button"
@@ -299,6 +306,7 @@
         aria-label="{{ 'general.slider.next_slide' | t }}"
         aria-controls="GalleryThumbnails-{{ section.id }}"
         data-step="3"
+        style="display: none;"
       >
         <span class="svg-wrapper">
           {{- 'icon-caret.svg' | inline_asset_content -}}
@@ -313,6 +321,34 @@
   @media (max-width: 749px) {
     #MediaGallery-{{ section.id }} .product__media-item img {
       object-fit: contain !important;
+    }
+  }
+
+  /* Set thumbnail size to 80px */
+  #MediaGallery-{{ section.id }} .thumbnail-list .thumbnail {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  #MediaGallery-{{ section.id }} .thumbnail-list .thumbnail img {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover !important;
+  }
+
+  #MediaGallery-{{ section.id }} .thumbnail-list__item {
+    flex: 0 0 80px !important;
+    width: 80px !important;
+  }
+
+  /* Double the left spacing for thumbnail container */
+  #MediaGallery-{{ section.id }} .thumbnail-list {
+    padding-left: 3rem !important;
+  }
+
+  @media (max-width: 749px) {
+    #MediaGallery-{{ section.id }} .thumbnail-list {
+      padding-left: 2rem !important;
     }
   }
 </style>

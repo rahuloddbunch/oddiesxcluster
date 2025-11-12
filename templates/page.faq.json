@@ -25,7 +25,7 @@
           "settings": {
             "heading": "Can I cancel at any time?",
             "icon": "none",
-            "row_content": "<p>Yep, you’re in control. Just cancel before Wednesday 11:55 pm AEST and you won’t be charged for that week’s box. If something wasn’t right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au</a><br/>- we’d love the chance to make it right before you leave us.</p>",
+            "row_content": "<p>Yep, you’re in control. Just cancel before Wednesday 11:55 pm AEST and you won’t be charged for that week’s box. If something wasn’t right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au<\/a><br\/>- we’d love the chance to make it right before you leave us.<\/p>",
             "page": ""
           }
         },
@@ -34,7 +34,7 @@
           "settings": {
             "heading": "How will I know what’s coming?",
             "icon": "none",
-            "row_content": "<p>Every Tuesday around 2 pm AEST, we post the Weekly Harvest on our website and socials. That list covers what’s going out Thursday to Saturday. Sign up after the cut-off? You’ll get the following week’s harvest.</p>",
+            "row_content": "<p>Every Tuesday around 2 pm AEST, we post the Weekly Harvest on our website and socials. That list covers what’s going out Thursday to Saturday. Sign up after the cut-off? You’ll get the following week’s harvest.<\/p>",
             "page": ""
           }
         },
@@ -43,7 +43,7 @@
           "settings": {
             "heading": "Where does Oddies source its produce from?",
             "icon": "none",
-            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking “imperfect” or for being surplus. Whenever we can, we go local so you’re getting the freshest stuff with the smallest footprint.</p>",
+            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking “imperfect” or for being surplus. Whenever we can, we go local so you’re getting the freshest stuff with the smallest footprint.<\/p>",
             "page": ""
           }
         },
@@ -52,7 +52,7 @@
           "settings": {
             "heading": "Do I have to be home for delivery?",
             "icon": "none",
-            "row_content": "<p>Nope. We’ll leave it in a safe spot. If you’re in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler - but no stress if you don’t.</p>",
+            "row_content": "<p>Nope. We’ll leave it in a safe spot. If you’re in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler - but no stress if you don’t.<\/p>",
             "page": ""
           }
         },
@@ -61,7 +61,7 @@
           "settings": {
             "heading": "Is the produce safe to eat if it looks weird?",
             "icon": "none",
-            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn’t been through the supermarket beauty pageant.</p>",
+            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn’t been through the supermarket beauty pageant.<\/p>",
             "page": ""
           }
         },
@@ -70,7 +70,7 @@
           "settings": {
             "heading": "Do the boxes change each week?",
             "icon": "none",
-            "row_content": "<p>Yes. Think of it like a surprise farmers’ market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.</p>",
+            "row_content": "<p>Yes. Think of it like a surprise farmers’ market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.<\/p>",
             "page": ""
           }
         },
@@ -79,7 +79,7 @@
           "settings": {
             "heading": "Can I pick what’s in my box?",
             "icon": "none",
-            "row_content": "<p>Menus are fixed to cut waste and keep things simple. Allergic or really hate something? Use our substitution form to swap it out for more of something you love.</p>",
+            "row_content": "<p>Menus are fixed to cut waste and keep things simple. Allergic or really hate something? Use our substitution form to swap it out for more of something you love.<\/p>",
             "page": ""
           }
         },
@@ -88,7 +88,7 @@
           "settings": {
             "heading": "What if something’s missing or damaged?",
             "icon": "none",
-            "row_content": "<p>It happens, and we’ve got your back. Just let us know and we’ll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.</p>",
+            "row_content": "<p>It happens, and we’ve got your back. Just let us know and we’ll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.<\/p>",
             "page": ""
           }
         },
@@ -97,7 +97,7 @@
           "settings": {
             "heading": "How fresh will my box be if I’m not home?",
             "icon": "none",
-            "row_content": "<p>Very. We pack in a cold-storage warehouse and deliver in refrigerated vans. Even if your box hangs out at the front door for a bit, your cucumbers will stay cool and crisp.</p>",
+            "row_content": "<p>Very. We pack in a cold-storage warehouse and deliver in refrigerated vans. Even if your box hangs out at the front door for a bit, your cucumbers will stay cool and crisp.<\/p>",
             "page": ""
           }
         },
@@ -106,7 +106,7 @@
           "settings": {
             "heading": "What is your billing process like?",
             "icon": "none",
-            "row_content": "<p>All payments go through our secure online platform. We accept major debit and credit cards, plus Apple Pay, Google Pay, and Shop Pay. Everything is encrypted and private.</p>",
+            "row_content": "<p>All payments go through our secure online platform. We accept major debit and credit cards, plus Apple Pay, Google Pay, and Shop Pay. Everything is encrypted and private.<\/p>",
             "page": ""
           }
         }

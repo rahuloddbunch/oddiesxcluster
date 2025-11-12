@@ -1,6 +1,6 @@
 {% comment %}
-  Enhanced version of product-media-modal for hardcoded 2-image galleries
-  Renders a product media modal with hardcoded second image
+  Enhanced version of product-media-modal for hardcoded 5-image galleries
+  Renders a product media modal with 4 hardcoded images
 
   Accepts:
   - product: {Object} Product liquid object
@@ -12,9 +12,9 @@
 
 {%- liquid
   comment
-    Define hardcoded image URL - same as in product-media-gallery-enhanced
+    Define hardcoded image URLs - same as in product-media-gallery-enhanced
   endcomment
-  assign hardcoded_image_url = 'https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Yellow_and_Blue_Simple_Message_Conservation_Instagram_Post_2.png?v=1758833166'
+  assign hardcoded_images = 'https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_27.jpg?v=1762963205,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_28.jpg?v=1762963208,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_29.jpg?v=1762963212,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_30.jpg?v=1762963229' | split: ','
 
   comment
     Set featured media with fallbacks
@@ -45,7 +45,7 @@
       {{ 'icon-close.svg' | inline_asset_content }}
     </button>
 
-    {%- comment -%} Always show navigation arrows since we always have 2 images {%- endcomment -%}
+    {%- comment -%} Always show navigation arrows since we always have 5 images {%- endcomment -%}
     <button
       class="product-media-modal__nav product-media-modal__nav--prev"
       type="button"
@@ -74,18 +74,20 @@
         {% render 'product-media', media: featured_media, loop: section.settings.enable_video_looping, variant_image: false %}
       {%- endif -%}
 
-      {%- comment -%} MODAL IMAGE 2: Hardcoded Image {%- endcomment -%}
-      <img
-        class="global-media-settings global-media-settings--no-shadow"
-        srcset="{{ hardcoded_image_url }}"
-        sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
-        src="{{ hardcoded_image_url }}"
-        alt="{{ product.title | escape }}"
-        loading="lazy"
-        width="1080"
-        height="1080"
-        data-media-id="hardcoded-{{ section.id }}"
-      >
+      {%- comment -%} MODAL IMAGES 2-5: Hardcoded Images {%- endcomment -%}
+      {%- for hardcoded_image_url in hardcoded_images -%}
+        <img
+          class="global-media-settings global-media-settings--no-shadow"
+          srcset="{{ hardcoded_image_url }}"
+          sizes="(min-width: 750px) calc(100vw - 22rem), 1100px"
+          src="{{ hardcoded_image_url }}"
+          alt="{{ product.title | escape }}"
+          loading="lazy"
+          width="1080"
+          height="1080"
+          data-media-id="{{ section.id }}-hardcoded-{{ forloop.index }}"
+        >
+      {%- endfor -%}
     </div>
   </div>
 </product-modal>

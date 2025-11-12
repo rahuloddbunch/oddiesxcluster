@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product-enhanced",
+      "type": "main-product-experiment",
       "blocks": {
         "title": {
           "type": "title",
@@ -39,6 +39,24 @@
             "show_gift_card_recipient": true
           }
         },
+        "custom_liquid_nQFH6U": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p style=\"text-align:center;margin-bottom:1rem;\">Try 100% risk-free</p>"
+          }
+        },
+        "icon_with_text_mBVdkT": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "leaf",
+            "heading_1": "Seasonal menu updated weekly",
+            "icon_2": "return",
+            "heading_2": "Skip, pause, or cancel anytime",
+            "icon_3": "check_mark",
+            "heading_3": "No contracts or hidden fees"
+          }
+        },
         "custom_liquid_c39iBL": {
           "type": "custom_liquid",
           "settings": {
@@ -58,13 +76,13 @@
           }
         },
         "recharge_subscriptions_subscription_widget_v2_yMYCDb": {
-          "type": "shopify:\/\/apps\/recharge-subscriptions\/blocks\/subscription-widget-v2\/371eed76-0b44-4869-9813-730372ea378e",
+          "type": "shopify://apps/recharge-subscriptions/blocks/subscription-widget-v2/371eed76-0b44-4869-9813-730372ea378e",
           "settings": {}
         },
         "custom_liquid_W8AcEz": {
           "type": "custom_liquid",
           "settings": {
-            "custom_liquid": "<div style=\"display: block;\" data-app=\"oddbunch-postcodes\"><\/div>"
+            "custom_liquid": "<div style=\"display: block;\" data-app=\"oddbunch-postcodes\"></div>"
           }
         }
       },
@@ -74,11 +92,17 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "custom_liquid_nQFH6U",
+        "icon_with_text_mBVdkT",
         "custom_liquid_c39iBL",
         "description",
         "share",
         "recharge_subscriptions_subscription_widget_v2_yMYCDb",
         "custom_liquid_W8AcEz"
+      ],
+      "custom_css": [
+        ".icon-with-text {margin: 2.5rem 0 2rem 0;}",
+        ".recharge-subscription-widget {display: none;}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -87,7 +111,7 @@
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
@@ -121,7 +145,7 @@
         "column_VGhtX6": {
           "type": "column",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/ugc 1_96e180ab-35ab-42f5-a1b0-9765402b5771.mp4",
+            "video": "shopify://files/videos/ugc 1_96e180ab-35ab-42f5-a1b0-9765402b5771.mp4",
             "custom_video": "",
             "autoplay": true,
             "loop": true,
@@ -137,7 +161,7 @@
         "column_Ewfb7y": {
           "type": "column",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/ugc 2.mp4",
+            "video": "shopify://files/videos/ugc 2.mp4",
             "custom_video": "",
             "autoplay": true,
             "loop": true,
@@ -153,7 +177,7 @@
         "column_XYDMxw": {
           "type": "column",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/ugc 3.mp4",
+            "video": "shopify://files/videos/ugc 3.mp4",
             "custom_video": "",
             "autoplay": true,
             "loop": true,
@@ -169,7 +193,7 @@
         "column_gDxkUe": {
           "type": "column",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/ugc 4.mp4",
+            "video": "shopify://files/videos/ugc 4.mp4",
             "custom_video": "",
             "autoplay": true,
             "loop": true,
@@ -185,7 +209,7 @@
         "column_YFC8Fg": {
           "type": "column",
           "settings": {
-            "video": "shopify:\/\/files\/videos\/ugc 5.mp4",
+            "video": "shopify://files/videos/ugc 5.mp4",
             "custom_video": "",
             "autoplay": true,
             "loop": true,
@@ -206,6 +230,9 @@
         "column_gDxkUe",
         "column_YFC8Fg"
       ],
+      "custom_css": [
+        "@media (max-width: 767px) {.multicolumn-list__item {width: 45% !important; }}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "Our Customers say it Best",
@@ -219,10 +246,86 @@
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 12,
         "padding_bottom": 12
+      }
+    },
+    "reviews_eYE8ip": {
+      "type": "reviews",
+      "blocks": {
+        "review_JtRjXf": {
+          "type": "review",
+          "settings": {
+            "title": "Amazing product!",
+            "content": "“Ok so i thought this was gonna be small, but nah the box is actually massive lol. saved me a whole trip to the shops.”",
+            "author": "Jas, Blacktown",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_TgwEn9": {
+          "type": "review",
+          "settings": {
+            "title": "Great value",
+            "content": "“Wasn’t sure about the whole ‘wonky veg’ thing but the carrots taste the same as any other carrot and cheaper. My kids already smashed the apples”",
+            "author": "Lach, Leppington",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_N8PVtE": {
+          "type": "review",
+          "settings": {
+            "title": "Love it!",
+            "content": "“Tried the first box and honestly impressed. mix of fruit and veg, nothing fancy just good food. feels nice knowing it’s food that would have gone to waste otherwise.”",
+            "author": "Priya, Hornsby",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_Yf64bJ": {
+          "type": "review",
+          "settings": {
+            "title": "Highly satisfied",
+            "content": "\"Box arrived today 🙌 honestly fresher than half the stuff I’ve been getting at the supermarket. the pears are sooo good”",
+            "author": "Liam, Bankstown",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_gNQLTz": {
+          "type": "review",
+          "settings": {
+            "title": "Great product!",
+            "content": "“Just got my oddies box, heaps more stuff than i expected. def cheaper than coles.”",
+            "author": "Sarah, Parramatta",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_JtRjXf",
+        "review_TgwEn9",
+        "review_N8PVtE",
+        "review_Yf64bJ",
+        "review_gNQLTz"
+      ],
+      "name": "t:sections.reviews.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "card_color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 36
       }
     },
     "multicolumn_review_dgVFGN": {
@@ -233,7 +336,7 @@
           "settings": {
             "title": "",
             "title2": "",
-            "text": "<p>“Ok so i thought this was gonna be small, but nah the box is<br\/>actually massive lol. saved me a whole trip to the shops.”<\/p><p><strong>—  Jas, Blacktown<\/strong><\/p>",
+            "text": "<p>“Ok so i thought this was gonna be small, but nah the box is<br/>actually massive lol. saved me a whole trip to the shops.”</p><p><strong>—  Jas, Blacktown</strong></p>",
             "link_label": "",
             "link": ""
           }
@@ -243,7 +346,7 @@
           "settings": {
             "title": "",
             "title2": "",
-            "text": "<p>“Wasn’t<br\/>sure about the whole ‘wonky veg’ thing but the carrots taste the same as any<br\/>other carrot and cheaper. My kids already smashed the apples”<br\/><br\/><strong> — Lach, Leppington<\/strong><\/p>",
+            "text": "<p>“Wasn’t<br/>sure about the whole ‘wonky veg’ thing but the carrots taste the same as any<br/>other carrot and cheaper. My kids already smashed the apples”<br/><br/><strong> — Lach, Leppington</strong></p>",
             "link_label": "",
             "link": ""
           }
@@ -253,7 +356,7 @@
           "settings": {
             "title": "",
             "title2": "",
-            "text": "<p>“Tried<br\/>the first box and honestly impressed. mix of fruit and veg, nothing fancy just<br\/>good food. feels nice knowing it’s food that would have gone to waste<br\/>otherwise.”<\/p><p><strong>— Priya, Hornsby<\/strong><\/p>",
+            "text": "<p>“Tried<br/>the first box and honestly impressed. mix of fruit and veg, nothing fancy just<br/>good food. feels nice knowing it’s food that would have gone to waste<br/>otherwise.”</p><p><strong>— Priya, Hornsby</strong></p>",
             "link_label": "",
             "link": ""
           }
@@ -263,7 +366,7 @@
           "settings": {
             "title": "",
             "title2": "",
-            "text": "<p>\"Box<br\/>arrived today 🙌 honestly fresher than half the stuff I’ve been getting<br\/>at the supermarket. the pears are sooo good”<\/p><p><strong>— Liam, Bankstown<\/strong><\/p>",
+            "text": "<p>\"Box<br/>arrived today 🙌 honestly fresher than half the stuff I’ve been getting<br/>at the supermarket. the pears are sooo good”</p><p><strong>— Liam, Bankstown</strong></p>",
             "link_label": "",
             "link": ""
           }
@@ -273,7 +376,7 @@
           "settings": {
             "title": "",
             "title2": "",
-            "text": "<p>“Just<br\/>got my oddies box, heaps more stuff than i expected. def cheaper than coles.”<\/p><p><strong>— Sarah, Parramatta<\/strong><\/p>",
+            "text": "<p>“Just<br/>got my oddies box, heaps more stuff than i expected. def cheaper than coles.”</p><p><strong>— Sarah, Parramatta</strong></p>",
             "link_label": "",
             "link": ""
           }
@@ -286,6 +389,7 @@
         "column_yMMEPz",
         "column_BTjqFb"
       ],
+      "disabled": true,
       "name": "Multi column review",
       "settings": {
         "title": "",
@@ -295,14 +399,14 @@
         "image_ratio": "adapt",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
+        "columns_desktop": 5,
+        "column_alignment": "left",
+        "background_style": "none",
         "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 0,
-        "padding_bottom": 20
+        "padding_bottom": 0
       }
     },
     "multicolumn_not_slider_MFVBcP": {
@@ -311,10 +415,10 @@
         "column_GXDgJf": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_69_3.png",
+            "image": "shopify://shop_images/Frame_69_3.png",
             "title": "WE RESCUE",
             "title4": "STEP 1",
-            "text": "<p>Bent bananas? Curvy carrots? We collect them straight from Aussie farms fresh and ready to eat. <\/p>",
+            "text": "<p>Bent bananas? Curvy carrots? We collect them straight from Aussie farms fresh and ready to eat. </p>",
             "link_label": "",
             "link": ""
           }
@@ -322,10 +426,10 @@
         "column_dPw3XE": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_69_4.png",
+            "image": "shopify://shop_images/Frame_69_4.png",
             "title": "YOU PICK",
             "title4": "STEP 2",
-            "text": "<p>Place your orders and we’ll box up your produce the same day. No long-haul, no storage and, no wastage, Just freshness packed.<\/p>",
+            "text": "<p>Place your orders and we’ll box up your produce the same day. No long-haul, no storage and, no wastage, Just freshness packed.</p>",
             "link_label": "",
             "link": ""
           }
@@ -333,10 +437,10 @@
         "column_BRcHgV": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_69_5.png",
-            "title": "<strong>WE DELIVER<\/strong>",
+            "image": "shopify://shop_images/Frame_69_5.png",
+            "title": "<strong>WE DELIVER</strong>",
             "title4": "STEP 3",
-            "text": "<p>Set it once and get your Oddies box every week, . Freshness on repeat - no fuss, no lock-ins.<\/p>",
+            "text": "<p>Set it once and get your Oddies box every week, . Freshness on repeat - no fuss, no lock-ins.</p>",
             "link_label": "",
             "link": ""
           }
@@ -379,13 +483,13 @@
         "image_PyCBQm": {
           "type": "image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/About_us_2_1.png"
+            "image2": "shopify://shop_images/About_us_2_1.png"
           }
         },
         "text_fXHwKQ": {
           "type": "text",
           "settings": {
-            "text": "<p>To fix a broken system and make fresh food fairer for Aussies families and farmers.<\/p>",
+            "text": "<p>To fix a broken system and make fresh food fairer for Aussies families and farmers.</p>",
             "text2": "",
             "text3": "",
             "text_style": "body"
@@ -395,7 +499,7 @@
           "type": "button",
           "settings": {
             "button_label": "Why we started Oddies",
-            "button_link": "shopify:\/\/pages\/about-us",
+            "button_link": "shopify://pages/about-us",
             "button_style_secondary": true
           }
         }
@@ -408,7 +512,7 @@
       ],
       "name": "Image with new sec",
       "settings": {
-        "image": "shopify:\/\/shop_images\/About_us_2_1.png",
+        "image": "shopify://shop_images/About_us_2_1.png",
         "heading2": "Who Are We?",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -430,13 +534,13 @@
         "image_g9KJqX": {
           "type": "image",
           "settings": {
-            "image2": "shopify:\/\/shop_images\/Card.png"
+            "image2": "shopify://shop_images/Card.png"
           }
         },
         "text_BCYEed": {
           "type": "text",
           "settings": {
-            "text": "<p>Not happy with your first box? Get a full refund within 24 hours. No questions asked.<\/p>",
+            "text": "<p>Not happy with your first box? Get a full refund within 24 hours. No questions asked.</p>",
             "text2": "",
             "text3": "",
             "text_style": "body"
@@ -453,7 +557,7 @@
           "type": "button",
           "settings": {
             "button_label": "Try Risk-Free",
-            "button_link": "shopify:\/\/collections\/all",
+            "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
         }
@@ -466,7 +570,7 @@
       ],
       "name": "Image with new sec",
       "settings": {
-        "image": "shopify:\/\/shop_images\/Card.png",
+        "image": "shopify://shop_images/Card.png",
         "heading2": "Still Not-Sure?",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -490,7 +594,7 @@
           "settings": {
             "heading": "Can I cancel at anytime?",
             "icon": "none",
-            "row_content": "<p>Yep, you’re in control. Just cancel before<br\/>Tuesday 11:55 pm AEST and you won’t be charged for that week’s box. If something wasn’t right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au<\/a><\/p><p>—we’d love the chance to make it right before you leave us.<\/p>",
+            "row_content": "<p>Yep, you’re in control. Just cancel before<br/>Tuesday 11:55 pm AEST and you won’t be charged for that week’s box. If something wasn’t right with a past box, email us at <a href=\"mailto:help@oddies.au\" title=\"mailto:help@oddies.au\">help@oddies.au</a></p><p>—we’d love the chance to make it right before you leave us.</p>",
             "page": ""
           }
         },
@@ -499,7 +603,7 @@
           "settings": {
             "heading": "How will I know what’s coming?",
             "icon": "none",
-            "row_content": "<p>Every Monday around 2 pm we post the Weekly Harvest on our website and socials. That list covers what’s going out Wednesday to Saturday. Sign up after the cut-off? You’ll get the following week’s harvest.<\/p>",
+            "row_content": "<p>Every Monday around 2 pm we post the Weekly Harvest on our website and socials. That list covers what’s going out Wednesday to Saturday. Sign up after the cut-off? You’ll get the following week’s harvest.</p>",
             "page": ""
           }
         },
@@ -508,7 +612,7 @@
           "settings": {
             "heading": "Where does Oddies source its produce from?",
             "icon": "none",
-            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking “imperfect” or for being surplus. Whenever we can, we go local so you’re getting the freshest stuff with the smallest footprint.<\/p>",
+            "row_content": "<p>Straight from Aussie farms, greenhouses, and distributors. We rescue the fruit and veg that retail stores reject for looking “imperfect” or for being surplus. Whenever we can, we go local so you’re getting the freshest stuff with the smallest footprint.</p>",
             "page": ""
           }
         },
@@ -517,7 +621,7 @@
           "settings": {
             "heading": "Do I have to be home for delivery?",
             "icon": "none",
-            "row_content": "<p>Nope. We’ll leave it in a safe spot. If you’re in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler—but no stress if you don’t.<\/p>",
+            "row_content": "<p>Nope. We’ll leave it in a safe spot. If you’re in an apartment, drop us your buzzer or access code so we can get it to your door. Want to go the extra mile? Leave out a cooler—but no stress if you don’t.</p>",
             "page": ""
           }
         },
@@ -526,7 +630,7 @@
           "settings": {
             "heading": "Is the produce safe to eat if it looks weird?",
             "icon": "none",
-            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn’t been through the supermarket beauty pageant.<\/p>",
+            "row_content": "<p>Absolutely. A knobbly carrot or spotty apple still tastes exactly as nature intended. The odd shapes are just proof that it hasn’t been through the supermarket beauty pageant.</p>",
             "page": ""
           }
         },
@@ -535,7 +639,7 @@
           "settings": {
             "heading": "Do the boxes change each week?",
             "icon": "none",
-            "row_content": "<p>Yes. Think of it like a surprise farmers’ market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.<\/p>",
+            "row_content": "<p>Yes. Think of it like a surprise farmers’ market haul delivered to your door. Some staples may repeat, but we keep things rotating so it stays fresh and interesting.</p>",
             "page": ""
           }
         },
@@ -544,7 +648,7 @@
           "settings": {
             "heading": "Can I pick what’s in my box?",
             "icon": "none",
-            "row_content": "<p>Menus are fixed to cut waste and keep things simple. Allergic or really hate something? Use our substitution form to swap it out for more of something you love.<\/p>",
+            "row_content": "<p>Menus are fixed to cut waste and keep things simple. Allergic or really hate something? Use our substitution form to swap it out for more of something you love.</p>",
             "page": ""
           }
         },
@@ -553,7 +657,7 @@
           "settings": {
             "heading": "What if something’s missing or damaged?",
             "icon": "none",
-            "row_content": "<p>It happens, and we’ve got your back. Just let us know and we’ll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.<\/p>",
+            "row_content": "<p>It happens, and we’ve got your back. Just let us know and we’ll credit or replace it. Your first box also comes with a 100 percent money-back guarantee.</p>",
             "page": ""
           }
         },
@@ -562,7 +666,7 @@
           "settings": {
             "heading": "How fresh will my box be if I’m not home?",
             "icon": "none",
-            "row_content": "<p>Very. We pack in a cold-storage warehouse and deliver in refrigerated vans. Even if your box hangs out at the front door for a bit, your cucumbers will stay cool and crisp.<\/p>",
+            "row_content": "<p>Very. We pack in a cold-storage warehouse and deliver in refrigerated vans. Even if your box hangs out at the front door for a bit, your cucumbers will stay cool and crisp.</p>",
             "page": ""
           }
         },
@@ -571,7 +675,7 @@
           "settings": {
             "heading": "What is your billing process like?",
             "icon": "none",
-            "row_content": "<p>All payments go through our secure online platform. We accept major debit and credit cards, plus Apple Pay, Google Pay, and Shop Pay. Everything is encrypted and private.<\/p>",
+            "row_content": "<p>All payments go through our secure online platform. We accept major debit and credit cards, plus Apple Pay, Google Pay, and Shop Pay. Everything is encrypted and private.</p>",
             "page": ""
           }
         }
@@ -609,6 +713,7 @@
     "main",
     "related-products",
     "multicolumn_XrJzit",
+    "reviews_eYE8ip",
     "multicolumn_review_dgVFGN",
     "multicolumn_not_slider_MFVBcP",
     "image_width_text_new_sec_XkfgpK",
