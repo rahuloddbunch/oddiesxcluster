@@ -351,4 +351,26 @@
       padding-left: 2rem !important;
     }
   }
+
+  /* Fix alignment: ensure all slides have consistent left spacing */
+  #MediaGallery-{{ section.id }} .product__media-list.slider--mobile .slider__slide,
+  #MediaGallery-{{ section.id }} .product__media-list.slider--mobile .product__media-item {
+    padding-left: 0rem !important;
+  }
+  
+  @media (min-width: 750px) {
+    #MediaGallery-{{ section.id }} .product__media-list .slider__slide:first-child,
+    #MediaGallery-{{ section.id }} .product__media-list .product__media-item:first-child {
+      margin-left: 0 !important;
+      scroll-margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+  @media (max-width: 749px) {
+    /* Remove left offset from the mobile slider snapping (main gallery only) */
+    #Slider-Gallery-{{ section.id }} {
+      scroll-padding-left: 0 !important;
+    }
+
+  }
 </style>
