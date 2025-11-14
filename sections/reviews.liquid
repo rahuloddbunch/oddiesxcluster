@@ -1,0 +1,287 @@
+{{ 'section-reviews.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="reviews-section isolate section-{{ section.id }}-padding">
+    <div class="page-width">
+      {%- if section.settings.heading != blank -%}
+        <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+          <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="reviews-grid reviews-grid--{{ section.blocks.size }}-items" role="list">
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when 'review' -%}
+                <div
+                  class="review-card color-{{ section.settings.card_color_scheme }} gradient"
+                  {{ block.shopify_attributes }}
+                  role="listitem"
+                >
+                  <div class="review-card__inner">
+                    {%- if block.settings.verified -%}
+                      <div class="review-card__verified-badge">
+                        <svg
+                          class="icon icon-checkmark"
+                          aria-hidden="true"
+                          focusable="false"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M6.5 11.5L3 8l1-1 2.5 2.5L11 5l1 1-5.5 5.5z" fill="currentColor"/>
+                        </svg>
+                        <span class="verified-text">Verified Purchase</span>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.rating > 0 -%}
+                      {%- liquid
+                        assign rating_decimal = 0
+                        assign decimal = block.settings.rating | modulo: 1
+                        if decimal >= 0.3 and decimal <= 0.7
+                          assign rating_decimal = 0.5
+                        elsif decimal > 0.7
+                          assign rating_decimal = 1
+                        endif
+                        assign rating_value = block.settings.rating | floor | plus: rating_decimal
+                      -%}
+                      <div
+                        class="review-card__rating rating"
+                        role="img"
+                        aria-label="{{ rating_value }} out of 5 stars"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="rating-star"
+                          style="--rating: {{ block.settings.rating | floor }}; --rating-max: 5; --rating-decimal: {{ rating_decimal }}; --font-size: 1.6; --letter-spacing: 0.05;"
+                        ></span>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="review-card__title h4">{{ block.settings.title }}</h3>
+                    {%- endif -%}
+
+                    {%- if block.settings.content != blank -%}
+                      <div class="review-card__content">
+                        <p class="review-card__text">{{ block.settings.content }}</p>
+                      </div>
+                    {%- endif -%}
+
+                    <div class="review-card__footer">
+                      {%- if block.settings.author != blank -%}
+                        <p class="review-card__author h5">{{ block.settings.author }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.date != blank -%}
+                        <p class="review-card__date caption-large">{{ block.settings.date }}</p>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="reviews-empty">
+          <p class="center">No reviews yet</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Customer Reviews",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        },
+        {
+          "value": "hxl",
+          "label": "Extra large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "card_color_scheme",
+      "label": "Card color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review title",
+          "default": "Great product!"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Review content",
+          "default": "This product exceeded my expectations. Highly recommend!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author name",
+          "default": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "January 1, 2025"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "label": "Rating (0-5 stars)",
+          "default": 5
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified purchase",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "title": "Amazing product!",
+            "content": "This product exceeded my expectations. The quality is outstanding and it works perfectly. Highly recommend to anyone looking for a reliable solution.",
+            "author": "Sarah M.",
+            "date": "January 15, 2025",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Great value",
+            "content": "Perfect for what I needed. Fast shipping and excellent customer service.",
+            "author": "James T.",
+            "date": "January 10, 2025",
+            "rating": 4.5,
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Love it!",
+            "content": "Been using this for a month now and couldn't be happier. Worth every penny.",
+            "author": "Emma L.",
+            "date": "January 8, 2025",
+            "rating": 5,
+            "verified": false
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Highly satisfied",
+            "content": "Excellent quality and exactly as described. Would definitely purchase again.",
+            "author": "Michael R.",
+            "date": "January 5, 2025",
+            "rating": 5,
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
