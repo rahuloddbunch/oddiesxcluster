@@ -1192,28 +1192,10 @@
               {% if collection != blank %}
                 {% for product in collections[collection].products limit: collection_show %}
                   <div class="featured-slide-{{ section.id }} swiper-slide">    
-                    {% if product.featured_image != blank %}  
-                      {% if product.media.size > 1 %}
-                        <div class="featured-media-slider-{{ section.id }} swiper">
-                          <div class="swiper-wrapper">
-                            {% for media in product.media %}                          
-                              <a href="{{ product.url }}"class="featured-image-{{ section.id }} swiper-slide">   
-                                <img src="{{ media | image_url }}" alt="{{ media.alt }}" {% if lazy %}loading="lazy"{% endif %}>                    
-                              </a>
-                            {% endfor %}
-                          </div>
-                          <button class="featured-media-btn-next-{{ section.id }}">
-                            <span class="animate-icon"></span>
-                          </button>
-                          <button class="featured-media-btn-prev-{{ section.id }}">
-                            <span class="animate-icon"></span>
-                          </button>
-                        </div>
-                      {% else %}  
-                        <a href="{{ product.url }}" class="featured-image-{{ section.id }}">    
-                          <img src="{{ product.featured_image | image_url }}" alt="{{ product.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>                    
-                        </a>
-                      {% endif %}
+                    {% if product.featured_image != blank %}
+                      <a href="{{ product.url }}" class="featured-image-{{ section.id }}">
+                        <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.featured_image.alt }}" width="600" {% if lazy %}loading="lazy"{% endif %}>
+                      </a>
                     {% else %}  
                       <div class="featured-image-{{ section.id }}">
                         {{ 'image' | placeholder_svg_tag }}
@@ -1258,31 +1240,13 @@
                 {% for block in section.blocks %}
                   <div class="featured-slide-{{ section.id }} swiper-slide">    
                     {% if block.settings.custom_image != blank %}
-                      <{% if block.settings.custom_url != blank %}a href="{{ block.settings.custom_url }}"{% elsif block.settings.product != blank %}a href="{{ block.settings.product.url }}"{% else %}div{% endif %} class="featured-image-{{ section.id }}">    
-                        <img src="{{ block.settings.custom_image | image_url }}" alt="{{ block.settings.custom_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>            
+                      <{% if block.settings.custom_url != blank %}a href="{{ block.settings.custom_url }}"{% elsif block.settings.product != blank %}a href="{{ block.settings.product.url }}"{% else %}div{% endif %} class="featured-image-{{ section.id }}">
+                        <img src="{{ block.settings.custom_image | image_url: width: 600 }}" alt="{{ block.settings.custom_image.alt }}" width="600" {% if lazy %}loading="lazy"{% endif %}>
                       </{% if block.settings.custom_url != blank or block.settings.product != blank %}a{% else %}div{% endif %}>
-                    {% elsif block.settings.product.featured_image != blank %}  
-                      {% if block.settings.product.media.size > 1 %}
-                        <div class="featured-media-slider-{{ section.id }} swiper">
-                          <div class="swiper-wrapper">
-                            {% for media in block.settings.product.media %}                          
-                              <{% if block.settings.custom_url != blank %}a href="{{ block.settings.custom_url }}"{% elsif block.settings.product != blank %}a href="{{ block.settings.product.url }}"{% else %}div{% endif %} class="featured-image-{{ section.id }} swiper-slide">   
-                                <img src="{{ media | image_url }}" alt="{{ media.alt }}" {% if lazy %}loading="lazy"{% endif %}>                    
-                              </{% if block.settings.custom_url != blank or block.settings.product != blank %}a{% else %}div{% endif %}>
-                            {% endfor %}
-                          </div>
-                          <button class="featured-media-btn-next-{{ section.id }}">
-                            <span class="animate-icon"></span>
-                          </button>
-                          <button class="featured-media-btn-prev-{{ section.id }}">
-                            <span class="animate-icon"></span>
-                          </button>
-                        </div>
-                      {% else %}  
-                    <{% if block.settings.custom_url != blank %}a href="{{ block.settings.custom_url }}"{% elsif block.settings.product != blank %}a href="{{ block.settings.product.url }}"{% else %}div{% endif %} class="featured-image-{{ section.id }}">    
-                          <img src="{{ block.settings.product.featured_image | image_url }}" alt="{{ block.settings.product.featured_image.alt }}" {% if lazy %}loading="lazy"{% endif %}>                    
-                        </{% if block.settings.custom_url != blank or block.settings.product != blank %}a{% else %}div{% endif %}>
-                      {% endif %}
+                    {% elsif block.settings.product.featured_image != blank %}
+                      <{% if block.settings.custom_url != blank %}a href="{{ block.settings.custom_url }}"{% elsif block.settings.product != blank %}a href="{{ block.settings.product.url }}"{% else %}div{% endif %} class="featured-image-{{ section.id }}">
+                        <img src="{{ block.settings.product.featured_image | image_url: width: 600 }}" alt="{{ block.settings.product.featured_image.alt }}" width="600" {% if lazy %}loading="lazy"{% endif %}>
+                      </{% if block.settings.custom_url != blank or block.settings.product != blank %}a{% else %}div{% endif %}>
                     {% else %}  
                       <div class="featured-image-{{ section.id }}">
                         {{ 'image' | placeholder_svg_tag }}

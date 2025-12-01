@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product-enhanced",
+      "type": "main-product",
       "blocks": {
         "title": {
           "type": "title",
