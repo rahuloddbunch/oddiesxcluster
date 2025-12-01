@@ -13,17 +13,12 @@
 
 {%- liquid
   comment
-    Hardcode media_count to always be 5: featured media + 4 hardcoded images
+    Use actual product media count
   endcomment
-  assign media_count = 5
+  assign media_count = product.media.size
   assign single_media_visible = false
   assign single_media_visible_mobile = false
   assign hide_mobile_slider = false
-
-  comment
-    Define hardcoded image URLs
-  endcomment
-  assign hardcoded_images = 'https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_27.jpg?v=1763047158,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_28.jpg?v=1763047216,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_29.jpg?v=1763047242,https://cdn.shopify.com/s/files/1/0664/2404/5729/files/Frame_30.jpg?v=1763047257' | split: ','
 
   comment
     Set featured media with fallbacks
@@ -89,66 +84,31 @@
         </li>
       {%- endif -%}
 
-      {%- comment -%} SLIDES 2-5: Hardcoded Images {%- endcomment -%}
-      {%- for hardcoded_image_url in hardcoded_images -%}
-        {%- assign slide_index = forloop.index | plus: 1 -%}
-        <li
-          id="Slide-{{ section.id }}-hardcoded-{{ forloop.index }}"
-          class="product__media-item grid__item slider__slide product__media-item--full{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-          data-media-id="{{ section.id }}-hardcoded-{{ forloop.index }}"
-        >
-          {%- capture sizes -%}
-            (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)
-          {%- endcapture -%}
-
-          {%- liquid
-            comment
-              Use featured media aspect ratio for consistent gallery sizing
-            endcomment
-            assign container_ratio = featured_media.aspect_ratio | default: 1.0
-          -%}
-
-          <div
-            class="product-media-container media-type-image media-fit-{{ section.settings.media_fit }} global-media-settings gradient{% if section.settings.constrain_to_viewport %} constrain-height{% endif %}"
-            style="--ratio: {{ container_ratio }}; --preview-ratio: {{ container_ratio }};"
+      {%- comment -%} SLIDES 2+: Remaining Product Media {%- endcomment -%}
+      {%- for media in product.media -%}
+        {%- if media.id != featured_media.id -%}
+          {%- assign media_position = forloop.index -%}
+          <li
+            id="Slide-{{ section.id }}-{{ media.id }}"
+            class="product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+            data-media-id="{{ section.id }}-{{ media.id }}"
           >
-            <modal-opener
-              class="product__modal-opener product__modal-opener--image"
-              data-modal="#ProductModal-{{ section.id }}"
-            >
-              <span
-                class="product__media-icon motion-reduce quick-add-hidden product__media-icon--{{ section.settings.image_zoom }}"
-                aria-hidden="true"
-              >
-                <span class="svg-wrapper">
-                  {{- 'icon-zoom.svg' | inline_asset_content -}}
-                </span>
-              </span>
-              {%- render 'loading-spinner' -%}
-              <div class="product__media media media--transparent">
-                <img
-                  src="{{ hardcoded_image_url }}"
-                  alt="{{ product.title | escape }}"
-                  loading="lazy"
-                  sizes="{{ sizes }}"
-                  width="1080"
-                  height="1080"
-                  class="image-magnify-{{ section.settings.image_zoom }}"
-                >
-              </div>
-              <button
-                class="product__media-toggle quick-add-hidden product__media-zoom-{{ section.settings.image_zoom }}"
-                type="button"
-                aria-haspopup="dialog"
-                data-media-id="{{ section.id }}-hardcoded-{{ forloop.index }}"
-              >
-                <span class="visually-hidden">
-                  {{ 'products.product.media.open_media' | t: index: slide_index }}
-                </span>
-              </button>
-            </modal-opener>
-          </div>
-        </li>
+            {% render 'product-thumbnail',
+              media: media,
+              media_count: media_count,
+              position: media_position,
+              desktop_layout: section.settings.gallery_layout,
+              mobile_layout: section.settings.mobile_thumbnails,
+              loop: section.settings.enable_video_looping,
+              modal_id: section.id,
+              xr_button: true,
+              media_width: media_width,
+              media_fit: section.settings.media_fit,
+              constrain_to_viewport: section.settings.constrain_to_viewport,
+              lazy_load: true
+            %}
+          </li>
+        {%- endif -%}
       {%- endfor -%}
     </ul>
     <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}" style="margin-top: -20px; display: none;">
@@ -268,35 +228,39 @@
           </li>
         {%- endif -%}
 
-        {%- comment -%} THUMBNAILS 2-5: Hardcoded Images {%- endcomment -%}
-        {%- for hardcoded_image_url in hardcoded_images -%}
-          {%- assign thumb_position = forloop.index | plus: 1 -%}
-          {%- assign thumb_index = forloop.index -%}
-          <li
-            id="Slide-Thumbnails-{{ section.id }}-{{ thumb_index }}"
-            class="thumbnail-list__item slider__slide"
-            data-target="{{ section.id }}-hardcoded-{{ forloop.index }}"
-            data-media-position="{{ thumb_position }}"
-          >
-            {%- capture thumbnail_id -%}
-              Thumbnail-{{ section.id }}-{{ thumb_index }}
-            {%- endcapture -%}
-            <button
-              class="thumbnail global-media-settings global-media-settings--no-shadow"
-              aria-label="{{ 'products.product.media.load_image' | t: index: thumb_position }}"
-              aria-controls="GalleryViewer-{{ section.id }}"
-              aria-describedby="{{ thumbnail_id }}"
+        {%- comment -%} THUMBNAILS 2+: Remaining Product Media {%- endcomment -%}
+        {%- for media in product.media -%}
+          {%- if media.id != featured_media.id -%}
+            {%- assign thumb_index = forloop.index -%}
+            <li
+              id="Slide-Thumbnails-{{ section.id }}-{{ thumb_index }}"
+              class="thumbnail-list__item slider__slide{% if media.media_type == 'model' %} thumbnail-list__item--model{% elsif media.media_type == 'video' or media.media_type == 'external_video' %} thumbnail-list__item--video{% endif %}"
+              data-target="{{ section.id }}-{{ media.id }}"
+              data-media-position="{{ forloop.index }}"
             >
-              <img
-                src="{{ hardcoded_image_url }}"
-                alt="{{ product.title | escape }}"
-                loading="lazy"
-                width="416"
-                height="416"
-                id="{{ thumbnail_id }}"
+              {%- capture thumbnail_id -%}
+                Thumbnail-{{ section.id }}-{{ thumb_index }}
+              {%- endcapture -%}
+              <button
+                class="thumbnail global-media-settings global-media-settings--no-shadow"
+                aria-label="{{ 'products.product.media.load_image' | t: index: forloop.index }}"
+                aria-controls="GalleryViewer-{{ section.id }}"
+                aria-describedby="{{ thumbnail_id }}"
               >
-            </button>
-          </li>
+                {{
+                  media.preview_image
+                  | image_url: width: 416
+                  | image_tag:
+                    loading: 'lazy',
+                    sizes: sizes,
+                    widths: '54, 74, 104, 162, 208, 324, 416',
+                    id: thumbnail_id,
+                    alt: media.alt
+                  | escape
+                }}
+              </button>
+            </li>
+          {%- endif -%}
         {%- endfor -%}
       </ul>
       <button

@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-product",
+      "type": "main-product-experiment",
       "blocks": {
         "title": {
           "type": "title",
@@ -37,6 +37,24 @@
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_nQFH6U": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p style=\"text-align:center;margin-bottom:1rem;\">Try 100% risk-free</p>"
+          }
+        },
+        "icon_with_text_mBVdkT": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "leaf",
+            "heading_1": "Seasonal menu updated weekly",
+            "icon_2": "return",
+            "heading_2": "Skip, pause, or cancel anytime",
+            "icon_3": "check_mark",
+            "heading_3": "No contracts or hidden fees"
           }
         },
         "custom_liquid_c39iBL": {
@@ -74,11 +92,17 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "custom_liquid_nQFH6U",
+        "icon_with_text_mBVdkT",
         "custom_liquid_c39iBL",
         "description",
         "share",
         "recharge_subscriptions_subscription_widget_v2_yMYCDb",
         "custom_liquid_W8AcEz"
+      ],
+      "custom_css": [
+        ".icon-with-text {margin: 2.5rem 0 2rem 0;}",
+        ".recharge-subscription-widget {display: none;}"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -87,7 +111,7 @@
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": false,
@@ -206,6 +230,9 @@
         "column_gDxkUe",
         "column_YFC8Fg"
       ],
+      "custom_css": [
+        "@media (max-width: 767px) {.multicolumn-list__item {width: 45% !important; }}"
+      ],
       "name": "t:sections.multicolumn.presets.name",
       "settings": {
         "title": "Our Customers say it Best",
@@ -219,10 +246,86 @@
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
-        "columns_mobile": "2",
+        "columns_mobile": "1",
         "swipe_on_mobile": true,
         "padding_top": 12,
         "padding_bottom": 12
+      }
+    },
+    "reviews_eYE8ip": {
+      "type": "reviews",
+      "blocks": {
+        "review_JtRjXf": {
+          "type": "review",
+          "settings": {
+            "title": "Amazing product!",
+            "content": "“Ok so i thought this was gonna be small, but nah the box is actually massive lol. saved me a whole trip to the shops.”",
+            "author": "Jas, Blacktown",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_TgwEn9": {
+          "type": "review",
+          "settings": {
+            "title": "Great value",
+            "content": "“Wasn’t sure about the whole ‘wonky veg’ thing but the carrots taste the same as any other carrot and cheaper. My kids already smashed the apples”",
+            "author": "Lach, Leppington",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_N8PVtE": {
+          "type": "review",
+          "settings": {
+            "title": "Love it!",
+            "content": "“Tried the first box and honestly impressed. mix of fruit and veg, nothing fancy just good food. feels nice knowing it’s food that would have gone to waste otherwise.”",
+            "author": "Priya, Hornsby",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_Yf64bJ": {
+          "type": "review",
+          "settings": {
+            "title": "Highly satisfied",
+            "content": "\"Box arrived today 🙌 honestly fresher than half the stuff I’ve been getting at the supermarket. the pears are sooo good”",
+            "author": "Liam, Bankstown",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        },
+        "review_gNQLTz": {
+          "type": "review",
+          "settings": {
+            "title": "Great product!",
+            "content": "“Just got my oddies box, heaps more stuff than i expected. def cheaper than coles.”",
+            "author": "Sarah, Parramatta",
+            "date": "",
+            "rating": 5,
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_JtRjXf",
+        "review_TgwEn9",
+        "review_N8PVtE",
+        "review_Yf64bJ",
+        "review_gNQLTz"
+      ],
+      "name": "t:sections.reviews.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "card_color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 36
       }
     },
     "multicolumn_review_dgVFGN": {
@@ -286,6 +389,7 @@
         "column_yMMEPz",
         "column_BTjqFb"
       ],
+      "disabled": true,
       "name": "Multi column review",
       "settings": {
         "title": "",
@@ -295,14 +399,14 @@
         "image_ratio": "adapt",
         "button_label": "",
         "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
+        "columns_desktop": 5,
+        "column_alignment": "left",
+        "background_style": "none",
         "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
         "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 0,
-        "padding_bottom": 20
+        "padding_bottom": 0
       }
     },
     "multicolumn_not_slider_MFVBcP": {
@@ -609,6 +713,7 @@
     "main",
     "related-products",
     "multicolumn_XrJzit",
+    "reviews_eYE8ip",
     "multicolumn_review_dgVFGN",
     "multicolumn_not_slider_MFVBcP",
     "image_width_text_new_sec_XkfgpK",
