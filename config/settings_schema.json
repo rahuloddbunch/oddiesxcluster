@@ -1449,6 +1449,28 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "Cart drawer review"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_review_enabled",
+        "label": "Show review in cart drawer",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "cart_review_text",
+        "label": "Review text",
+        "default": "This service is a life saver! I cannot believe how much I've saved on groceries since signing up"
+      },
+      {
+        "type": "text",
+        "id": "cart_review_author",
+        "label": "Reviewer name",
+        "default": "Sarah M."
       }
     ]
   }

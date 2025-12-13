@@ -15,6 +15,148 @@
   .drawer {
     visibility: hidden;
   }
+
+  .cart__ctas {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart__checkout-button .icon-lock {
+    width: 16px;
+    height: 16px;
+    margin-left: 0.5rem;
+  }
+
+  .cart-drawer__payment-icons {
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .cart-drawer__payment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cart-drawer__payment-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart-drawer__payment-icon,
+  .cart-drawer__payment-item svg {
+    height: 20px;
+    width: auto;
+    overflow: visible;
+  }
+
+  .cart-drawer__guarantee {
+    margin-top: 1rem;
+    font-size: 11px;
+    color: rgba(var(--color-foreground), 0.6);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .cart-drawer__review {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: rgba(var(--color-foreground), 0.03);
+    text-align: center;
+  }
+
+  .cart-drawer__review-stars {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 0.5rem;
+    color: #f59e0b;
+  }
+
+  .cart-drawer__review-text {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0 0 0.4rem;
+    font-style: italic;
+  }
+
+  .cart-drawer__review-author {
+    font-size: 11px;
+    color: rgba(var(--color-foreground), 0.6);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .cart-drawer__verified-icon {
+    color: #22c55e;
+  }
+
+  #Details-CartDrawer {
+    border-top: 1px solid rgba(var(--color-foreground), 0.1);
+    margin-top: 1.5rem
+  }
+
+  .cart-drawer__upsell {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.15) 100%);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 8px;
+  }
+
+  .cart-drawer__upsell-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .cart-drawer__upsell-text {
+    flex: 1;
+  }
+
+  .cart-drawer__upsell-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: rgb(var(--color-foreground));
+  }
+
+  .cart-drawer__upsell-subtitle {
+    font-size: 12px;
+    margin: 0;
+    color: rgba(var(--color-foreground), 0.7);
+  }
+
+  .cart-drawer__upsell-button {
+    background: rgba(var(--color-button),var(--alpha-button-background));
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .cart-drawer__upsell-button:hover {
+    opacity: 0.85;
+  }
+
+  .cart-drawer__upsell-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 </style>
 
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
@@ -466,6 +608,149 @@
                 </table>
               </div>
             {%- endif -%}
+
+            {%- comment -%} Upsell: Small box to Medium box upgrade - only show if cart has exactly 1 item and it's the small box {%- endcomment -%}
+            {%- assign show_medium_upsell = false -%}
+            {%- assign small_box_line_item_key = nil -%}
+            {%- assign small_box_variant_id = nil -%}
+            {%- assign small_box_selling_plan_id = nil -%}
+            {%- if cart.item_count == 1 -%}
+              {%- for item in cart.items -%}
+                {%- if item.product.id == 8279825940641 -%}
+                  {%- assign show_medium_upsell = true -%}
+                  {%- assign small_box_line_item_key = item.key -%}
+                  {%- assign small_box_variant_id = item.variant.id -%}
+                  {%- if item.selling_plan_allocation -%}
+                    {%- assign small_box_selling_plan_id = item.selling_plan_allocation.selling_plan.id -%}
+                  {%- endif -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+
+            {%- if show_medium_upsell -%}
+              {%- assign medium_box_product = all_products['medium-mixed-box'] -%}
+              {%- assign medium_box_variant_id = medium_box_product.first_available_variant.id -%}
+              {%- assign medium_box_selling_plan_id = nil -%}
+              {%- if medium_box_product.selling_plan_groups.size > 0 -%}
+                {%- assign medium_box_selling_plan_id = medium_box_product.selling_plan_groups.first.selling_plans.first.id -%}
+              {%- endif -%}
+
+              {%- comment -%} AB_TEST_START: Upsell Widget {%- endcomment -%}
+              <div data-ig-cart-drawer-test="upsell">
+                {%- comment -%} CONTROL: No upsell shown {%- endcomment -%}
+                <div data-variant="control" style="display:none;">
+                  {%- comment -%} Control shows nothing for upsell {%- endcomment -%}
+                </div>
+
+                {%- comment -%} TREATMENT: Show upsell widget {%- endcomment -%}
+                <div data-variant="treatment" style="display:none;">
+                  <div class="cart-drawer__upsell" id="CartDrawer-Upsell-Medium">
+                    <div class="cart-drawer__upsell-content">
+                      <div class="cart-drawer__upsell-text">
+                        <p class="cart-drawer__upsell-title">Get more healthy meals in with the medium box</p>
+                        <p class="cart-drawer__upsell-subtitle">Serves 2-3 people</p>
+                      </div>
+                      <button
+                        type="button"
+                        class="cart-drawer__upsell-button"
+                        id="CartDrawer-UpgradeToMedium"
+                        data-small-box-variant-id="{{ small_box_variant_id }}"
+                        data-medium-box-variant-id="{{ medium_box_variant_id }}"
+                        data-medium-box-selling-plan-id="{{ medium_box_selling_plan_id }}"
+                      >
+                        Upgrade
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {%- comment -%} AB_TEST_END: Upsell Widget {%- endcomment -%}
+
+              <script>
+                (function() {
+                  // Use event delegation on document to handle dynamically added buttons
+                  if (!window.cartDrawerUpgradeInitialized) {
+                    window.cartDrawerUpgradeInitialized = true;
+
+                    document.addEventListener('click', async function(e) {
+                      const upgradeBtn = e.target.closest('#CartDrawer-UpgradeToMedium');
+                      if (!upgradeBtn) return;
+
+                      const smallBoxVariantId = upgradeBtn.dataset.smallBoxVariantId;
+                      const mediumBoxVariantId = upgradeBtn.dataset.mediumBoxVariantId;
+                      const mediumBoxSellingPlanId = upgradeBtn.dataset.mediumBoxSellingPlanId;
+
+                      upgradeBtn.disabled = true;
+                      upgradeBtn.textContent = 'Upgrading...';
+
+                      try {
+                        // Step 1: Add the medium box first (to ensure it succeeds before removing)
+                        const addBody = {
+                          id: parseInt(mediumBoxVariantId),
+                          quantity: 1
+                        };
+
+                        // Include the selling plan if available
+                        if (mediumBoxSellingPlanId) {
+                          addBody.selling_plan = parseInt(mediumBoxSellingPlanId);
+                        }
+
+                        const addResponse = await fetch('/cart/add.js', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(addBody)
+                        });
+
+                        if (!addResponse.ok) {
+                          throw new Error('Failed to add medium box');
+                        }
+
+                        // Step 2: Remove the small box using the line item key
+                        const cartResponse = await fetch('/cart.js');
+                        const cartData = await cartResponse.json();
+                        const smallBoxItem = cartData.items.find(item => item.variant_id == smallBoxVariantId);
+
+                        if (smallBoxItem) {
+                          const removeResponse = await fetch('/cart/change.js', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              id: smallBoxItem.key,
+                              quantity: 0
+                            })
+                          });
+
+                          if (!removeResponse.ok) {
+                            throw new Error('Failed to remove small box');
+                          }
+                        }
+
+                        // Step 3: Refresh the cart drawer
+                        const sectionResponse = await fetch('/?section_id=cart-drawer');
+                        const sectionHtml = await sectionResponse.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(sectionHtml, 'text/html');
+                        const newCartDrawerInner = doc.querySelector('.drawer__inner');
+                        const currentCartDrawerInner = document.querySelector('cart-drawer .drawer__inner');
+
+                        if (newCartDrawerInner && currentCartDrawerInner) {
+                          currentCartDrawerInner.innerHTML = newCartDrawerInner.innerHTML;
+                        } else {
+                          window.location.reload();
+                        }
+                      } catch (error) {
+                        console.error('Upgrade failed:', error);
+                        upgradeBtn.disabled = false;
+                        upgradeBtn.textContent = 'Upgrade';
+                        alert('Something went wrong. Please try again.');
+                      }
+                    });
+                  }
+                })();
+              </script>
+            {%- endif -%}
+
             <p id="CartDrawer-LiveRegionText" class="visually-hidden" role="status"></p>
             <p id="CartDrawer-LineItemStatus" class="visually-hidden" aria-hidden="true" role="status">
               {{ 'accessibility.loading' | t }}
@@ -475,6 +760,52 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
+        {%- comment -%}
+          ============================================================
+          INTELLIGEMS A/B TEST: Cart Drawer Enhancements
+          Test ID: 4110be82-e632-4d0b-b9a3-ea1f231e0b6a
+          Control Group ID: 017e3ca3-78a0-47f6-b328-52b1a2e4caa6
+          Treatment Group ID: 78e26b80-e7e1-4ad2-994f-7424b2ec1c23
+
+          TO RESOLVE TEST:
+          - If CONTROL wins: Delete the entire [data-variant="treatment"] divs and the test wrapper, keep original checkout button
+          - If TREATMENT wins: Delete the [data-variant="control"] divs and test wrapper, keep treatment content
+          - Remove the Intelligems JS handler at bottom of this file
+          ============================================================
+        {%- endcomment -%}
+
+        {%- comment -%} INTELLIGEMS TEST: Review Section {%- endcomment -%}
+        {%- if settings.cart_review_enabled -%}
+          {%- comment -%} AB_TEST_START: Review Section {%- endcomment -%}
+          <div data-ig-cart-drawer-test="review">
+            {%- comment -%} CONTROL: No review shown {%- endcomment -%}
+            <div data-variant="control" style="display:none;">
+              {%- comment -%} Control shows nothing for review section {%- endcomment -%}
+            </div>
+
+            {%- comment -%} TREATMENT: Show review {%- endcomment -%}
+            <div data-variant="treatment" style="display:none;">
+              <div class="cart-drawer__review">
+                <div class="cart-drawer__review-stars">
+                  {%- for i in (1..5) -%}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  {%- endfor -%}
+                </div>
+                <p class="cart-drawer__review-text">"{{ settings.cart_review_text }}"</p>
+                <p class="cart-drawer__review-author">
+                  <svg class="cart-drawer__verified-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  {{ settings.cart_review_author }}
+                </p>
+              </div>
+            </div>
+          </div>
+          {%- comment -%} AB_TEST_END: Review Section {%- endcomment -%}
+        {%- endif -%}
+
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
@@ -561,21 +892,223 @@
 
         <!-- CTAs -->
 
-        <div class="cart__ctas" {{ block.shopify_attributes }}>
-          <button
-            type="submit"
-            id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
-            name="checkout"
-            form="CartDrawer-Form"
-            {% if cart == empty %}
-              disabled
-            {% endif %}
-          >
-            {{ 'sections.cart.checkout' | t }}
-          </button>
+        {%- comment -%} AB_TEST_START: CTA Section (checkout button, guarantee, payment icons) {%- endcomment -%}
+        <div data-ig-cart-drawer-test="cta">
+          {%- comment -%} CONTROL: Original checkout button only {%- endcomment -%}
+          <div data-variant="control" style="display:none;">
+            <div class="cart__ctas" {{ block.shopify_attributes }}>
+              <button
+                type="submit"
+                id="CartDrawer-Checkout-Control"
+                class="cart__checkout-button button"
+                name="checkout"
+                form="CartDrawer-Form"
+                {% if cart == empty %}
+                  disabled
+                {% endif %}
+              >
+                {{ 'sections.cart.checkout' | t }}
+              </button>
+            </div>
+          </div>
+
+          {%- comment -%} TREATMENT: Enhanced checkout with lock icon, guarantee, and payment icons {%- endcomment -%}
+          <div data-variant="treatment" style="display:none;">
+            <div class="cart__ctas" {{ block.shopify_attributes }}>
+              <button
+                type="submit"
+                id="CartDrawer-Checkout-Treatment"
+                class="cart__checkout-button button"
+                name="checkout"
+                form="CartDrawer-Form"
+                {% if cart == empty %}
+                  disabled
+                {% endif %}
+              >
+                Checkout Securely
+                <svg class="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </button>
+
+              <p class="cart-drawer__guarantee">Not happy with your first box? Get a full refund within 24 hours. No questions asked.</p>
+
+              {%- if shop.enabled_payment_types.size > 0 -%}
+                <div class="cart-drawer__payment-icons">
+                  <ul class="cart-drawer__payment-list list-unstyled">
+                    {%- for type in shop.enabled_payment_types -%}
+                      <li class="cart-drawer__payment-item">
+                        {{ type | payment_type_svg_tag: class: 'cart-drawer__payment-icon' }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
         </div>
+        {%- comment -%} AB_TEST_END: CTA Section {%- endcomment -%}
       </div>
     </div>
   </div>
 </cart-drawer>
+
+{%- comment -%}
+  ============================================================
+  INTELLIGEMS A/B TEST JAVASCRIPT HANDLER
+  Test: Cart Drawer Enhancements
+  Test ID: 4110be82-e632-4d0b-b9a3-ea1f231e0b6a
+  Control Group ID: 017e3ca3-78a0-47f6-b328-52b1a2e4caa6
+  Treatment Group ID: 78e26b80-e7e1-4ad2-994f-7424b2ec1c23
+
+  TO RESOLVE TEST:
+  - Delete this entire script block
+  - Remove data-ig-cart-drawer-test wrappers and data-variant divs
+  - Keep only the winning variant's content
+  ============================================================
+{%- endcomment -%}
+<script>
+  /* ============================================================
+     INTELLIGEMS A/B TEST: Cart Drawer Enhancements
+     Test ID: 4110be82-e632-4d0b-b9a3-ea1f231e0b6a
+     Control Group ID: 017e3ca3-78a0-47f6-b328-52b1a2e4caa6
+     Treatment Group ID: 78e26b80-e7e1-4ad2-994f-7424b2ec1c23
+
+     TO RESOLVE TEST TO CONTROL:
+     1. Delete this script block
+     2. For each [data-ig-cart-drawer-test] wrapper:
+        - Keep content inside [data-variant="control"]
+        - Delete [data-variant="treatment"] and the wrapper div
+     3. For CTA section, keep original checkout button text
+
+     TO RESOLVE TEST TO TREATMENT:
+     1. Delete this script block
+     2. For each [data-ig-cart-drawer-test] wrapper:
+        - Keep content inside [data-variant="treatment"]
+        - Delete [data-variant="control"] and the wrapper div
+     3. Keep enhanced checkout button, guarantee, payment icons
+     ============================================================ */
+
+  (function() {
+    const EXPERIMENT_ID = '4110be82-e632-4d0b-b9a3-ea1f231e0b6a';
+    const CONTROL_GROUP_ID = '017e3ca3-78a0-47f6-b328-52b1a2e4caa6';
+    const TREATMENT_GROUP_ID = '78e26b80-e7e1-4ad2-994f-7424b2ec1c23';
+
+    function initCartDrawerABTest() {
+      const testContainers = document.querySelectorAll('[data-ig-cart-drawer-test]');
+
+      // Exit if no test containers found
+      if (testContainers.length === 0) return;
+
+      // Get test group assignment from Intelligems
+      const testGroup = window.igData?.user?.getTestGroup(EXPERIMENT_ID);
+
+      if (!testGroup) {
+        // No test group assigned - show control
+        console.log('Intelligems Cart Drawer Test: No test group assigned, showing control');
+        showVariantForAll('control');
+        return;
+      }
+
+      // Determine variant based on test group ID
+      let variant = 'control'; // default
+
+      if (testGroup.id === TREATMENT_GROUP_ID) {
+        variant = 'treatment';
+      } else if (testGroup.id === CONTROL_GROUP_ID) {
+        variant = 'control';
+      } else {
+        // Fallback to name-based detection if ID doesn't match
+        variant = testGroup.name.toLowerCase().includes('new group') ? 'treatment' : 'control';
+      }
+
+      console.log('Intelligems Cart Drawer Test:', {
+        experimentId: EXPERIMENT_ID,
+        testGroupId: testGroup.id,
+        testGroupName: testGroup.name,
+        variant: variant
+      });
+
+      showVariantForAll(variant);
+    }
+
+    function showVariantForAll(variant) {
+      const testContainers = document.querySelectorAll('[data-ig-cart-drawer-test]');
+
+      testContainers.forEach(container => {
+        const controlEl = container.querySelector('[data-variant="control"]');
+        const treatmentEl = container.querySelector('[data-variant="treatment"]');
+
+        if (!controlEl || !treatmentEl) {
+          console.error('Intelligems Cart Drawer Test: Variant elements not found in', container.dataset.igCartDrawerTest);
+          return;
+        }
+
+        if (variant === 'treatment') {
+          controlEl.style.display = 'none';
+          treatmentEl.style.display = 'block';
+        } else {
+          controlEl.style.display = 'block';
+          treatmentEl.style.display = 'none';
+        }
+      });
+    }
+
+    // Wait for Intelligems to be ready before running the test
+    if (window.igData) {
+      // Already loaded
+      initCartDrawerABTest();
+    } else {
+      // Wait for ig:ready event
+      window.addEventListener('ig:ready', initCartDrawerABTest);
+
+      // Fallback: if Intelligems doesn't load within 3 seconds, show control
+      setTimeout(() => {
+        const testContainers = document.querySelectorAll('[data-ig-cart-drawer-test]');
+        const anyVisible = Array.from(testContainers).some(container => {
+          const variants = container.querySelectorAll('[data-variant]');
+          return Array.from(variants).some(v => v.style.display === 'block');
+        });
+
+        if (!anyVisible) {
+          console.warn('Intelligems Cart Drawer Test: Timeout waiting for igData, showing control');
+          showVariantForAll('control');
+        }
+      }, 3000);
+    }
+
+    // Re-initialize when cart drawer content is dynamically updated
+    // This handles cases like the upsell button refreshing the drawer
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+          const hasNewTestContainers = Array.from(mutation.addedNodes).some(node => {
+            if (node.nodeType === 1) {
+              return node.querySelector?.('[data-ig-cart-drawer-test]') ||
+                     node.matches?.('[data-ig-cart-drawer-test]');
+            }
+            return false;
+          });
+
+          if (hasNewTestContainers) {
+            // Small delay to ensure DOM is ready
+            setTimeout(() => {
+              if (window.igData) {
+                initCartDrawerABTest();
+              } else {
+                showVariantForAll('control');
+              }
+            }, 50);
+          }
+        }
+      });
+    });
+
+    // Observe the cart drawer for changes
+    const cartDrawer = document.querySelector('cart-drawer');
+    if (cartDrawer) {
+      observer.observe(cartDrawer, { childList: true, subtree: true });
+    }
+  })();
+</script>
