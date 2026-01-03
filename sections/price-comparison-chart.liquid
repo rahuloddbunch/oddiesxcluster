@@ -1,0 +1,452 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .comparison-chart-{{ section.id }} {
+    --oddies-orange: {{ section.settings.brand_color }};
+    --savings-green: #007431;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-heading {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-heading h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-heading p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 18px;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-wrapper {
+    position: relative;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    position: relative;
+    margin-top: 120px;
+  }
+
+  /* Header row */
+  .comparison-chart-{{ section.id }} .chart-header {
+    display: contents;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-header > div {
+    padding: 1.25rem 1rem;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-header .label-col {
+    justify-content: flex-start;
+    padding-left: 1.5rem;
+  }
+
+  /* Oddies column header - protrudes upward */
+  .comparison-chart-{{ section.id }} .chart-header .oddies-col {
+    background: var(--oddies-orange);
+    color: #fff;
+    flex-direction: column;
+    margin-top: -80px;
+    padding-top: 1.5rem;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-header .oddies-col .logo-img {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    margin-bottom: 0.5rem;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-header .competitor-col {
+    color: #000;
+    text-align: center;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-header .savings-col {
+    color: var(--savings-green);
+    text-align: center;
+  }
+
+  /* Data rows */
+  .comparison-chart-{{ section.id }} .chart-row {
+    display: contents;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-row > div {
+    padding: 1.25rem 1rem;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #f0f0f0;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-row .row-label {
+    justify-content: flex-start;
+    font-weight: 500;
+    color: #333;
+    padding-left: 1.5rem;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-row .oddies-price {
+    background: var(--oddies-orange);
+    color: #fff;
+    font-weight: 700;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .comparison-chart-{{ section.id }} .chart-row .competitor-price {
+    color: #888;
+  }
+
+  .comparison-chart-{{ section.id }} .chart-row .savings-price {
+    color: var(--savings-green);
+    font-weight: 700;
+  }
+
+  /* Mobile responsive */
+  @media screen and (max-width: 749px) {
+    .comparison-chart-{{ section.id }} .chart-container {
+      grid-template-columns: 1.2fr 0.9fr 0.9fr 0.9fr;
+      margin-top: 85px;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-heading {
+      margin-bottom: 2.5rem;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header .oddies-col {
+      margin-top: -55px;
+      padding: 0.6rem 0.5rem 1rem;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header .oddies-col .logo-img {
+      height: 28px;
+      margin-bottom: 0.3rem;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header > div,
+    .comparison-chart-{{ section.id }} .chart-row > div {
+      padding: 1rem 0.5rem;
+      font-size: 14px;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header .label-col,
+    .comparison-chart-{{ section.id }} .chart-row .row-label {
+      padding-left: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .comparison-chart-{{ section.id }} .chart-container {
+      margin-top: 85px;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header .oddies-col {
+      margin-top: -50px;
+      padding: 0.5rem 0.35rem 0.85rem;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header > div,
+    .comparison-chart-{{ section.id }} .chart-row > div {
+      font-size: 14px;
+      padding: 0.85rem 0.35rem;
+    }
+
+    .comparison-chart-{{ section.id }} .chart-header .oddies-col .logo-img {
+      height: 22px;
+      margin-top: -40px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="comparison-chart-{{ section.id }}">
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <div class="chart-heading">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <p>{{ section.settings.subheading }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="chart-wrapper">
+        <!-- Main chart grid -->
+        <div class="chart-container">
+          <!-- Header -->
+          <div class="chart-header">
+            <div class="label-col"></div>
+            <div class="oddies-col">
+              {%- if section.settings.logo != blank -%}
+                <img class="logo-img" src="{{ section.settings.logo | image_url: width: 140 }}" alt="{{ shop.name }}" loading="lazy">
+              {%- elsif section.settings.logo_url != blank -%}
+                <img class="logo-img" src="{{ section.settings.logo_url }}" alt="{{ shop.name }}" loading="lazy">
+              {%- else -%}
+                <span style="font-weight: 700; font-size: 1.2rem;">Oddies</span>
+              {%- endif -%}
+            </div>
+            <div class="competitor-col">{{ section.settings.competitor_heading }}</div>
+            <div class="savings-col">{{ section.settings.savings_heading }}</div>
+          </div>
+
+          <!-- Data rows -->
+          {%- for block in section.blocks -%}
+            <div class="chart-row" {{ block.shopify_attributes }}>
+              <div class="row-label">{{ block.settings.row_label }}</div>
+              <div class="oddies-price">{{ block.settings.oddies_price }}</div>
+              <div class="competitor-price">{{ block.settings.competitor_price }}</div>
+              <div class="savings-price">{{ block.settings.savings_amount }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if section.settings.disclaimer != blank -%}
+        <p style="text-align: center; margin-top: 1.5rem; font-size: 10px; font-style: italic; opacity: 0.7;">
+          {{ section.settings.disclaimer }}
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Price Comparison Chart",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Farm Freshness, Better Value",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "See how much you save with Oddies",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Oddies logo"
+    },
+    {
+      "type": "url",
+      "id": "logo_url",
+      "label": "Logo URL (fallback)",
+      "info": "Use if logo image picker is empty"
+    },
+    {
+      "type": "header",
+      "content": "Column headings"
+    },
+    {
+      "type": "text",
+      "id": "competitor_heading",
+      "default": "Major Supermarkets",
+      "label": "Competitor column heading"
+    },
+    {
+      "type": "text",
+      "id": "savings_heading",
+      "default": "Weekly Savings",
+      "label": "Savings column heading"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "default": "#F97316",
+      "label": "Brand highlight color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Additional"
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "default": "Savings are based on average customer comparisons using Oddies box sizes and equivalent grocery store pricing. Actual savings may vary.",
+      "label": "Disclaimer text",
+      "info": "Optional small text below the chart"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Price Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "row_label",
+          "default": "Box Size",
+          "label": "Row label"
+        },
+        {
+          "type": "text",
+          "id": "oddies_price",
+          "default": "$29",
+          "label": "Oddies price"
+        },
+        {
+          "type": "text",
+          "id": "competitor_price",
+          "default": "$49",
+          "label": "Competitor price"
+        },
+        {
+          "type": "text",
+          "id": "savings_amount",
+          "default": "$20",
+          "label": "Savings amount"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Price Comparison Chart",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "row_label": "Small Mixed",
+            "oddies_price": "$26",
+            "competitor_price": "$49",
+            "savings_amount": "$23"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "row_label": "Medium Mixed",
+            "oddies_price": "$39",
+            "competitor_price": "$76",
+            "savings_amount": "$37"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "row_label": "Large Mixed",
+            "oddies_price": "$53",
+            "competitor_price": "$101",
+            "savings_amount": "$48"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "row_label": "All Fruit",
+            "oddies_price": "$33",
+            "competitor_price": "$55",
+            "savings_amount": "$22"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "row_label": "All Veg",
+            "oddies_price": "$33",
+            "competitor_price": "$66",
+            "savings_amount": "$33"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

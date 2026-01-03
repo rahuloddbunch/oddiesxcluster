@@ -636,36 +636,24 @@
                 {%- assign medium_box_selling_plan_id = medium_box_product.selling_plan_groups.first.selling_plans.first.id -%}
               {%- endif -%}
 
-              {%- comment -%} AB_TEST_START: Upsell Widget {%- endcomment -%}
-              <div data-ig-cart-drawer-test="upsell">
-                {%- comment -%} CONTROL: No upsell shown {%- endcomment -%}
-                <div data-variant="control" style="display:none;">
-                  {%- comment -%} Control shows nothing for upsell {%- endcomment -%}
-                </div>
-
-                {%- comment -%} TREATMENT: Show upsell widget {%- endcomment -%}
-                <div data-variant="treatment" style="display:none;">
-                  <div class="cart-drawer__upsell" id="CartDrawer-Upsell-Medium">
-                    <div class="cart-drawer__upsell-content">
-                      <div class="cart-drawer__upsell-text">
-                        <p class="cart-drawer__upsell-title">Get more healthy meals in with the medium box</p>
-                        <p class="cart-drawer__upsell-subtitle">Serves 2-3 people</p>
-                      </div>
-                      <button
-                        type="button"
-                        class="cart-drawer__upsell-button"
-                        id="CartDrawer-UpgradeToMedium"
-                        data-small-box-variant-id="{{ small_box_variant_id }}"
-                        data-medium-box-variant-id="{{ medium_box_variant_id }}"
-                        data-medium-box-selling-plan-id="{{ medium_box_selling_plan_id }}"
-                      >
-                        Upgrade
-                      </button>
-                    </div>
+              <div class="cart-drawer__upsell" id="CartDrawer-Upsell-Medium">
+                <div class="cart-drawer__upsell-content">
+                  <div class="cart-drawer__upsell-text">
+                    <p class="cart-drawer__upsell-title">Get more healthy meals in with the medium box</p>
+                    <p class="cart-drawer__upsell-subtitle">Serves 2-3 people</p>
                   </div>
+                  <button
+                    type="button"
+                    class="cart-drawer__upsell-button"
+                    id="CartDrawer-UpgradeToMedium"
+                    data-small-box-variant-id="{{ small_box_variant_id }}"
+                    data-medium-box-variant-id="{{ medium_box_variant_id }}"
+                    data-medium-box-selling-plan-id="{{ medium_box_selling_plan_id }}"
+                  >
+                    Upgrade
+                  </button>
                 </div>
               </div>
-              {%- comment -%} AB_TEST_END: Upsell Widget {%- endcomment -%}
 
               <script>
                 (function() {
@@ -760,50 +748,23 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
-        {%- comment -%}
-          ============================================================
-          INTELLIGEMS A/B TEST: Cart Drawer Enhancements
-          Test ID: 4110be82-e632-4d0b-b9a3-ea1f231e0b6a
-          Control Group ID: 017e3ca3-78a0-47f6-b328-52b1a2e4caa6
-          Treatment Group ID: 78e26b80-e7e1-4ad2-994f-7424b2ec1c23
-
-          TO RESOLVE TEST:
-          - If CONTROL wins: Delete the entire [data-variant="treatment"] divs and the test wrapper, keep original checkout button
-          - If TREATMENT wins: Delete the [data-variant="control"] divs and test wrapper, keep treatment content
-          - Remove the Intelligems JS handler at bottom of this file
-          ============================================================
-        {%- endcomment -%}
-
-        {%- comment -%} INTELLIGEMS TEST: Review Section {%- endcomment -%}
         {%- if settings.cart_review_enabled -%}
-          {%- comment -%} AB_TEST_START: Review Section {%- endcomment -%}
-          <div data-ig-cart-drawer-test="review">
-            {%- comment -%} CONTROL: No review shown {%- endcomment -%}
-            <div data-variant="control" style="display:none;">
-              {%- comment -%} Control shows nothing for review section {%- endcomment -%}
+          <div class="cart-drawer__review">
+            <div class="cart-drawer__review-stars">
+              {%- for i in (1..5) -%}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              {%- endfor -%}
             </div>
-
-            {%- comment -%} TREATMENT: Show review {%- endcomment -%}
-            <div data-variant="treatment" style="display:none;">
-              <div class="cart-drawer__review">
-                <div class="cart-drawer__review-stars">
-                  {%- for i in (1..5) -%}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                    </svg>
-                  {%- endfor -%}
-                </div>
-                <p class="cart-drawer__review-text">"{{ settings.cart_review_text }}"</p>
-                <p class="cart-drawer__review-author">
-                  <svg class="cart-drawer__verified-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
-                  {{ settings.cart_review_author }}
-                </p>
-              </div>
-            </div>
+            <p class="cart-drawer__review-text">"{{ settings.cart_review_text }}"</p>
+            <p class="cart-drawer__review-author">
+              <svg class="cart-drawer__verified-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              {{ settings.cart_review_author }}
+            </p>
           </div>
-          {%- comment -%} AB_TEST_END: Review Section {%- endcomment -%}
         {%- endif -%}
 
         {%- if settings.show_cart_note -%}
@@ -892,223 +853,39 @@
 
         <!-- CTAs -->
 
-        {%- comment -%} AB_TEST_START: CTA Section (checkout button, guarantee, payment icons) {%- endcomment -%}
-        <div data-ig-cart-drawer-test="cta">
-          {%- comment -%} CONTROL: Original checkout button only {%- endcomment -%}
-          <div data-variant="control" style="display:none;">
-            <div class="cart__ctas" {{ block.shopify_attributes }}>
-              <button
-                type="submit"
-                id="CartDrawer-Checkout-Control"
-                class="cart__checkout-button button"
-                name="checkout"
-                form="CartDrawer-Form"
-                {% if cart == empty %}
-                  disabled
-                {% endif %}
-              >
-                {{ 'sections.cart.checkout' | t }}
-              </button>
+        <div class="cart__ctas" {{ block.shopify_attributes }}>
+          <button
+            type="submit"
+            id="CartDrawer-Checkout"
+            class="cart__checkout-button button"
+            name="checkout"
+            form="CartDrawer-Form"
+            {% if cart == empty %}
+              disabled
+            {% endif %}
+          >
+            Checkout Securely
+            <svg class="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </button>
+
+          <p class="cart-drawer__guarantee">Not happy with your first box? Get a full refund within 24 hours. No questions asked.</p>
+
+          {%- if shop.enabled_payment_types.size > 0 -%}
+            <div class="cart-drawer__payment-icons">
+              <ul class="cart-drawer__payment-list list-unstyled">
+                {%- for type in shop.enabled_payment_types -%}
+                  <li class="cart-drawer__payment-item">
+                    {{ type | payment_type_svg_tag: class: 'cart-drawer__payment-icon' }}
+                  </li>
+                {%- endfor -%}
+              </ul>
             </div>
-          </div>
-
-          {%- comment -%} TREATMENT: Enhanced checkout with lock icon, guarantee, and payment icons {%- endcomment -%}
-          <div data-variant="treatment" style="display:none;">
-            <div class="cart__ctas" {{ block.shopify_attributes }}>
-              <button
-                type="submit"
-                id="CartDrawer-Checkout-Treatment"
-                class="cart__checkout-button button"
-                name="checkout"
-                form="CartDrawer-Form"
-                {% if cart == empty %}
-                  disabled
-                {% endif %}
-              >
-                Checkout Securely
-                <svg class="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-              </button>
-
-              <p class="cart-drawer__guarantee">Not happy with your first box? Get a full refund within 24 hours. No questions asked.</p>
-
-              {%- if shop.enabled_payment_types.size > 0 -%}
-                <div class="cart-drawer__payment-icons">
-                  <ul class="cart-drawer__payment-list list-unstyled">
-                    {%- for type in shop.enabled_payment_types -%}
-                      <li class="cart-drawer__payment-item">
-                        {{ type | payment_type_svg_tag: class: 'cart-drawer__payment-icon' }}
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </div>
-              {%- endif -%}
-            </div>
-          </div>
+          {%- endif -%}
         </div>
-        {%- comment -%} AB_TEST_END: CTA Section {%- endcomment -%}
       </div>
     </div>
   </div>
 </cart-drawer>
-
-{%- comment -%}
-  ============================================================
-  INTELLIGEMS A/B TEST JAVASCRIPT HANDLER
-  Test: Cart Drawer Enhancements
-  Test ID: 4110be82-e632-4d0b-b9a3-ea1f231e0b6a
-  Control Group ID: 017e3ca3-78a0-47f6-b328-52b1a2e4caa6
-  Treatment Group ID: 78e26b80-e7e1-4ad2-994f-7424b2ec1c23
-
-  TO RESOLVE TEST:
-  - Delete this entire script block
-  - Remove data-ig-cart-drawer-test wrappers and data-variant divs
-  - Keep only the winning variant's content
-  ============================================================
-{%- endcomment -%}
-<script>
-  /* ============================================================
-     INTELLIGEMS A/B TEST: Cart Drawer Enhancements
-     Test ID: 4110be82-e632-4d0b-b9a3-ea1f231e0b6a
-     Control Group ID: 017e3ca3-78a0-47f6-b328-52b1a2e4caa6
-     Treatment Group ID: 78e26b80-e7e1-4ad2-994f-7424b2ec1c23
-
-     TO RESOLVE TEST TO CONTROL:
-     1. Delete this script block
-     2. For each [data-ig-cart-drawer-test] wrapper:
-        - Keep content inside [data-variant="control"]
-        - Delete [data-variant="treatment"] and the wrapper div
-     3. For CTA section, keep original checkout button text
-
-     TO RESOLVE TEST TO TREATMENT:
-     1. Delete this script block
-     2. For each [data-ig-cart-drawer-test] wrapper:
-        - Keep content inside [data-variant="treatment"]
-        - Delete [data-variant="control"] and the wrapper div
-     3. Keep enhanced checkout button, guarantee, payment icons
-     ============================================================ */
-
-  (function() {
-    const EXPERIMENT_ID = '4110be82-e632-4d0b-b9a3-ea1f231e0b6a';
-    const CONTROL_GROUP_ID = '017e3ca3-78a0-47f6-b328-52b1a2e4caa6';
-    const TREATMENT_GROUP_ID = '78e26b80-e7e1-4ad2-994f-7424b2ec1c23';
-
-    function initCartDrawerABTest() {
-      const testContainers = document.querySelectorAll('[data-ig-cart-drawer-test]');
-
-      // Exit if no test containers found
-      if (testContainers.length === 0) return;
-
-      // Get test group assignment from Intelligems
-      const testGroup = window.igData?.user?.getTestGroup(EXPERIMENT_ID);
-
-      if (!testGroup) {
-        // No test group assigned - show control
-        console.log('Intelligems Cart Drawer Test: No test group assigned, showing control');
-        showVariantForAll('control');
-        return;
-      }
-
-      // Determine variant based on test group ID
-      let variant = 'control'; // default
-
-      if (testGroup.id === TREATMENT_GROUP_ID) {
-        variant = 'treatment';
-      } else if (testGroup.id === CONTROL_GROUP_ID) {
-        variant = 'control';
-      } else {
-        // Fallback to name-based detection if ID doesn't match
-        variant = testGroup.name.toLowerCase().includes('new group') ? 'treatment' : 'control';
-      }
-
-      console.log('Intelligems Cart Drawer Test:', {
-        experimentId: EXPERIMENT_ID,
-        testGroupId: testGroup.id,
-        testGroupName: testGroup.name,
-        variant: variant
-      });
-
-      showVariantForAll(variant);
-    }
-
-    function showVariantForAll(variant) {
-      const testContainers = document.querySelectorAll('[data-ig-cart-drawer-test]');
-
-      testContainers.forEach(container => {
-        const controlEl = container.querySelector('[data-variant="control"]');
-        const treatmentEl = container.querySelector('[data-variant="treatment"]');
-
-        if (!controlEl || !treatmentEl) {
-          console.error('Intelligems Cart Drawer Test: Variant elements not found in', container.dataset.igCartDrawerTest);
-          return;
-        }
-
-        if (variant === 'treatment') {
-          controlEl.style.display = 'none';
-          treatmentEl.style.display = 'block';
-        } else {
-          controlEl.style.display = 'block';
-          treatmentEl.style.display = 'none';
-        }
-      });
-    }
-
-    // Wait for Intelligems to be ready before running the test
-    if (window.igData) {
-      // Already loaded
-      initCartDrawerABTest();
-    } else {
-      // Wait for ig:ready event
-      window.addEventListener('ig:ready', initCartDrawerABTest);
-
-      // Fallback: if Intelligems doesn't load within 3 seconds, show control
-      setTimeout(() => {
-        const testContainers = document.querySelectorAll('[data-ig-cart-drawer-test]');
-        const anyVisible = Array.from(testContainers).some(container => {
-          const variants = container.querySelectorAll('[data-variant]');
-          return Array.from(variants).some(v => v.style.display === 'block');
-        });
-
-        if (!anyVisible) {
-          console.warn('Intelligems Cart Drawer Test: Timeout waiting for igData, showing control');
-          showVariantForAll('control');
-        }
-      }, 3000);
-    }
-
-    // Re-initialize when cart drawer content is dynamically updated
-    // This handles cases like the upsell button refreshing the drawer
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-          const hasNewTestContainers = Array.from(mutation.addedNodes).some(node => {
-            if (node.nodeType === 1) {
-              return node.querySelector?.('[data-ig-cart-drawer-test]') ||
-                     node.matches?.('[data-ig-cart-drawer-test]');
-            }
-            return false;
-          });
-
-          if (hasNewTestContainers) {
-            // Small delay to ensure DOM is ready
-            setTimeout(() => {
-              if (window.igData) {
-                initCartDrawerABTest();
-              } else {
-                showVariantForAll('control');
-              }
-            }, 50);
-          }
-        }
-      });
-    });
-
-    // Observe the cart drawer for changes
-    const cartDrawer = document.querySelector('cart-drawer');
-    if (cartDrawer) {
-      observer.observe(cartDrawer, { childList: true, subtree: true });
-    }
-  })();
-</script>
