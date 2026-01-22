@@ -1,43 +1,139 @@
 /**
- * Custom Postcode Checker for Oddies
- * Replaces the external oddbunch-postcodes app for A/B testing
+ * Intelligems A/B Test: Postcode Checker
+ * Test ID: 0b5d77cc-2ab0-4879-a62b-dae863f1cae4
+ *
+ * Control: Old postcode app (shadow DOM from oddbunch-postcodes)
+ * Treatment: New custom postcode checker component
+ *
+ * ============================================================
+ * TO RESOLVE EXPERIMENT WHEN DONE:
+ * ============================================================
+ * 1. Remove all Intelligems integration code (EXPERIMENT_ID, GROUP_IDS, initIntelligemsTest, etc.)
+ * 2. If TREATMENT wins:
+ *    - Keep hideAppElement() and createPostcodeChecker() functions
+ *    - Call them directly in init() without A/B logic
+ * 3. If CONTROL wins:
+ *    - Delete this entire file
+ *    - Remove <script> tag from theme.liquid
+ * ============================================================
  */
 
 (function() {
+  // Intelligems Test Configuration
+  const EXPERIMENT_ID = '0b5d77cc-2ab0-4879-a62b-dae863f1cae4';
+  const CONTROL_GROUP_ID = 'e5fb3413-3453-4ff4-8e82-12c4fb8cf263';
+  const TREATMENT_GROUP_ID = '22112f72-7f16-46ec-816f-7f766746751a';
+
+  // Postcode API Configuration
   const API_ENDPOINT = 'https://www.oddies.au/apps/postcodes/postcodes/check';
   const TIMEZONE = 'Australia/Sydney';
   const CUTOFF_DAY = 3; // Wednesday
   const CUTOFF_HOUR = 23;
   const CUTOFF_MINUTE = 55;
 
+  // Track if test has been initialized
+  let testInitialized = false;
+
+  /**
+   * Main initialization - waits for Intelligems then runs test
+   */
   function init() {
     const appElements = document.querySelectorAll('[data-app="oddbunch-postcodes"]');
 
-    console.log('[PostcodeChecker] Init - found', appElements.length, 'app elements to replace');
+    if (appElements.length === 0) {
+      console.log('[PostcodeChecker] No postcode app elements found, skipping');
+      return;
+    }
+
+    console.log('[PostcodeChecker] Found', appElements.length, 'postcode app elements');
+
+    // Check if Intelligems is already loaded
+    if (window.igData) {
+      initIntelligemsTest(appElements);
+    } else {
+      // Wait for Intelligems ig:ready event
+      window.addEventListener('ig:ready', () => {
+        initIntelligemsTest(appElements);
+      });
+
+      // Fallback: if Intelligems doesn't load within 3 seconds, show control
+      setTimeout(() => {
+        if (!testInitialized) {
+          console.warn('[PostcodeChecker] Intelligems timeout - defaulting to control');
+          showVariant('control', appElements);
+        }
+      }, 3000);
+    }
+  }
+
+  /**
+   * Initialize the A/B test based on Intelligems group assignment
+   */
+  function initIntelligemsTest(appElements) {
+    if (testInitialized) return;
+    testInitialized = true;
+
+    const testGroup = window.igData?.user?.getTestGroup(EXPERIMENT_ID);
+
+    if (!testGroup) {
+      console.log('[PostcodeChecker] No test group assigned - showing control');
+      showVariant('control', appElements);
+      return;
+    }
+
+    // Determine variant based on test group ID
+    let variant = 'control'; // default
+
+    if (testGroup.id === TREATMENT_GROUP_ID) {
+      variant = 'treatment';
+    } else if (testGroup.id === CONTROL_GROUP_ID) {
+      variant = 'control';
+    } else {
+      // Fallback: check group name if ID doesn't match
+      variant = testGroup.name.toLowerCase().includes('new group') ? 'treatment' : 'control';
+    }
+
+    console.log('[PostcodeChecker] Intelligems Test:', {
+      experimentId: EXPERIMENT_ID,
+      testGroupId: testGroup.id,
+      testGroupName: testGroup.name,
+      variant: variant
+    });
+
+    showVariant(variant, appElements);
+  }
+
+  /**
+   * Show the appropriate variant (control or treatment)
+   */
+  function showVariant(variant, appElements) {
+    console.log('[PostcodeChecker] Showing variant:', variant);
 
     appElements.forEach((el, index) => {
-      console.log('[PostcodeChecker] Hiding old app element', index, el);
-
-      // Aggressively hide the existing app element (shadow DOM)
-      hideAppElement(el);
-
-      // Create and insert the new postcode checker
-      const checker = createPostcodeChecker();
-      el.parentNode.insertBefore(checker, el.nextSibling);
-
-      console.log('[PostcodeChecker] Inserted new component after old element');
-
-      // Watch for the app trying to show itself again
-      const observer = new MutationObserver(() => {
-        console.log('[PostcodeChecker] Old app tried to show itself, re-hiding');
+      if (variant === 'treatment') {
+        // TREATMENT: Hide old app, show new component
         hideAppElement(el);
-      });
-      observer.observe(el, { attributes: true, attributeFilter: ['style'] });
+
+        // Create and insert the new postcode checker
+        const checker = createPostcodeChecker();
+        el.parentNode.insertBefore(checker, el.nextSibling);
+
+        // Watch for the app trying to show itself again
+        const observer = new MutationObserver(() => hideAppElement(el));
+        observer.observe(el, { attributes: true, attributeFilter: ['style'] });
+
+        console.log('[PostcodeChecker] Treatment: Inserted new component', index);
+      } else {
+        // CONTROL: Show old app (do nothing - it's already visible)
+        console.log('[PostcodeChecker] Control: Keeping old app visible', index);
+      }
     });
   }
 
+  /**
+   * Aggressively hide the old postcode app element (shadow DOM)
+   */
   function hideAppElement(el) {
-    // Force hide with !important
     el.style.cssText = 'display: none !important; visibility: hidden !important; height: 0 !important; overflow: hidden !important; position: absolute !important; pointer-events: none !important;';
 
     // Also inject hiding styles into the shadow root if it exists
@@ -52,6 +148,9 @@
     }
   }
 
+  /**
+   * Create the new postcode checker component (treatment variant)
+   */
   function createPostcodeChecker() {
     const wrapper = document.createElement('div');
     wrapper.className = 'postcode-checker-wrapper';
@@ -111,7 +210,7 @@
       const response = await checkPostcode(postcode);
       processResponse(response, resultContainer);
     } catch (error) {
-      console.error('Postcode check error:', error);
+      console.error('[PostcodeChecker] API error:', error);
       showResult(resultContainer, {
         success: false,
         message: 'Unable to check delivery availability. Please try again.'
@@ -167,32 +266,27 @@
   }
 
   function calculateTimeToNextCutoff() {
-    // Get current time in Australia/Sydney timezone
     const now = new Date();
     const auTimeString = now.toLocaleString('en-US', { timeZone: TIMEZONE });
     const auNow = new Date(auTimeString);
 
-    // Calculate days until next Wednesday
     const currentDay = auNow.getDay();
     let daysUntilWednesday = (CUTOFF_DAY - currentDay + 7) % 7;
 
-    // If it's Wednesday, check if we've passed the cutoff time
     if (daysUntilWednesday === 0) {
       const currentHour = auNow.getHours();
       const currentMinute = auNow.getMinutes();
 
       if (currentHour > CUTOFF_HOUR ||
           (currentHour === CUTOFF_HOUR && currentMinute >= CUTOFF_MINUTE)) {
-        daysUntilWednesday = 7; // Next Wednesday
+        daysUntilWednesday = 7;
       }
     }
 
-    // Create cutoff date
     const nextCutoff = new Date(auNow);
     nextCutoff.setDate(auNow.getDate() + daysUntilWednesday);
     nextCutoff.setHours(CUTOFF_HOUR, CUTOFF_MINUTE, 0, 0);
 
-    // Calculate difference
     const diffMs = nextCutoff - auNow;
     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
     const diffDays = Math.floor(diffHours / 24);
@@ -209,7 +303,6 @@
   function formatDeliveryMessage(data, timeInfo) {
     const { deliveryDay, startTime, endTime, deliveryFee } = data;
 
-    // Format time window (convert 24h to 12h format)
     const formatTime = (time) => {
       const [hours] = time.split(':');
       const hour = parseInt(hours);
@@ -220,7 +313,6 @@
 
     const timeWindow = `${formatTime(startTime)} and ${formatTime(endTime)}`;
 
-    // Build urgency message
     let urgencyText;
     if (timeInfo.isUnder24Hours) {
       urgencyText = `${timeInfo.totalHours} hour${timeInfo.totalHours !== 1 ? 's' : ''}`;

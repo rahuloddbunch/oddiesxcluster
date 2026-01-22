@@ -139,6 +139,76 @@
         "padding_bottom": 28
       }
     },
+    "price_comparison_chart_abc123": {
+      "type": "price-comparison-chart",
+      "blocks": {
+        "row_small_mixed": {
+          "type": "row",
+          "settings": {
+            "row_label": "Small Mixed",
+            "oddies_price": "$26",
+            "competitor_price": "$49",
+            "savings_amount": "$23"
+          }
+        },
+        "row_medium_mixed": {
+          "type": "row",
+          "settings": {
+            "row_label": "Medium Mixed",
+            "oddies_price": "$39",
+            "competitor_price": "$76",
+            "savings_amount": "$37"
+          }
+        },
+        "row_large_mixed": {
+          "type": "row",
+          "settings": {
+            "row_label": "Large Mixed",
+            "oddies_price": "$53",
+            "competitor_price": "$101",
+            "savings_amount": "$48"
+          }
+        },
+        "row_all_fruit": {
+          "type": "row",
+          "settings": {
+            "row_label": "All Fruit",
+            "oddies_price": "$33",
+            "competitor_price": "$55",
+            "savings_amount": "$22"
+          }
+        },
+        "row_all_veg": {
+          "type": "row",
+          "settings": {
+            "row_label": "All Veg",
+            "oddies_price": "$33",
+            "competitor_price": "$66",
+            "savings_amount": "$33"
+          }
+        }
+      },
+      "block_order": [
+        "row_small_mixed",
+        "row_medium_mixed",
+        "row_large_mixed",
+        "row_all_fruit",
+        "row_all_veg"
+      ],
+      "settings": {
+        "heading": "Farm Freshness, Better Value",
+        "subheading": "See how much you save with Oddies",
+        "heading_size": "h1",
+        "logo_url": "https://www.oddies.au/cdn/shop/files/Vector.svg?v=1756452268&width=140",
+        "competitor_heading": "Major Supermarkets",
+        "savings_heading": "Weekly Savings",
+        "brand_color": "#F97316",
+        "color_scheme": "scheme-28d472af-0c41-4931-8760-f202e8fa6ac2",
+        "disclaimer": "Savings are based on average customer comparisons using Oddies box sizes and equivalent grocery store pricing. Actual savings may vary.",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "multicolumn_XrJzit": {
       "type": "multicolumn",
       "blocks": {
@@ -712,6 +782,7 @@
   "order": [
     "main",
     "related-products",
+    "price_comparison_chart_abc123",
     "multicolumn_XrJzit",
     "reviews_eYE8ip",
     "multicolumn_review_dgVFGN",
