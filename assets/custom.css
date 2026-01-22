@@ -884,39 +884,128 @@ html.js {
 }
 
 .image-with-text__heading strong{font-weight:400;color:#007431;}
-.postcode-checker{
-    /* display: flex; */
-    display: none;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 10px;
-    max-width: 100%;
-    border: 1px solid #007431;
-    border-radius: 30px;
-    overflow: hidden;
-    background:#fff;
-    width:100%;
+/* Postcode Checker Component */
+.postcode-checker-wrapper {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.postcode-checker-label {
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.postcode-checker {
+  display: flex;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: 100%;
+  background: #f5f5f5;
+  border-radius: 30px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.postcode-checker--loading {
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .postcode-input {
   flex: 1;
   border: none;
-  padding: 12px 15px;
+  padding: 12px 20px;
   font-size: 14px;
   outline: none;
+  min-width: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+}
+
+.postcode-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.postcode-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .check-delivery-btn {
-  background: #fff;
+  background: #007431;
   border: none;
-  border-left: 1px solid #007431;
-  padding: 12px 20px;
+  padding: 12px 24px;
   font-size: 14px;
   font-weight: 600;
-  color: #007431;
+  color: #fff;
   cursor: pointer;
-  transition: 0.3s;
-  border-radius:20px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  border-radius: 30px;
+}
+
+.check-delivery-btn:hover {
+  background: #005a26;
+}
+
+.check-delivery-btn:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* Postcode Result Styles */
+.postcode-result {
+  display: none;
+  width: 100%;
+  padding: 16px;
+  margin-top: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.postcode-result--success {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  text-align: center;
+}
+
+.postcode-result--error {
+  background: #fafafa;
+  color: #666;
+  text-align: center;
+}
+
+.postcode-result__headline {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 0 6px 0;
+  color: #007431;
+}
+
+.postcode-result__day {
+  font-weight: 700;
+  font-size: 14px;
+  margin: 4px 0;
+  color: #444;
+}
+
+.postcode-result__details {
+  margin: 0;
+  color: #444;
+}
+
+.postcode-result__fee {
+  margin: 8px 0 0 0;
+  color: #444;
+}
+
+.postcode-result__message {
+  margin: 0;
 }
 
 body .image-with-text a.button.button--primary{
@@ -927,11 +1016,6 @@ body .button-sec {
     margin: 0;
     width: 100%;
     margin-top: 10px;
-}
-
-.check-delivery-btn:hover {
-  background: #007431;
-  color: #fff;
 }
 .text-sec-image-with-text-part {
     width: 100%;
