@@ -1,0 +1,79 @@
+/* Scoped to the v2 USP multicolumn instance (blank title => .no-heading). */
+[id$="__image_width_textslider_BhHDxR"].section + [id$="__multicolumn_cK6CdD"].section {
+  margin-top: 0 !important;
+}
+
+@media (min-width: 750px) {
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list {
+    display: flex !important;
+    flex-wrap: nowrap;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item {
+    width: 33.333% !important;
+    max-width: 33.333% !important;
+    flex: 0 0 33.333% !important;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item:nth-child(2) .multicolumn-card__image-wrapper {
+    max-width: 90px;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item:nth-child(3) .multicolumn-card__image-wrapper {
+    max-width: 124px;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item:nth-child(2) .multicolumn-card__image {
+    transform: scale(0.8) !important;
+    transform-origin: center center;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item:nth-child(3) .multicolumn-card__image {
+    transform: scale(0.9) !important;
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 749px) {
+  [id$="__image_width_textslider_BhHDxR"] .image-with-text__heading {
+    font-size: 3.6rem !important;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-card__image-wrapper {
+    max-width: 62px;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item:nth-child(2) .multicolumn-card__image-wrapper {
+    max-width: 23px;
+  }
+
+  .multicolumn.no-heading .multicolumn-list__item:nth-child(2) .multicolumn-card__image {
+    transform: scale(0.8) !important;
+    transform-origin: center center;
+  }
+
+  [id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item:nth-child(3) .multicolumn-card__image-wrapper {
+    max-width: 59px;
+  }
+
+  .multicolumn.no-heading .multicolumn-list__item:nth-child(3) .multicolumn-card__image {
+    transform: scale(0.9) !important;
+    transform-origin: center center;
+  }
+}
+
+/* v2 USP: use same AOS motion profile as hero (fade-up). */
+[id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item[data-aos="fade-in"] {
+  transform: translate3d(0, 100px, 0);
+}
+
+[id$="__multicolumn_cK6CdD"] .multicolumn.no-heading .multicolumn-list__item[data-aos="fade-in"].aos-animate {
+  transform: translateZ(0);
+}
+
+/* Avoid double-animation conflict with Shopify scroll-trigger on this section wrapper. */
+[id$="__multicolumn_cK6CdD"] .page-width.scroll-trigger.animate--slide-in {
+  opacity: 1 !important;
+  animation: none !important;
+  transform: none !important;
+}
