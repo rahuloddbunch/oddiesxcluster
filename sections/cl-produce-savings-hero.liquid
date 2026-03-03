@@ -39,7 +39,7 @@
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-hero-heading {
-        font-size: 4.8rem !important;
+        font-size: 3.6rem !important;
         line-height: 1.1 !important;
       }
 
@@ -47,19 +47,26 @@
         order: 2;
         display: block !important;
         width: 100% !important;
-        max-width: 39.6rem !important;
+        max-width: 22rem !important;
         margin: 0 auto !important;
       }
 
+      #shopify-section-{{ section.id }} .cl-produce-savings-desktop-image-part .spinner-wrap {
+        width: 60px !important;
+        height: 60px !important;
+        top: 45px !important;
+      }
+
       #shopify-section-{{ section.id }} .cl-produce-savings-delivered-text {
-        margin: 1.2rem 0 0 !important;
+        margin: 0.9rem 0 0 !important;
         text-align: center !important;
-        font-size: 4.8rem !important;
+        font-size: 3.6rem !important;
         line-height: 1.1 !important;
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-delivered-text--desktop {
         display: block !important;
+        width: 100% !important;
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-delivered-text--mobile {
@@ -74,7 +81,7 @@
   @media screen and (max-width: 749px) {
       #shopify-section-{{ section.id }} .cl-produce-savings-hero-heading {
         text-align: center !important;
-        font-size: 4.2rem !important;
+        font-size: 3.15rem !important;
         line-height: 1.1 !important;
       }
 
@@ -84,14 +91,27 @@
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-delivered-text {
-        margin: 1rem 0 0 !important;
+        margin: 0.75rem 0 0 !important;
         text-align: center !important;
-        font-size: 3.57rem !important;
+        font-size: 2.68rem !important;
         line-height: 1.1 !important;
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-mobile-sec-image-part {
         display: block !important;
+        max-width: 20rem !important;
+        margin: 0 auto !important;
+        position: relative !important;
+      }
+
+      #shopify-section-{{ section.id }} .cl-produce-savings-mobile-sec-image-part .spinner-wrap {
+        width: 50px !important;
+        height: 50px !important;
+        top: 30px !important;
+        right: 0 !important;
+        left: auto !important;
+        position: absolute !important;
+        z-index: 9 !important;
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-text-item .image-with-text__content {
@@ -169,13 +189,18 @@
           </div>
 
           </div>
-          <h2 class="image-with-text__heading inline-richtext h1 cl-produce-savings-delivered-text cl-produce-savings-delivered-text--desktop">Delivered weekly</h2>
         </div>
         <div class="image-with-text__text-item grid__item cl-produce-savings-text-item" data-aos="fade-up">
           <div
             id="ImageWithText--{{ section.id }}"
             class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
           >
+            <div class="text-sec-image-with-text-part">
+              <div class="round-sec-image-part">
+                <img class="people-img" src="https://cdn.shopify.com/s/files/1/0664/2404/5729/files/People.png?v=1757251520" alt="Oddies People">
+              </div>
+              <p>1000's of aussies fighting food waste and counting</p>
+            </div>
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'heading' -%}
@@ -240,6 +265,7 @@
         </div>
       </div>
     </div>
+    <h2 class="image-with-text__heading inline-richtext h1 cl-produce-savings-delivered-text cl-produce-savings-delivered-text--desktop">Delivered weekly</h2>
   </div>
 </div>
 {% comment %} <style>
