@@ -13,6 +13,29 @@
     }
   }
 
+  #shopify-section-{{ section.id }} .text-sec-image-with-text-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    justify-content: center;
+    margin-bottom: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .text-sec-image-with-text-part .round-sec-image-part {
+    display: flex;
+  }
+
+  #shopify-section-{{ section.id }} .text-sec-image-with-text-part .round-sec-image-part .people-img {
+    height: 27px;
+    width: auto;
+  }
+
+  #shopify-section-{{ section.id }} .text-sec-image-with-text-part p {
+    line-height: 1.2;
+    margin: 0;
+  }
+
   @media screen and (min-width: 750px) {
       #shopify-section-{{ section.id }} .cl-produce-savings-hero-grid {
         display: flex !important;
@@ -81,6 +104,7 @@
       #shopify-section-{{ section.id }} .cl-produce-savings-mobile-sec-image-part {
         display: none !important;
       }
+
     }
 
   @media screen and (max-width: 749px) {
@@ -95,35 +119,6 @@
         margin-top: 0.3em !important;
       }
 
-      #shopify-section-{{ section.id }} .image-with-text__content > .cl-produce-savings-mobile-sec-image-part {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-      }
-
-      #shopify-section-{{ section.id }} .cl-produce-savings-delivered-text {
-        margin: 0.75rem 0 0 !important;
-        text-align: center !important;
-        font-size: 2rem !important;
-        line-height: 1.1 !important;
-      }
-
-      #shopify-section-{{ section.id }} .cl-produce-savings-mobile-sec-image-part {
-        display: block !important;
-        max-width: 20rem !important;
-        margin: 0 auto !important;
-        position: relative !important;
-      }
-
-      #shopify-section-{{ section.id }} .cl-produce-savings-mobile-sec-image-part .spinner-wrap {
-        width: 50px !important;
-        height: 50px !important;
-        top: 30px !important;
-        right: 0 !important;
-        left: auto !important;
-        position: absolute !important;
-        z-index: 9 !important;
-      }
-
       #shopify-section-{{ section.id }} .cl-produce-savings-text-item .image-with-text__content {
         align-items: center !important;
         height: auto !important;
@@ -136,9 +131,17 @@
       }
 
       #shopify-section-{{ section.id }} .cl-produce-savings-delivered-text--mobile {
-        display: block !important;
-        color: inherit !important;
+        display: none !important;
       }
+
+      #shopify-section-{{ section.id }} .cl-produce-savings-mobile-sec-image-part {
+        display: none !important;
+      }
+
+      #shopify-section-{{ section.id }} .text-sec-image-with-text-part .round-sec-image-part .people-img {
+        height: 22px;
+      }
+
     }
 {%- endstyle -%}
 
