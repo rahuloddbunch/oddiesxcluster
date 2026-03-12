@@ -1181,7 +1181,9 @@
   {% comment %} CLUSTER-AGENT START - Add anchor ID and heading {% endcomment %}
   <div id="choose-your-box" class="section-{{ section.id }} featured-{{ section.id }}" style="background-color:{{ background_color }}; background-image: {{ background_gradient }};">
       <div class="section-{{ section.id }}-settings">
-        <h2 class="featured-section-heading-{{ section.id }}">Our Boxes</h2>
+        {% unless template.suffix == 'produce-savings' %}
+          <h2 class="featured-section-heading-{{ section.id }}">Our Boxes</h2>
+        {% endunless %}
         {% comment %} CLUSTER-AGENT END {% endcomment %}    
         <div class="featured-slider-body-{{ section.id }}">
           <button class="featured-btn-prev-{{ section.id }}">
